@@ -1,0 +1,35 @@
+---
+title: "Smarter workpaper setup, bulk file moves, and PDF citation fixes"
+description: "Co-Audit Agent makes cleaner structural decisions, file explorer gains bulk move, and large-PDF citations are now accurate across all pages."
+date: "2026-05-13"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-05-13"
+---
+
+## AI Improvements
+
+- **Co-Audit Agent skips approval for empty datasource deletion**: deleting a datasource with no files, columns, or records no longer surfaces a confirmation card — the agent proceeds immediately. Approval is still required when the datasource has content.
+- **Workpaper design anchors on purpose and source**: when building or modifying workpaper structure, the Co-Audit Agent now grounds every structural decision in the audit objective and the documents the auditor will examine, inferring both from context (prompt, task title, memo, existing datasources). If context is insufficient, the agent names what's missing before proceeding — no more guesswork on downstream choices like datasources, columns, or match instructions.
+- **Automatic cleanup of the "Requested Documents" placeholder**: the default `Requested Documents` datasource created on new tasks is now treated as a placeholder. If it's empty when the agent is designing the workpaper, it's renamed to fit the design or deleted — never preserved as-is just because it exists.
+
+## File Management
+
+- **Bulk Move to datasource**: select multiple files in the file explorer and move them all to a different datasource in one action via the Actions dropdown or right-click menu. If any selected files have protected records, a confirmation dialog shows the count before proceeding.
+- **Upload cell address tooltip**: hovering any upload cell now shows a cursor-following chip indicating exactly where dropped files will land — per-row cells show "Selection #N → DatasourceName", the bulk upload cell shows "Bulk upload → DatasourceName". The tooltip automatically hides during active drags so it doesn't compete with the table-level drop indicator.
+
+## File Processing
+
+- **Accurate citations in large PDFs**: large PDFs processed via the Lambda pipeline now correctly capture per-page text and graphics across all pages, fixing citation bounding boxes that were off or missing on later pages.
+- **Clear permission error on upload**: when a file upload fails because the user doesn't have access to the workpaper, the file tooltip now shows a distinct permission-denied error instead of a generic failure message — making it immediately clear the issue is authorization, not a processing problem.
+
+## Bug Fixes
+
+- **Excel export — matched filenames**: MATCH and MATCH_AGENT datasource cells now show the matched filename in the export instead of appearing blank.
+- **Excel export — redundant column removed**: the row-level "File (Source)" column has been removed from Excel exports.
+- **Task creation modal — cursor position**: typing in the description field of the task creation modal no longer causes the cursor to jump to the end of the text.
+
+## UI
+
+- **Request table redesign**: upload cells, column headers, footers, and drag-and-drop interactions have been refreshed with updated styling and cleaner UX.
+- **File explorer folder icons**: datasource folder icons now open visually on hover and when the folder is expanded, making the tree state easier to read at a glance.
+
