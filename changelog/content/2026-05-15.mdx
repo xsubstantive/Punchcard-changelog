@@ -1,0 +1,22 @@
+---
+title: "PDF Citation Highlights in Chat, Client Validation & Match Label Fix"
+description: "Verify source document evidence with one click, smarter AI context management, and accurate match-column labels."
+date: "2026-05-15"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-05-15"
+---
+
+### New Features
+
+- **PDF citation highlighting in chat**: When the AI references a value from a source document, it can now pin the exact region directly in the document viewer — not just quote the text. Click the citation to jump to the highlighted area in the PDF. Available in task chat once document context exists (file reads, attachments, or extraction results); available in Co-Audit Chat whenever attachments are present in the conversation.
+
+### Improvements
+
+- **Engagement variable context management in chat**: In long AI chat sessions, previously fetched engagement variable values are automatically compacted out of the AI's working context and replaced with a lightweight reference — keeps sessions running cleanly without hitting context limits. The AI re-fetches the value automatically if it's needed again.
+- **New Client button on client detail page**: You can now create a new client directly from a client's detail page header without navigating back to the client list.
+
+### Bug Fixes
+
+- **Match column "matched manually" label corrected**: The "This file was matched manually" tooltip on workpaper match cells now only appears when a file was genuinely assigned by hand. Files matched by the AI agent or rules-based matching no longer carry this label.
+- **Duplicate client name validation**: Attempting to create a client organization with a name that already exists in your firm now surfaces an inline error ("A client with this name already exists") immediately, rather than failing without clear feedback.
+
