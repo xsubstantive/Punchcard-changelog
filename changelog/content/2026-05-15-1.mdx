@@ -1,0 +1,18 @@
+---
+title: "Automation runs consistently skip unmatched files across all columns"
+description: "Run All on match-result datasources now universally excludes unassigned file records, and backend connection handling is more resilient under load."
+date: "2026-05-15"
+tags: [Bug Fix, Automation]
+version: "2026-05-15"
+---
+
+## Bug Fixes & Improvements
+
+### Automation
+
+- **Unmatched file records are now excluded from Run All across every column**: Previously, the exclusion of unassigned files (records the match agent couldn't link to any upstream selection) was not consistently applied to all column types in match-result datasources. It is now enforced universally — every column in a Run All pass skips these records, preventing degenerate or meaningless results from propagating into your workpaper. Root datasources and lineage-scoped runs are unaffected.
+
+### Reliability
+
+- **Improved resilience during high-load automation runs**: Internal database connection handling now retries more aggressively across a wider window, reducing the chance of transient connection errors during large or concurrent workpaper automation runs.
+
