@@ -1,0 +1,19 @@
+---
+title: "AI Exception Clustering for Tickmark Automations"
+description: "Tickmark automations now automatically group exception rows into labeled clusters using AI, with fixes for PDF rendering and automation reliability."
+date: "2026-05-18"
+tags: [Feature, AI, Automation, Bug Fix]
+version: "2026-05-18"
+---
+
+## New Features
+
+- **AI exception clustering on TICKMARK automations**: when a TICKMARK attribute column automation completes, AI now automatically groups the exception rows (rows that failed the tickmark evaluation) into labeled exception groups (A, B, C, …). Re-running the automation preserves any cells you have already accepted or rejected, so your review work is never lost.
+
+## Bug Fixes
+
+- **PDF export**: F and CF tickmarks now render correctly when opening exported workpapers in Adobe Acrobat.
+- **Paste Sample / Add Table from Excel**: the import now validates the column mapping upfront and surfaces a clear error instead of failing mid-operation.
+- **Automation reliability**: fixed an edge case where re-running an automation on empty cells would not register correctly, causing the run to silently stall.
+- **Tickmarks**: resolved a race condition that could produce errors when two tickmarks were created on the same workpaper in quick succession.
+
