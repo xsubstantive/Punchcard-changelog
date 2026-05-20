@@ -1,0 +1,30 @@
+---
+title: "Workflow diagram, context picker, and selection data improvements"
+description: "New workpaper workflow diagram, smarter chat context picker, clearer selection data controls, and Done tasks visible by default on the board."
+date: "2026-05-19"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-05-19"
+---
+
+### New Features
+
+- **Workflow diagram in workpaper**: A new interactive diagram in the workpaper sidebar visualizes all datasources as cards with connecting edges. Each card shows its type (Table Data, Client, or Auditor), column and file counts, and yellow warning banners when selection data or files are missing. Action buttons at the bottom let you run all automations or drill into per-datasource options — including a "Fill Empty" mode that skips cells that already have values.
+
+- **Context picker in task chat**: An attachment popover now lets you choose exactly which files to include in your chat message. Files are grouped by datasource with "Select all / Deselect all" per group, a filename search, and a count badge. In task chat, a **"Paste Selection Data"** action opens the Add/Edit Selections modal directly from the chat panel — no need to navigate to the workpaper first.
+
+- **Chat can navigate directly to a sampling form**: The Co-Audit Agent can now deep-link you to the workpaper and automatically open the selection data modal pre-set to a specific sampling method (Random, MUS, High Value, or JE Testing) — so following an AI recommendation takes you straight to configuration.
+
+- **Workpaper onboarding now offers two starting paths**: When setting up a new workpaper, you can choose **"Add Selections"** (opens the import modal right away) or **"No Selections"** (proceed directly to naming a document group), matching how you actually want to begin.
+
+### Improvements
+
+- **Clearer selection data controls**: The workpaper datasource toolbar now shows an **"Add Selection Data"** button when no data exists, and an **"Edit Selection Data"** split button when data is present. The split button separates **"Replace Selection Data"** (clear and re-import, including changing headers) from **"Append Rows"** (add rows while preserving existing column structure).
+
+- **Done tasks visible by default on the board**: Completed tasks now appear on the board by default. Use the "Completed issues" filter to hide them — opting in to hiding rather than opting in to seeing.
+
+- **Status change confirmation when selection data is missing**: When moving a client-visible task to a status clients can see, and the task has no pasted selection data, a confirmation dialog now appears. It lists each affected task and requires an acknowledgement before proceeding — preventing accidental client exposure of requests without data.
+
+- **Library file preview improvements**: The library now shows a graceful fallback for corrupt or unreadable PDFs instead of a blank error. Excel previews include sheet tab navigation so you can browse between tabs.
+
+- **Welcome email errors now show the specific reason**: If sending a welcome email to an auditor or client fails, the notification now shows the specific cause (e.g., "on suppression list — contact support to remove") instead of a generic error.
+
