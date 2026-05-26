@@ -1,0 +1,16 @@
+---
+title: "Fewer false positives in Internal Consistency review"
+description: "IC groupings now correctly separate different-period figures and ignore unrelated zero cells, and multi-section tables are matched to the right column throughout."
+date: "2026-05-26"
+tags: [Bug Fix, AI]
+version: "2026-05-26"
+---
+
+## Fixes
+
+- **Internal Consistency no longer flags figures from different time periods as potential tie-outs.** When the same line item appears in side-by-side comparative columns — for example, current-year and prior-year balances on the same row — the tool now recognizes these as two separate facts that are expected to differ, and leaves them as individual items rather than surfacing them as matches to investigate.
+
+- **Zeros, dashes, and blank cells are no longer clustered across unrelated schedules.** These values typically mean "no activity" or "not applicable" for each individual cell. The IC tool now treats them independently rather than grouping them as apparent matches across equity rollforwards, fair value schedules, and other multi-column layouts — eliminating large clusters of spurious findings auditors would otherwise need to dismiss.
+
+- **Numbers throughout multi-section tables are now attributed to the correct column.** In tables with distinct upper and lower halves — such as a balance sheet divided between an assets section and a liabilities section — figures in the lower section were sometimes tagged to the wrong column heading. This is now resolved, improving the accuracy of foot and crossfoot validation results for these tables.
+
