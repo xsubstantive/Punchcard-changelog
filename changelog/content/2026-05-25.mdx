@@ -1,0 +1,39 @@
+---
+title: "Workpaper onboarding, FSR improvements, and reliability fixes"
+description: "New empty-workpaper Co-Audit shortcut, Spell Check and Grammar Check deduplication, editable footing corrections, and broad reliability improvements across the workpaper and FSR pipeline."
+date: "2026-05-25"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-05-25"
+---
+
+### New
+
+- **Empty workpaper onboarding**: when a workpaper has no columns yet, the grid now shows a clear "Set up columns" message with two options: a **Draft with Co-Audit** button that opens the Co-Audit chat and immediately asks the AI to propose columns from your task context, or an "Or configure manually" link that opens the workflow sidebar. The previous placeholder — fake column names like "Invoice #" and "Vendor" — has been removed.
+
+### Workpaper
+
+- **Cell panel follows your focus**: clicking a different cell while viewing the Problems or Document tab now automatically switches to show that cell's content. Previously you had to click back to the Cell tab manually.
+- **Consistent review action labels**: the Validate, Flag, and Lock pills now use matching past-tense labels ("Validated", "Flagged", "Locked") across all column types. These actions are hidden entirely on columns containing pasted sample data, where AI judgments don't apply.
+- **Problems tab actions in the tab strip**: the Run All and Fix-with-Co-Audit shortcuts now appear on the right side of the tab strip when the Problems tab is active, rather than inside the panel body.
+- **Deleting files is more reliable**: deleting a file that had math tick marks attached no longer fails partway through — the cleanup now completes successfully.
+
+### Financial Statement Review
+
+- **Spell Check and Grammar Check share findings**: the two checkers now coordinate so Grammar Check defers to Spell Check on overlapping issues (possessives, punctuation, terminology). The same underlying problem no longer appears flagged twice.
+- **Correct wrong footing totals directly**: when OCR reads an incorrect value in a row total or column cross-footing, you can now edit it in place — the same inline correction experience that was previously available only for manually-drawn footings.
+- **Findings visible immediately in the F/CF sidebar**: findings are no longer grouped behind collapsed page headers. All flagged and consistent items are visible as soon as the sidebar opens.
+- **Math calculator errors stay visible**: when saving a footing calculation fails, a persistent error banner with **Retry** and **Revert** buttons appears inside the panel, keeping your edits intact. Previously, only a brief notification appeared and the panel appeared saved.
+- **Fewer false-positive Internal Consistency suggestions**: the IC checker no longer flags schedule entries labeled "No." (as in "Special District No. 2") as financial figures, no longer groups debt maturity schedule rows as a consistency tie-out, and now requires specific evidence for each individual figure rather than a single general rationale for an entire group.
+- **SC/GC PDF overlay shows only the selected finding**: previously every finding in a Spell Check or Grammar Check session was highlighted on the PDF simultaneously. Now only the finding you click is highlighted.
+- **Math sidebar scrolls less aggressively**: navigating between occurrences in the math sidebar no longer jumps the entire section to the top — the view scrolls only enough to keep the active row visible.
+
+### PDF Viewer
+
+- **Ctrl+scroll zoom no longer snaps to page 1**: using Ctrl+mouse wheel to zoom out previously could drive the zoom to 0%, collapsing all pages and snapping the viewer to the beginning of the document. Zoom is now clamped to a safe range and page position is preserved.
+
+### Reliability
+
+- **Automation failures show clearly**: failed automations — including Review Checklist, Spell Check, Grammar Check, and math analysis — now display as errors in the progress panel. Previously they could appear as successful or spin indefinitely.
+- **AI correctly reports when a file is temporarily unavailable**: if a document becomes unreachable mid-search, the AI now tells you to retry rather than reporting "no matches found." If partial results were found before the interruption, those are returned alongside a clear warning.
+- **FSR pipeline runs more reliably on multi-section documents**: a timing issue that could cause the Internal Consistency step to proceed without embeddings from all document sections — adding a several-minute delay with no visible explanation — has been resolved.
+
