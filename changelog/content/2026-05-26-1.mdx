@@ -1,0 +1,36 @@
+---
+title: "Persistent Artifacts Bar, PDF Proof Marks, and Workpaper Improvements"
+description: "Keep AI-generated files within reach with a new persistent bar, draw proof marks directly on PDF documents, and benefit from a more reliable and responsive workpaper."
+date: "2026-05-26"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-05-26"
+---
+
+### New Features
+
+- **Sticky artifacts bar in Co-Audit Chat**: A persistent bar above the chat input now surfaces every downloadable file the AI has produced in the current conversation — Excel workbooks, Word documents, PDFs, ZIP archives, and other exports. The bar collapses to a count badge when not in use and expands to show labeled, colored pills for each file with one-click download. It stays visible as the conversation grows, so you can reach any generated file at any point without scrolling back through earlier messages.
+
+- **Draw proof marks directly on PDFs**: A new drawing tool in the document review toolbar lets auditors mark up PDF pages with lines, arrows, and accounting double-underlines. Choose a stroke color from a 9-color palette — the toolbar icon tints to show your active selection. Click any mark to select it; a delete button appears for your own marks. Marks are stored per file, visible to all viewers, and included in the annotated PDF export.
+
+### Improvements
+
+- **Problems tab refreshes automatically**: The Problems tab in the workpaper now updates on its own as soon as AI analysis finishes running. You no longer need to reload the page or re-run the check to see the latest results.
+
+- **Post-run fix suggestions back in action**: After running automations on a workpaper, the Co-Audit assistant once again provides grouped, prioritized suggestions for the issues found — a behavior that had been inadvertently dropped in a recent update and is now restored.
+
+- **Document group removal is clearer and safer**: Removing a document group from a workpaper now clearly separates "remove from this workpaper only" from "delete entirely." When you are the last workpaper using a group, the confirmation dialog shows exactly how many headers and values will be affected and includes an explicit option to delete the group and all its files — so nothing is permanently removed unless you choose it.
+
+- **AI-generated PDFs now download directly**: PDF files produced by the AI assistant download to your computer immediately, consistent with how Excel, Word, and ZIP artifacts behave. Previously they opened in the browser instead of downloading.
+
+- **More accurate financial table extraction**: Balance sheets and similar documents where a row label appears in multiple adjacent columns are now extracted correctly. Numbers are matched to the right column positions rather than being shifted one column off.
+
+- **Workpaper template reuse picker scrolls correctly**: When applying a template on an engagement with many document groups, the reuse picker now scrolls cleanly through the full list. Sample datasource rows in the picker are correctly locked to "Create a new group" (with a tooltip explanation) since that type of data cannot be reused across tasks.
+
+### Bug Fixes
+
+- **Document viewer no longer carries over between pages**: A document opened in the workpaper viewer no longer persists in the side panel when navigating to the Overview, Memo, or Chat page. Each page now opens with a clean state.
+
+- **Comment threads fully visible on active tasks**: On tasks with high volumes of file activity, comment threads were appearing empty in the sidebar even though replies existed. All threads now display in full.
+
+- **AI file creation more consistently available**: Fixed a recurring issue where the AI's ability to produce files (Excel, Word, PDF) could become unavailable for an extended period following spikes in cloud infrastructure pressure. The system now cleans up proactively to prevent capacity from being exhausted.
+
