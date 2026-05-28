@@ -1,0 +1,20 @@
+---
+title: "EU language support for IC analysis, shared document group fixes, and FSR reliability"
+description: "Internal Consistency now filters noise in German, Italian, and Spanish financial statements; workpaper automations on shared document groups run accurately; sandbox reference files now appear after provisioning."
+date: "2026-05-28"
+tags: [Bug Fix, AI]
+version: "2026-05-28"
+---
+
+### AI Improvements
+
+- **German, Italian, and Spanish financial statements**: Internal Consistency analysis now correctly identifies and ignores non-financial numbers in EU-language documents — page numbers, footnote references, phone numbers, dates, table-of-contents markers, and identifier abbreviations are filtered out in German, Italian, and Spanish, matching the coverage already in place for English. Auditors working on EU-language engagements will see cleaner, more relevant IC candidates with less noise to review.
+
+### Bug Fixes
+
+- **Shared document groups now run correctly**: When a task uses a document group shared from another task (the "Use existing" option), workpaper automations were sometimes pulling in evidence from the wrong task or returning no results at all — leaving cells blank after a successful run. Both issues are resolved; shared document groups now process accurately.
+
+- **Reference files visible after sandbox provisioning**: Reference files attached to template engagements were not appearing in the provisioned sandbox copy. This is now fixed, and engagements already affected have been corrected automatically.
+
+- **FSR re-run progress displays reliably**: When re-running a single Financial Statement Review step (internal consistency, prior year, or foot/crossfoot), dismissing the progress notification before it finished could cause subsequent reruns to show no visible progress. Fixed — the progress card now appears correctly on every rerun.
+
