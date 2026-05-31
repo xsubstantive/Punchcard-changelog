@@ -1,0 +1,13 @@
+---
+title: "Task deletion and page navigation reliability fixes"
+description: "Bug fixes that prevent task deletion from failing on large tasks and eliminate unexpected errors on certain page transitions."
+date: "2026-05-31"
+tags: [Bug Fix]
+version: "2026-05-31"
+---
+
+### Bug Fixes
+
+- **Deleting tasks with many attached files now completes reliably.** Previously, deleting a task with a large number of files could fail partway through, leaving the task in an inconsistent state. The deletion now runs to completion every time.
+- **An unexpected error message on certain page transitions is resolved.** Some users were occasionally shown an "unexpected response" error when the app redirected them between pages — for example, after a session change or when accessing a page they don't have permission to view. These redirects now work smoothly without showing an error.
+
