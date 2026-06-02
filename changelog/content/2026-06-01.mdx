@@ -1,0 +1,27 @@
+---
+title: "Document Group Import Improvements and EU Financial Accuracy Fixes"
+description: "Safer shared document group switching with deletion previews, major EU financial value extraction fix, and more reliable PDF processing."
+date: "2026-06-01"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026-06-01"
+---
+
+## Shared Document Groups
+
+- **Smarter import flow when client requests are involved**: Switching a document group to a different shared source now handles every combination of client-upload ownership with the right confirmation experience. When both the current and target groups are owned as client requests by different tasks, a dedicated dialog appears — showing which task currently handles client uploads, what files will be affected, and what happens to client upload routing — before you confirm.
+- **See exactly which files will be permanently deleted before switching**: When switching to a different shared document group would permanently remove files, the panel now shows the exact file count upfront. The confirm button stays disabled while this check runs, so you can never accidentally confirm before the full impact is visible.
+- **"Import document group" toggle**: The toggle in the document group editor panel is now labeled **"Import document group"** when the group is standalone, and **"Shared document group"** once sharing is active, making its current state clearer at a glance.
+
+## EU and German Document Accuracy
+
+- **Fixed: EU financial values ending in zero cents were being dropped**: In EU-format tables — such as German balance sheets — values whose cents ended in zero (for example, 15.375,50 or 16.991,00) were being silently excluded during extraction. This affected roughly 30% of numbers in affected tables, causing footings to fail and numbers to appear missing. These values now extract correctly.
+- **Fixed: prior-year comparisons could mis-route for round amounts**: A related issue caused the year-over-year comparison logic to silently treat all values as equal for certain round figures, which could misdirect reconciliations across periods. This is now resolved.
+- **German section references and legal citations no longer treated as financial numbers**: German document markers — such as "Anlage 3", "Kapitel 5", "§ 322 HGB", and numbered headings — are now correctly excluded from financial number extraction, reducing noise in AI analysis on German audit reports.
+- **German fixed asset schedules no longer incorrectly combined**: The system was sometimes merging separate sections of a fixed asset schedule (Anlagespiegel) that document different financial events — for example, acquisition costs on one page and accumulated depreciation on another — into a single table, dropping data in the process. These sections now remain separate.
+- **Fewer false inconsistency flags on comparative-period columns**: The inconsistency checker was occasionally raising exception marks on comparative-period columns based solely on shared row position, even when the values are expected to differ across periods. This has been corrected.
+- **Improved extraction for EU headerless and multi-block schedules**: Table extraction quality improved for EU-format financial statements that span multiple sections without standard column headers.
+
+## Processing Reliability
+
+- **PDFs with complex graphics now process reliably**: PDFs containing many vector-graphic elements — such as diagrams or heavily formatted pages — were causing OCR processing to fail entirely for that file. These files now process normally, with all text and numbers extracted as expected.
+
