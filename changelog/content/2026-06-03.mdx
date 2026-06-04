@@ -1,0 +1,32 @@
+---
+title: "Shared document groups, viewer empty state, and testing attribute fixes"
+description: "Reliability improvements for shared document groups, a consistent empty state in the document viewer, cell detail panel behavior fixes, and collective testing attribute corrections."
+date: "2026-06-03"
+tags: [Bug Fix, UI, AI]
+version: "2026-06-03"
+---
+
+### Document Viewer
+
+- **Consistent empty state when no file is associated**: Clicking a cell that has no linked document now shows a clear message — "No file selected" (with a prompt to pick one from the panel below) or "No files uploaded to this datasource yet" (with an upload shortcut) — instead of auto-loading an unrelated file from the datasource.
+- **Visual marker for rows without a matched document**: In datasources where some rows didn't receive a matched document, the extraction cells for those rows now show a **blue dash on a gray background**, making it immediately clear that AI extraction won't run on that row.
+- **Viewer panel width no longer jumps**: The document viewer holds its width as you move between different cell types — no more resizing when switching from a match cell to a retrieval cell and back.
+
+### Cell Detail Panel
+
+- **Section state remembered as you navigate**: Collapsing a section (Answer, Reasoning, Activity, and others) now keeps it collapsed as you move between cells in the same session. Reloading the page resets everything back to fully expanded.
+- **Tick mark cells always reachable**: Cells that have a tick mark applied but no associated document now correctly show the Cell tab, so you can view or update the applied tick mark without it disappearing.
+
+### Shared Document Groups
+
+- **Per-task matching mode**: When multiple workpapers share a document group, each workpaper can now independently choose **AI matching or Custom Rules matching** — changing the setting in one workpaper no longer affects the others.
+- **Automatic ownership transfer**: If the workpaper that originally created a shared document group stops using it, ownership automatically passes to another workpaper still using the group so it stays accessible with no disruption.
+- **Switching groups preserves settings and workflow**: When you replace an attached shared document group with a different one, the current workpaper's matching configuration carries over and any connected downstream datasources are automatically re-linked — the workflow diagram stays intact.
+- **Full access for importing workpapers**: Workpapers that share an existing document group can now comment on cells, change matching mode, and trigger runs — previously some of these actions silently applied to the original owner workpaper instead.
+- **Workflow diagram arrows always visible**: Parent-to-child arrows now appear correctly for all datasources regardless of which matching mode each one is configured with.
+
+### AI & Testing Attributes
+
+- **Collective testing attribute results corrected**: Testing attribute columns set to Collective mode now correctly produce **one shared pass/fail verdict for the entire record group** rather than one result per record.
+- **Testing attributes on document-only datasources**: Testing attribute columns now run correctly on datasources that contain only uploaded files (with no parent table), producing one result row per uploaded file.
+
