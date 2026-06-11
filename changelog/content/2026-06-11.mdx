@@ -1,0 +1,41 @@
+---
+title: "Sampling Reports, Workpaper Column Editing, and Large-File Processing Fixes"
+description: "PDF sampling reports on export, edit workpaper columns via Co-Audit Chat, and improved handling of large and specially-encoded files."
+date: "2026-06-11"
+tags: [Feature, Bug Fix, Performance, AI, Automation]
+version: "2026-06-11"
+---
+
+## Workpaper Sampling
+
+- **Saving selection data now generates a PDF sampling report** alongside the Excel file. Click "Save Data" after setting up a Random, MUS, or Journal Entry sample and a formatted report is produced automatically. It includes a summary table, population breakdown chart, and method-specific parameters — plus the per-test hit-count table and Benford's Law histogram for Journal Entry testing (when that test is enabled).
+- **Sampling reports are bundled into all workpaper exports.** Every export format — Workpaper Only, Files + Workpaper (.xlsx), and Files + Workpaper (.zip) — automatically includes the relevant sampling sheets and PDF reports.
+- **The Benford's Law histogram is now interactive.** Click the chart to expand it to fullscreen for a closer view. You can also adjust how many digit pairs are flagged as anomalous directly from the fullscreen view.
+- When you reopen the selection data dialog to edit an existing random sample, your previous filter settings are preserved.
+
+## Co-Audit Chat
+
+- **Edit existing workpaper columns without deleting and recreating them.** You can now ask Co-Audit to update an existing column's name, prompt, data type, or pass/fail icons — the change applies in place, preserving the column's position and history.
+- **Choose how AI columns analyze files per row.** When asking Co-Audit to add an AI prompt column or testing attribute column, you can specify whether the AI should evaluate each file individually or summarize across all files for a given row.
+
+## File Processing
+
+- **Very large spreadsheet and CSV files now process correctly.** Files such as journal entry exports with 50,000 or more rows were previously rejected as too complex to read. These files now upload and extract text successfully.
+- **CSV files with accented letters, special characters, or files created with European regional settings now process correctly.** Files that previously failed to upload due to encoding issues will now work.
+
+## Workpaper Automations
+
+- **Running all automations on a workpaper is more reliable.** A performance issue that caused automation runs to fail silently on large workpapers has been resolved.
+
+## Task Management
+
+- **Save any task as a reusable template from the breadcrumb menu** at the top of any task page (auditor only). Set a name, description, visibility (Personal, Firm-wide, or Global), and tags. The dialog previews the task's structure and warns you if a template with the same name already exists, giving you the option to overwrite.
+- **Client users can submit their completed workpaper for auditor review** from the task overview page. If the task is already in review, they can return it to To Do.
+
+## Other Improvements
+
+- **Keyboard shortcut for task search.** Press **Ctrl+F** (or **Cmd+F** on Mac) on the engagement board to open the search bar without clicking the icon.
+- **Edited comments are now marked.** Comments that have been modified show an "Edited" label; hovering over it shows the exact date and time of the last edit.
+- **Drag files directly onto the engagement library panel** to upload without opening the file picker dialog.
+- **ZIP files uploaded to the engagement library are automatically extracted** — each file inside is added as a separate document.
+
