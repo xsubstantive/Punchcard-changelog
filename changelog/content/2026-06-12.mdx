@@ -1,0 +1,23 @@
+---
+title: "Large Data Paste Performance & Authentication Improvements"
+description: "Major improvements to handling large Excel imports and support for updated authentication domain"
+date: "2026-06-12"
+tags: [Performance, Bug Fix, UI]
+version: "2026-06-12"
+---
+
+## Performance & Reliability
+
+### Large Data Paste Handling
+- **Pasting huge Excel tables no longer freezes the application.** Previously, importing journals with hundreds of thousands of rows would hang the browser for many minutes. The new optimized parser and incremental processing keep the workpaper responsive throughout the entire import.
+- **Massive improvements to memory usage for large data imports.** The system now samples data intelligently rather than processing every cell upfront, preventing the browser from running out of memory on very large pastes.
+- **Smart confirmation dialog for very large pastes.** Pastes exceeding 200,000 rows now show a recommendation to use the file upload feature instead, which handles that scale more efficiently without blocking the UI.
+
+### Data Integrity
+- **Fixed cell splitting when pasting Excel data with line breaks.** Previously, cells containing quoted text with embedded newlines would incorrectly be split into multiple rows during import. This now works correctly.
+- **Single-column table pastes no longer split valid wrapped cells.** Previously, wrapped cells in single-column tables would be broken into extra rows during import.
+
+## Authentication
+
+- **Users can now log in with the updated organization authentication domain.** The organization's recent authentication system update is fully supported, so all accounts can access the platform without interruption.
+
