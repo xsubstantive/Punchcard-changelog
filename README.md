@@ -87,4 +87,4 @@ Deploy to any Next.js compatible platform:
 
 ## License
 
-MIT License
+MIT License 
