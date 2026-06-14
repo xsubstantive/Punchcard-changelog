@@ -1,8 +1,9 @@
 import { headers } from "next/headers"
 import { ImageResponse } from "next/og"
+import { siteConfig } from "@/lib/site"
 
 export const runtime = "edge"
-export const alt = "Changelog Template"
+export const alt = "Punchcard Changelog"
 export const size = {
   width: 1200,
   height: 630,
@@ -23,20 +24,63 @@ export default async function Image() {
             height: "100%",
             width: "100%",
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "black",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            background: "#0b0b0c",
+            color: "#ffffff",
+            padding: "72px",
           }}
         >
-          <img
-            src={`${baseUrl}/og.png`}
-            alt={alt}
+          <div
             style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
+              display: "flex",
+              alignItems: "center",
+              gap: "24px",
             }}
-          />
+          >
+            <img
+              src={`${baseUrl}/punchcard-wordmark-light.svg`}
+              alt="Punchcard"
+              style={{ height: "56px", width: "auto" }}
+            />
+            <div
+              style={{
+                color: "#a3a3a3",
+                fontSize: "34px",
+                fontWeight: 500,
+              }}
+            >
+              Changelog
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "28px",
+              maxWidth: "920px",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "74px",
+                fontWeight: 650,
+                letterSpacing: "-0.04em",
+                lineHeight: 0.95,
+              }}
+            >
+              Product updates for audit teams
+            </div>
+            <div
+              style={{
+                color: "#c7c7c7",
+                fontSize: "28px",
+                lineHeight: 1.35,
+              }}
+            >
+              {siteConfig.description}
+            </div>
+          </div>
         </div>
       ),
       { ...size }

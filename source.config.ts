@@ -16,6 +16,7 @@ export const { docs, meta } = defineDocs({
   dir: "changelog/content",
   docs: {
     schema: frontmatterSchema.extend({
+      description: z.string().optional(),
       date: z.string(),
       tags: z.array(z.string()).optional(),
       version: z.string().optional(),

@@ -1,18 +1,27 @@
 export const siteConfig = {
-  name: "Changelog Template",
-  url: "https://changelog-magicui.vercel.app",
-  description: "A minimal changelog template built using Next.js.",
+  name: "Punchcard Changelog",
+  url: "https://changelog.punchcard.com",
+  description:
+    "Product updates, release notes, and platform improvements for Punchcard's audit AI workflows, including CoAudit, workpapers, request lists, data imports, sampling, and automation.",
   links: {
-    twitter: "https://x.com/magicuidesign",
-    github: "https://github.com/magicuidesign",
+    home: "https://punchcard.com",
+    app: "https://app.punchcard.com",
   },
   keywords: [
-    "Changelog",
-    "Next.js",
-    "Fumadocs",
-    "Tailwind CSS",
-    "shadcn",
-    "Magic UI",
+    "Punchcard changelog",
+    "Punchcard release notes",
+    "Punchcard product updates",
+    "audit AI updates",
+    "CoAudit",
+    "audit automation",
+    "workpaper automation",
+    "audit workpapers",
+    "PBC request list",
+    "client audit portal",
+    "sampling reports",
+    "Excel import",
+    "substantive testing",
+    "audit workflow software",
   ],
 }
 
