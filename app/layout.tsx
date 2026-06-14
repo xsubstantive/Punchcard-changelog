@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   publisher: "Substantive AI, Inc.",
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
   },
   openGraph: {
     type: "website",

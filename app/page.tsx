@@ -3,10 +3,15 @@ import { ChangelogPageContent } from "@/components/changelog-page-content"
 import { siteConfig } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Punchcard Changelog - Audit AI Product Updates",
+  title: {
+    absolute: "Punchcard Changelog - Audit AI Product Updates",
+  },
   description: siteConfig.description,
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
   },
 }
 

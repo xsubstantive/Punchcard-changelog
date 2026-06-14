@@ -4,10 +4,13 @@ import Footer from "@/components/footer"
 import Header from "@/components/header"
 import {
   CHANGELOG_PAGE_SIZE,
+  changelogTopics,
   type ChangelogPage,
   getChangelogPath,
   getPagePath,
   getPaginatedChangelogs,
+  getTagPath,
+  getTopicPath,
   getTotalChangelogPages,
 } from "@/lib/changelog"
 import { siteConfig } from "@/lib/site"
@@ -21,8 +24,19 @@ function getCanonicalEntryUrl(changelog: ChangelogPage) {
   return `${siteConfig.url}${getChangelogPath(changelog)}`
 }
 
-function getStructuredData(changelogs: ChangelogPage[], page: number) {
-  const pagePath = getPagePath(page)
+function getStructuredData({
+  changelogs,
+  page,
+  pagePath,
+  name,
+  description,
+}: {
+  changelogs: ChangelogPage[]
+  page: number
+  pagePath: string
+  name: string
+  description: string
+}) {
 
   return {
     "@context": "https://schema.org",
@@ -38,9 +52,9 @@ function getStructuredData(changelogs: ChangelogPage[], page: number) {
       {
         "@type": "WebPage",
         "@id": `${siteConfig.url}${pagePath}`,
-        name: page === 1 ? siteConfig.name : `${siteConfig.name} - Page ${page}`,
+        name,
         url: `${siteConfig.url}${pagePath}`,
-        description: siteConfig.description,
+        description,
         isPartOf: {
           "@id": `${siteConfig.url}/#website`,
         },
@@ -61,12 +75,8 @@ function getStructuredData(changelogs: ChangelogPage[], page: number) {
       {
         "@type": "ItemList",
         "@id": `${siteConfig.url}${pagePath}#release-notes`,
-        name:
-          page === 1
-            ? "Punchcard release notes"
-            : `Punchcard release notes, page ${page}`,
-        description:
-          "Recent Punchcard product updates for audit AI, CoAudit, workpapers, request workflows, imports, sampling, and automation.",
+        name,
+        description,
         itemListElement: changelogs.map((changelog, index) => ({
           "@type": "ListItem",
           position: (page - 1) * CHANGELOG_PAGE_SIZE + index + 1,
@@ -142,10 +152,57 @@ function Pagination({
   )
 }
 
-export function ChangelogPageContent({ page }: { page: number }) {
-  const totalPages = getTotalChangelogPages()
-  const changelogs = getPaginatedChangelogs(page)
-  const structuredData = getStructuredData(changelogs, page)
+function TopicLinks() {
+  return (
+    <nav aria-label="Browse changelog by topic" className="mt-8">
+      <div className="mb-3 text-sm font-medium text-muted-foreground">
+        Browse by topic
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {changelogTopics.map((topic) => (
+          <Link
+            key={topic.slug}
+            href={getTopicPath(topic)}
+            className="inline-flex h-8 items-center rounded-full border bg-muted px-3 text-sm font-medium text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
+          >
+            {topic.name}
+          </Link>
+        ))}
+      </div>
+    </nav>
+  )
+}
+
+type ChangelogPageContentProps = {
+  page: number
+  changelogs?: ChangelogPage[]
+  totalPages?: number
+  pagePath?: string
+  kicker?: string
+  title?: string
+  description?: string
+  showPagination?: boolean
+}
+
+export function ChangelogPageContent({
+  page,
+  changelogs: providedChangelogs,
+  totalPages: providedTotalPages,
+  pagePath = getPagePath(page),
+  kicker = "Changelog",
+  title = "Punchcard product updates",
+  description = "Release notes for Punchcard's audit AI platform, including CoAudit, workpaper automation, PBC request workflows, sampling reports, Excel imports, authentication, and platform reliability.",
+  showPagination = true,
+}: ChangelogPageContentProps) {
+  const totalPages = providedTotalPages ?? getTotalChangelogPages()
+  const changelogs = providedChangelogs ?? getPaginatedChangelogs(page)
+  const structuredData = getStructuredData({
+    changelogs,
+    page,
+    pagePath,
+    name: title,
+    description,
+  })
 
   return (
     <div className="relative min-h-screen bg-background">
@@ -159,21 +216,20 @@ export function ChangelogPageContent({ page }: { page: number }) {
       <main className="mx-auto max-w-6xl px-6 pt-32 lg:px-10">
         <section className="mb-14 max-w-4xl">
           <div className="mb-4 text-sm font-medium text-muted-foreground">
-            Changelog
+            {kicker}
           </div>
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-balance sm:text-5xl">
-            Punchcard product updates
+            {title}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground text-balance">
-            Release notes for Punchcard&apos;s audit AI platform, including CoAudit,
-            workpaper automation, PBC request workflows, sampling reports, Excel
-            imports, authentication, and platform reliability.
+            {description}
           </p>
-          {page > 1 && (
+          {showPagination && page > 1 && (
             <p className="mt-5 text-sm font-medium text-muted-foreground">
               Page {page}
             </p>
           )}
+          {showPagination && page === 1 && <TopicLinks />}
         </section>
 
         <div className="relative">
@@ -242,15 +298,16 @@ export function ChangelogPageContent({ page }: { page: number }) {
                           changelog.data.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                               {changelog.data.tags.map((tag: string) => (
-                                <span
+                                <Link
                                   key={tag}
+                                  href={getTagPath(tag)}
                                   className={cn(
                                     "flex h-6 w-fit items-center justify-center rounded-full border bg-muted px-2",
-                                    "text-xs font-medium text-muted-foreground"
+                                    "text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
                                   )}
                                 >
                                   {tag}
-                                </span>
+                                </Link>
                               ))}
                             </div>
                           )}
@@ -266,7 +323,9 @@ export function ChangelogPageContent({ page }: { page: number }) {
           })}
         </div>
 
-        <Pagination currentPage={page} totalPages={totalPages} />
+        {showPagination && (
+          <Pagination currentPage={page} totalPages={totalPages} />
+        )}
       </main>
       <Footer />
     </div>

@@ -33,11 +33,26 @@ export async function generateMetadata({
     return {}
   }
 
+  const title = `Punchcard Changelog Page ${page}`
+  const description = `Browse older Punchcard audit AI release notes and product updates, including CoAudit, workpaper automation, PBC request workflows, sampling, imports, and platform reliability.`
+
   return {
-    title: `${siteConfig.name} - Page ${page}`,
-    description: siteConfig.description,
+    title: {
+      absolute: title,
+    },
+    description,
     alternates: {
       canonical: getPagePath(page),
+      types: {
+        "application/rss+xml": "/rss.xml",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: getPagePath(page),
+      siteName: siteConfig.name,
+      type: "website",
     },
   }
 }

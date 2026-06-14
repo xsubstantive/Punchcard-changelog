@@ -10,6 +10,7 @@ import {
   getChangelogBySlug,
   getChangelogPath,
   getChangelogSlug,
+  getTagPath,
 } from "@/lib/changelog"
 import { siteConfig } from "@/lib/site"
 import { cn, formatDateString } from "@/lib/utils"
@@ -25,24 +26,77 @@ function getCanonicalEntryUrl(slug: string) {
 }
 
 function getStructuredData(slug: string, changelog: NonNullable<ReturnType<typeof getChangelogBySlug>>) {
+  const canonicalUrl = getCanonicalEntryUrl(slug)
+
   return {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "@id": getCanonicalEntryUrl(slug),
-    headline: changelog.data.title,
-    description: changelog.data.description,
-    datePublished: changelog.data.date,
-    dateModified: changelog.data.date,
-    keywords: changelog.data.tags?.join(", "),
-    mainEntityOfPage: getCanonicalEntryUrl(slug),
-    publisher: {
-      "@type": "Organization",
-      name: "Substantive AI, Inc.",
-      alternateName: "Punchcard",
-      url: siteConfig.links.home,
-      logo: `${siteConfig.url}/punchcard-logo-dark.svg`,
-    },
-    about: ["Punchcard", "audit AI", "audit automation", "workpaper automation"],
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.links.home}/#organization`,
+        name: "Substantive AI, Inc.",
+        alternateName: "Punchcard",
+        url: siteConfig.links.home,
+        logo: `${siteConfig.url}/punchcard-logo-dark.svg`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        name: siteConfig.name,
+        url: siteConfig.url,
+        publisher: {
+          "@id": `${siteConfig.links.home}/#organization`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Punchcard Changelog",
+            item: siteConfig.url,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: changelog.data.title,
+            item: canonicalUrl,
+          },
+        ],
+      },
+      {
+        "@type": "TechArticle",
+        "@id": canonicalUrl,
+        headline: changelog.data.title,
+        description: changelog.data.description,
+        datePublished: changelog.data.date,
+        dateModified: changelog.data.date,
+        keywords: changelog.data.tags?.join(", "),
+        image: `${siteConfig.url}/opengraph-image`,
+        mainEntityOfPage: canonicalUrl,
+        isPartOf: {
+          "@id": `${siteConfig.url}/#website`,
+        },
+        author: {
+          "@id": `${siteConfig.links.home}/#organization`,
+        },
+        publisher: {
+          "@id": `${siteConfig.links.home}/#organization`,
+        },
+        breadcrumb: {
+          "@id": `${canonicalUrl}#breadcrumb`,
+        },
+        about: [
+          "Punchcard",
+          "audit AI",
+          "audit automation",
+          "workpaper automation",
+          ...(changelog.data.tags ?? []),
+        ],
+      },
+    ],
   }
 }
 
@@ -65,6 +119,9 @@ export async function generateMetadata({
     description: changelog.data.description ?? siteConfig.description,
     alternates: {
       canonical: getChangelogPath(changelog),
+      types: {
+        "application/rss+xml": "/rss.xml",
+      },
     },
     openGraph: {
       title: changelog.data.title,
@@ -161,15 +218,16 @@ export default async function ChangelogEntryPage({ params }: PageProps) {
                   {changelog.data.tags && changelog.data.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {changelog.data.tags.map((tag: string) => (
-                        <span
+                        <Link
                           key={tag}
+                          href={getTagPath(tag)}
                           className={cn(
                             "flex h-6 w-fit items-center justify-center rounded-full border bg-muted px-2",
-                            "text-xs font-medium text-muted-foreground"
+                            "text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
                           )}
                         >
                           {tag}
-                        </span>
+                        </Link>
                       ))}
                     </div>
                   )}
