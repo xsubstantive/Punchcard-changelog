@@ -12,3 +12,8 @@ export const formatDate = (date: Date): string => {
     day: "numeric",
   })
 }
+
+export const formatDateString = (date: string): string => {
+  const [year, month, day] = date.split("-").map(Number)
+  return formatDate(new Date(year, month - 1, day))
+}
