@@ -150,30 +150,30 @@ export default function Header() {
       data-state={isMobileMenuOpen ? "active" : "inactive"}
       {...(isScrolled && { "data-scrolled": true })}
     >
-      <div className="fixed inset-x-0 top-0 z-50 pt-1 max-lg:h-14 max-lg:overflow-hidden max-lg:px-1.5 max-lg:in-data-[state=active]:h-screen max-lg:in-data-[state=active]:bg-card/75 max-lg:in-data-[state=active]:backdrop-blur lg:pt-1.5">
+      <div className="fixed inset-x-0 top-0 z-50 pt-2 max-lg:h-18 max-lg:overflow-hidden max-lg:px-2 max-lg:in-data-[state=active]:h-screen max-lg:in-data-[state=active]:bg-card/75 max-lg:in-data-[state=active]:backdrop-blur lg:pt-3">
         <div
           className={cn(
-            "mx-auto w-full max-w-6xl rounded-xl border border-transparent px-2 shadow-md shadow-transparent ring-1 ring-transparent transition-all duration-500 ease-in-out in-data-scrolled:max-w-4xl in-data-scrolled:bg-background/75 in-data-scrolled:shadow-black/6.5 in-data-scrolled:backdrop-blur in-data-scrolled:ring-foreground/5 max-lg:in-data-scrolled:px-3",
-            "max-lg:in-data-[state=active]:bg-background/75 max-lg:in-data-[state=active]:px-3 max-lg:in-data-[state=active]:shadow-black/6.5 max-lg:in-data-[state=active]:backdrop-blur max-lg:in-data-[state=active]:ring-foreground/5"
+            "mx-auto w-full max-w-6xl rounded-2xl border border-transparent px-3 shadow-md shadow-transparent ring-1 ring-transparent transition-all duration-500 ease-in-out in-data-scrolled:max-w-4xl in-data-scrolled:bg-background/75 in-data-scrolled:shadow-black/6.5 in-data-scrolled:backdrop-blur in-data-scrolled:ring-foreground/5 max-lg:in-data-scrolled:px-5",
+            "max-lg:in-data-[state=active]:bg-background/75 max-lg:in-data-[state=active]:px-5 max-lg:in-data-[state=active]:shadow-black/6.5 max-lg:in-data-[state=active]:backdrop-blur max-lg:in-data-[state=active]:ring-foreground/5"
           )}
         >
-          <div className="relative flex flex-wrap items-center justify-between lg:py-1.5">
-            <div className="flex items-center justify-between gap-8 max-lg:h-11 max-lg:w-full max-lg:in-data-[state=active]:border-b">
+          <div className="relative flex flex-wrap items-center justify-between lg:py-3">
+            <div className="flex items-center justify-between gap-8 max-lg:h-14 max-lg:w-full max-lg:in-data-[state=active]:border-b">
               <Link
                 href={siteConfig.links.home}
                 aria-label="Punchcard home"
-                className="h-fit transition-all duration-500 lg:in-data-scrolled:px-1"
+                className="h-fit transition-all duration-500 lg:in-data-scrolled:px-2"
               >
-                <Logo size="sm" />
+                <Logo />
               </Link>
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
-                className="relative z-20 -m-2 -mr-2.5 block cursor-pointer p-2 lg:hidden"
+                className="relative z-20 -m-2.5 -mr-3 block cursor-pointer p-2.5 lg:hidden"
               >
-                <Menu className="m-auto size-4.5 duration-200 in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0" />
-                <X className="absolute inset-0 m-auto size-4.5 -rotate-180 scale-0 opacity-0 duration-200 in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100" />
+                <Menu className="m-auto size-5 duration-200 in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0" />
+                <X className="absolute inset-0 m-auto size-5 -rotate-180 scale-0 opacity-0 duration-200 in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100" />
               </button>
             </div>
 
@@ -192,13 +192,13 @@ export default function Header() {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="h-7 px-2.5 text-xs"
+                  className="text-sm"
                 >
                   <Link href={punchcardUrl("/login")}>
                     <span>Sign In</span>
                   </Link>
                 </Button>
-                <Button asChild size="sm" className="h-7 px-2.5 text-xs">
+                <Button asChild size="sm" className="text-sm">
                   <Link href={punchcardUrl("/demo")}>
                     <span>Book a demo</span>
                   </Link>
