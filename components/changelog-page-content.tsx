@@ -165,7 +165,7 @@ export function ChangelogPageContent({ page }: { page: number }) {
             Punchcard product updates
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground text-balance">
-            Release notes for Punchcard's audit AI platform, including CoAudit,
+            Release notes for Punchcard&apos;s audit AI platform, including CoAudit,
             workpaper automation, PBC request workflows, sampling reports, Excel
             imports, authentication, and platform reliability.
           </p>
