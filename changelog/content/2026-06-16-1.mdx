@@ -1,0 +1,31 @@
+---
+title: "AI result provenance, Excel import for all, and reliability fixes"
+description: "Punchcard now shows which upstream workpaper values informed each AI result, Excel file import for large populations is available to all users, and several chat and workpaper reliability issues are resolved."
+date: "2026-06-16"
+tags: [Feature, Bug Fix, AI]
+version: "2026-06-16"
+---
+
+## Features
+
+### Workpaper
+
+- **See what informed each AI result**: When Punchcard AI fills a workpaper cell using values from other columns, an "Informed by" section now appears in the cell detail panel. Expand it to see a tree of every upstream value the AI referenced, the reasoning behind each connection, and inline citations you can click to jump straight to that location in the source document. Click any node in the tree to navigate directly to that cell in the workpaper grid.
+- **Excel and CSV file import now available to all users**: Uploading an Excel or CSV file when adding selection data is no longer a limited rollout — every user now has access. This is especially useful for very large populations that are impractical to paste from the clipboard.
+
+## Bug Fixes
+
+### Chat
+
+- **Send button no longer stays disabled after attaching a file**: After uploading a file in a chat conversation, the Send button could remain unclickable even after the file finished processing. This is now fixed.
+- **Chat messages containing links now display correctly**: AI responses that included certain link formats could cause the entire message to fail to load. This is now fixed.
+
+### Workpaper
+
+- **OCR status indicator always visible on the Files tab**: The badge showing files with pending or failed text recognition was being partially hidden behind the adjacent tab. It is now correctly positioned and fully visible at all times.
+- **Spurious error on workpaper open no longer appears**: A "Failed to load available headers" message that sometimes flashed briefly when first opening a workpaper no longer appears.
+
+### Notifications
+
+- **Activity summary emails are no longer sent twice**: Some users were receiving their activity summary email twice in quick succession. This has been resolved.
+
