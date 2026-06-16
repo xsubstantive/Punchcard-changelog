@@ -1,0 +1,36 @@
+---
+title: "Shared Document Groups for All Users, Date Formula Fixes, and Panel Controls"
+description: "Punchcard releases Request Once, Use Many document groups to all users, fixes date calculations in workpaper formulas, and adds explicit close and reopen controls to the Files and Workflow panel."
+date: "2026-06-16"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-06-16"
+---
+
+## New
+
+- **Request Once, Use Many is now available to all users**: Attach an existing document group to multiple workpapers without asking clients to re-submit files. The option appears in the Source section when adding or editing a workpaper column. Co-Audit is also aware of which tasks share a document group when answering questions.
+
+## Workpaper
+
+- **Date formulas now calculate correctly**: Formulas that compare or subtract dates — such as computing the number of days between an invoice date and a payment date — now produce the right result instead of treating the dates as arithmetic. Both `M/D/YYYY` and `YYYY-MM-DD` date formats are recognized.
+- **Large Excel files process faster**: Processing large Excel spreadsheets during upload is now significantly more efficient, reducing slowdowns and failures on heavy files.
+- **Tick mark and template audience picker is cleaner**: The Global/full-site audience option is now shown only to site admins, removing a choice that had no effect for regular auditors.
+
+## Files and Workflow Panel
+
+- **Explicit close and reopen controls**: The right-side panel now has a ✕ button to close it entirely. When closed, a sidebar icon replaces the folder tabs and reopens the panel to whichever tab (Files or Workflow) you had open last.
+- **Reopening Files preserves your place**: If you had a match cell selected when you closed the panel, reopening Files returns you directly to that cell's file view and match controls — not back to the top-level document picker.
+
+## Co-Audit AI
+
+- **Extraction tools work after a page refresh**: The "correct extraction" and "edit extraction" tools now continue to work after refreshing the page. Previously they would report that extraction results were unavailable — even when the data was still intact.
+- **Declining a navigation suggestion no longer shows an error**: Choosing "No thanks" when Co-Audit proposes a navigation now records as a neutral completed step in the chat, not a red error indicator.
+- **AI responses and analyses are more reliable**: Fixed a category of failures where AI-generated content — including chat replies and document analysis results — occasionally failed to save due to special characters in the output.
+
+## Platform
+
+- **Library file deletion is now instant**: Removing a file from the firm or engagement library now completes right away, even for recently-uploaded files that could previously take an extended time to delete.
+- **All emails now show the Punchcard logo**: Invitation emails, task notifications, comment alerts, and activity summaries now display the full Punchcard wordmark, correctly rendered without clipping.
+- **Uploads to new document groups now work**: Fixed an issue where uploading files to a document group created with the "Create New" option could fail silently.
+- **App updates no longer interrupt your session**: When Punchcard deploys a new version while you're working, you'll see a "New Version Available" prompt and can refresh smoothly — rather than being unexpectedly redirected to the login screen.
+
