@@ -1,0 +1,34 @@
+---
+title: "Copy from Request, multi-sheet Excel import, and document viewer improvements"
+description: "Punchcard's Import Table Data now includes a Copy from Request option to pull a population from another task in the same engagement; multi-sheet Excel files let you pick which sheet to import; and several citation navigation and document viewer issues are resolved."
+date: "2026-06-17"
+tags: [Feature, Bug Fix, Performance, UI]
+version: "2026-06-17"
+---
+
+### New Features
+
+- **Copy data directly from another request**: A new "Copy from Request" option in Import Table Data lets you populate a workpaper table by copying data from another task in the same engagement. Pick the source task, choose a sample datasource or a tabular file, then configure the header row and columns using the same picker as a direct Excel import. Both source groups ("Sample Selections" and "Table Files") are always shown with a clear indication when a group is empty.
+
+- **Pick which sheet to import from multi-sheet Excel files**: When importing an Excel file that has more than one worksheet, a sheet selector now appears in the column picker so you can choose exactly which sheet to use. Previously, imports always used the first sheet with no option to change it.
+
+### Performance
+
+- **Copy from Request source picker opens faster for large files**: Row counts, column counts, and column headers in the source picker now load immediately instead of re-reading the file each time the picker opens. Files with tens of thousands of rows that previously caused a multi-second delay now appear instantly.
+
+### Bug Fixes
+
+- **All worksheets are now selectable when importing older Excel files**: In some Excel files uploaded before a recent update, worksheets beyond the first appeared grayed out in the import sheet picker. Those sheets are now always selectable and always show the correct preview data for that sheet.
+
+- **Citation pills scroll to the right location on the first click**: Clicking a citation pill in cell reasoning now navigates the document viewer to the correct passage immediately. Some citations previously required two clicks before landing in the right spot.
+
+- **Viewer header and toolbar stay visible after clicking a citation**: Clicking an inline citation pill in cell reasoning no longer causes the document filename and toolbar buttons to disappear. The header stays intact while the citation is highlighted in the document.
+
+- **Toolbar buttons stay fully visible in a narrow viewer**: When the document viewer is at a constrained width, toolbar action buttons (lasso, search, and others) now remain fully visible — the filename truncates before any buttons are hidden.
+
+- **"Informed by" tree: clicking a value node navigates the workpaper fully**: Clicking a value link in the "Informed by" provenance tree now moves the grid selection, cell-detail panel, and document viewer to the referenced cell together. Previously the document viewer could fail to update or show the wrong content.
+
+- **"Informed by" tree: citation pills show one highlight and scroll vertically**: Clicking a citation pill inside the "Informed by" tree now shows a single highlight on the document (no duplicate outline) and scrolls straight to the cited passage without any sideways movement.
+
+- **Wide preview tables scroll horizontally in Copy from Request**: The data preview on the Copy from Request confirmation step now displays a horizontal scrollbar for tables with many columns, so all column data is visible without being squeezed.
+
