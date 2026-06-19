@@ -1,0 +1,50 @@
+---
+title: "Tick-Mark Comment Indicators, Deep Analysis Run Controls, and Export Reliability"
+description: "Punchcard adds visual comment indicators to tick marks, new controls for deep analysis questions in the Run dialog, and fixes major reliability issues in workpaper exports — including browser crashes on large populations and incorrect dates for GMT+ users."
+date: "2026-06-19"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026.06.19"
+---
+
+## New
+
+- **Comment indicators on tick marks**: A corner badge now appears on tick marks that have active comment threads — amber for unresolved comments, blue when all comments are resolved. Reviewers can spot annotated marks at a glance without hovering over each one.
+- **Deep Analysis controls in the Run dialog**: The Run confirmation dialog now lists each Deep Analysis question with a count of pages already covered (e.g., "3 of 5 pages"). Use per-question checkboxes to include or skip individual questions before running.
+- **CoAudit artifacts available in personal chats**: The full artifact toolkit — generating Excel workbooks, charts, and Word documents — is now available in personal CoAudit chats, not only in task-linked chats.
+- **Formula columns export as live Excel formulas**: Formula columns in the workpaper now export as real `=...` Excel formulas with cross-column cell references instead of frozen computed values.
+
+## Improvements
+
+- **FSR cover sheet for all exports**: The Financial Statement Review PDF cover sheet — with a clickable index of every footing and cross-footing mark — now generates for all annotated FSR exports.
+- **"Set as Testing Attribute" available on all columns**: The option to mark a workpaper column as a Testing Attribute is now visible on all eligible attribute columns.
+- **Fill Empty covers partially-analyzed questions**: "Run Empty" now fills missing page coverage for Deep Analysis questions that were only partially run, rather than skipping them entirely because some pages already had results.
+- **Workpaper exports are faster on repeat runs**: Population sheets are built once when you save a sampling run and reused on subsequent exports, making repeated exports significantly faster for tasks with large data populations.
+- **"Paste from clipboard" gives specific feedback**: The Paste from Clipboard button now shows a clear message when the clipboard is empty, when the copied content isn't recognized as a table, or when clipboard access is denied — with guidance to use Ctrl+V as a fallback.
+- **Column picker shows a live selection summary**: The Excel import column picker now displays your current header row and column selections in real time, with clearer instructions.
+- **Workflow connections wired automatically**: Adding or attaching a datasource from the sidebar now automatically connects it to the correct parent in the workflow diagram — no manual wiring needed.
+
+## Bug Fixes
+
+### Exports
+- **Large workpaper exports no longer crash**: Exporting workpapers with very large data populations no longer crashes or hangs the browser tab.
+- **Multi-datasource exports produce valid files**: Workpaper exports containing more than one datasource no longer generate Excel files that Excel needs to repair on open.
+- **DATE values in exports are now correct for all time zones**: DATE column values in exported workpapers were showing one day earlier than expected for users in time zones at or east of UTC (UK, Europe, India, Asia Pacific). This is now fixed.
+
+### Selection Data (Add/Edit Selection Data)
+- **Original population preserved after sampling**: Opening "Edit Selection Data" after pasting data and taking a random sample now correctly shows the full original population, not just the sampled rows.
+- **Row checkboxes honored in No Sampling mode**: Checking specific rows when using No Sampling now imports only those rows. Previously, all rows were always imported regardless of which boxes were checked.
+- **Editing a table no longer creates a duplicate node**: Importing an Excel file while editing an existing table datasource no longer creates a second empty node in the workflow diagram.
+- **Clear no longer causes an infinite loading screen**: Clicking Clear on selection data no longer sometimes left the modal stuck on an endless loading spinner.
+- **Copy from Request imports into the correct datasource**: Using "Copy from Request" while editing an existing datasource now correctly loads data into that datasource instead of creating a new one.
+- **Dates in pasted and sampled data are now correct**: Date values entered by pasting or through the sampling wizard were also affected by the GMT+ timezone shift described above — also fixed.
+
+### Files and Matching
+- **Deleted files show a clear notification**: Attempting to download a file that has since been deleted now shows a "File unavailable" message instead of a generic error, both on the task overview page and in the workpaper file explorer.
+- **Accepting a large batch of matches now works reliably**: Selecting and accepting a very large number of matched files in a single action no longer fails silently.
+
+### Workpaper and FSR
+- **European number formats recognized correctly**: AI-powered number extraction now correctly reads numbers formatted in European conventions (e.g., German financial statements where periods are thousands separators and commas are decimal separators), so those values are no longer silently dropped.
+- **Foot/Crossfoot re-run properly clears prior marks**: Re-running Foot/Crossfoot validations now removes marks from any prior run, eliminating leftover marks in the PDF overlay that could not be clicked or dismissed.
+- **FSR sidebar no longer flashes "No findings yet"**: The Financial Statement Review sidebar no longer briefly shows "No findings yet" while results are still loading.
+- **Escape key closes dropdown menus correctly**: Pressing Escape while a dropdown menu is open (such as the engagement breadcrumb menu) now closes the menu instead of navigating you back to the board.
+
