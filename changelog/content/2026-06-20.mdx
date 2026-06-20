@@ -1,0 +1,28 @@
+---
+title: "CoAudit auto-sorts file uploads and can move files by request"
+description: "Punchcard now automatically routes files uploaded in CoAudit chat to the right document group, with a new conversational file-move tool — plus Excel cell colors and comments are extracted for AI analysis."
+date: "2026-06-20"
+tags: [Feature, Bug Fix, AI, Automation]
+version: "2026-06-20"
+---
+
+## AI & CoAudit
+
+- **Files uploaded in CoAudit task chat are now auto-sorted** into the correct document group as soon as they finish processing. A persistent trail in the conversation records what happened — "Uploaded invoice.pdf", "Sorted 3 files into Invoices · Bank Statements" — so you always know where your files landed, even after leaving and returning to the chat.
+- **Ask CoAudit to move a misrouted file**: if a file ends up in the wrong group, tell CoAudit ("move invoice.pdf to the Invoices group") and it will move it without leaving the chat.
+- **Excel cell background colors and cell comments are now captured** during file processing. Cells with color-coded classifications or embedded auditor notes in Excel workbooks are now visible to AI extraction columns.
+- **Excel files with formulas now show correct values** instead of blanks. Formulas that previously computed to empty — common in programmatically produced spreadsheets — are now evaluated correctly.
+- **Chat messages with file attachments now reliably receive AI responses.** A bug where certain messages appeared to send successfully but never produced a reply has been resolved.
+
+## Workpaper & Automations
+
+- **Testing attribute automations now pick up every file, including those added after the first run.** Previously, files uploaded to a shared document group after you first ran an automation were silently skipped. All files are now included on every run.
+- **"Fill empty" reruns now correctly process all rows**, including rows that were added since the previous run.
+- **Automations and Match Agent runs stay isolated to the correct workpaper** when a document group is shared across multiple workpapers. Results no longer bleed between workpapers sharing the same document group.
+
+## Engagements & Clients
+
+- **Engagement identifiers no longer block creation or editing when already in use.** The identifier field now adjusts automatically (e.g. SAND → SAND2) instead of returning an error that requires you to try again.
+- **Document groups created from PBC request imports are now available in the document group picker** across other workpapers in the same engagement, so evidence collected for one workpaper can be reused without re-uploading.
+- **Creating new client organizations is faster.** The New Client form now responds immediately after clicking Create instead of freezing on firms with many existing clients.
+
