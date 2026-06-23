@@ -1,0 +1,42 @@
+---
+title: "Private Engagements, Excel Cell Styling, and TEUR Math Validation"
+description: "Punchcard adds private engagement controls, native Excel color and comment rendering, and TEUR-aware math validation with automatic rounding tolerance for scaled financial statements."
+date: "2026-06-23"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-06-23"
+---
+
+## New Features
+
+- **Private engagements**: Mark any engagement as private from the engagement settings page options menu (⋯). A private engagement — and all its tasks — is hidden from firm colleagues who aren't explicitly named as team members. Only named members and admins can see it. The toggle updates immediately and reverts automatically if saving fails.
+
+- **Excel viewer renders cell colors and comments**: The Workpaper Excel viewer now faithfully recreates background fill colors and font colors from the original file, so color-coded headers, highlighted rows, and styled tables appear exactly as they do in Excel. Cells with comments or notes show a small red triangle in the corner; hovering reveals the comment text.
+
+- **TEUR-aware math validation**: The Financial Statement Review calculator now detects when a document is presented in thousands or millions (TEUR, MEUR, "in thousands") and automatically adjusts. Operand values display as integers matching the statement convention, a quiet unit label confirms the active scale, and the verdict reads "≈ Validates on rounding" when a footing passes within the tolerance band but isn't an exact tie. Column totals that appear before their operand columns — common in some European reporting layouts — are now also validated correctly.
+
+- **Plain text and RTF files can now be uploaded**: `.txt` and `.rtf` files are now accepted for upload and AI extraction, joining PDFs, Excel files, and CSVs.
+
+- **Real-time identifier availability when creating an engagement**: The short identifier field now checks availability as you type and shows an inline hint if the chosen identifier is already taken — for example, `"ACME" is already in use. This engagement will be created as ACME2.` — so you know the final identifier before submitting.
+
+- **CoAudit can link workpaper columns as engagement-wide variables**: When working with the CoAudit agent on a Workpaper task, you can ask it to mark a column's extracted output as an engagement-wide variable, making those values available for reference across all tasks in the engagement.
+
+## Bug Fixes
+
+- **Excel citations now highlight the correct cell**: Citation highlights in the Excel viewer now land on the right cell even when the spreadsheet has leading blank rows or columns before the data area.
+
+- **Citations on repeated values highlight one cell, not a span**: When a cited value (such as "$0") appears in multiple cells of the same table row, the citation now highlights a single cell rather than drawing an incorrect band across unrelated cells.
+
+- **Page no longer freezes after closing a confirmation dialog**: Clicking Cancel on a confirmation dialog — such as a file delete confirmation — could leave the entire page unresponsive to clicks. This is fixed.
+
+- **Workpaper automation correctly populates records for shared datasources**: Running automation on a task that shares a datasource no longer produces an empty grid. Each task now generates its own records correctly.
+
+- **Financial Statement Review handles partial document processing more gracefully**: If one section of a document encounters a problem during processing, the successfully processed sections are now preserved so the review can continue rather than failing entirely.
+
+- **CSV exports with title rows now import correctly**: CSV files that begin with a report title line or blank line before the column headers — common in GL and payroll exports — are now recognized and imported correctly.
+
+- **Office lock files are rejected at upload**: Temporary Office files (those beginning with `~$`) are now immediately rejected with a clear unsupported-file error rather than being silently submitted for processing.
+
+## Performance
+
+- **Excel viewer opens large files faster**: Cell color scanning is now limited to the visible portion of the sheet on open, so large workbooks no longer cause a noticeable delay when first viewed.
+
