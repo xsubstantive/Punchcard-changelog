@@ -1,0 +1,30 @@
+---
+title: "CoAudit interactive questions, workpaper citation accuracy, and UI improvements"
+description: "Punchcard adds inline multiple-choice questions to CoAudit so it can ask before acting at decision forks, fixes AI citation links in multi-document workpapers, and improves clarity when removing a shared document group."
+date: "2026-06-26"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026-06-26"
+---
+
+## Features
+
+- **CoAudit can now ask you a question when a decision isn't clear**: at genuine decision forks — for example, whether to reuse an existing shared document group or start a fresh one — CoAudit now pauses and presents an inline multiple-choice card instead of guessing. Single-choice questions use radio buttons; multi-select uses checkboxes. You can also add a free-text note. Related questions are grouped into one tabbed card with keyboard navigation: arrow keys move between options, left/right arrows page between questions, Enter advances or submits, and Escape returns focus to the composer. Once submitted, the card dims and shows a compact summary of your answers.
+
+## Improvements
+
+- **Removing a shared document group is now clearly labeled**: when a document group is attached to more than one workpaper, the confirmation dialog now reads **"Remove"** — detaching it from this workpaper only, leaving all other workpapers and their files intact. The permanent-deletion warning (including the amber callout that all uploaded files will be destroyed) continues to appear only when this is the last workpaper using the group.
+- **Category label on task cards is now a quick-edit button**: clicking a task's category badge on the board or list view opens the category picker directly, the same way clicking the priority or due date does.
+- **Download All gives a clearer error when some files fail**: when bulk-downloading reference files, the error message now distinguishes between files that are permanently gone (deleted from storage) and files that failed due to a temporary problem — so you know whether retrying will help.
+- **Non-previewable files show a download button instead of a blank pane**: opening a file that cannot be displayed inline (such as a .txt or .csv) in the Workpaper viewer now shows the filename, a short explanation, and a **Download** button, rather than leaving the viewer empty with no indication of what happened.
+- **German income statements handle mixed TEUR and % columns correctly**: financial statements that present currency (TEUR/MEUR) and percentage columns side by side now apply rounding and unit labels per column — percentage values are no longer rounded as if they were TEUR amounts in the math calculator.
+- **New engagement short identifier shows a usable suggestion when taken**: if the identifier you enter is already in use, Punchcard now shows a collision-free suggestion you can apply in one click, instead of a static "already in use" message with no next step. (Also fixed: the availability check was incorrectly reporting every identifier as taken — this is now resolved.)
+
+## Bug Fixes
+
+- **Sample table columns no longer reverse or shuffle on re-open**: columns pasted into the selection data modal now appear in the same left-to-right order on every open. Previously they could reverse each time the edit modal was opened, causing columns to appear in the wrong order.
+- **AI citations in the Workpaper now link to the correct source file**: when CoAudit analyses a group of documents together — for example, a batch detail spreadsheet alongside a bank statement — citations now correctly link to the file the AI actually read, not always the primary document in the group. Affected workpapers include collective analyses such as three-way match engagements.
+- **Files uploaded in standalone CoAudit chat are always accessible**: uploading multiple files at once in a standalone chat session could leave some files inaccessible, producing a permissions error when the AI tried to reference them. This is fixed.
+- **Engagement board shows an access error if your membership is removed mid-session**: if your team membership is revoked while you have the engagement board open, the board now shows the standard "you don't have access" message instead of going blank.
+- **Tasks marked as client-facing now reliably appear in the client view**: in certain workflows, toggling a document group to "provided by client" did not always make the owning task visible to the client. The task visibility now stays in sync whenever a client-facing datasource is configured.
+- **Users with accented or non-ASCII characters in their email address can now receive notifications**: users at firms where email addresses contain umlauts or other non-ASCII characters (common in German-language firms) are prompted on first login to verify an alternative delivery address, ensuring they receive email notifications going forward.
+
