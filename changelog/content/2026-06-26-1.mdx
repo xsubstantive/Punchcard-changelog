@@ -1,0 +1,32 @@
+---
+title: "Redesigned task workspace with persistent CoAudit panel and keyboard shortcuts"
+description: "Punchcard's task workspace has a new layout — CoAudit opens as a resizable left panel with a keyboard shortcut, sidebar states are remembered across sessions, and a smoother animated transition connects the engagement board to individual tasks."
+date: "2026-06-26"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-06-26"
+---
+
+## Redesigned task workspace
+
+The workpaper, overview, and memo pages now use a unified two-row header and a new panel layout.
+
+- **CoAudit is now a resizable left panel** — drag its right edge to set the width you want; your preference is saved and restored on your next visit. Press `[` to open or close it at any time.
+- **Files and Workflow** live in a right panel toggled with `]`. Both panels remember their open/closed state for the session.
+- **Breadcrumb navigation** in the top bar leads with the Punchcard logo and shows the full client → engagement → task path, with the task's short ID in parentheses for quick reference.
+- **Smooth board-to-task transition** — clicking a task card from the engagement board now animates the workspace into place rather than replacing the page.
+- **Full-screen CoAudit** is still available via the expand button; press ESC to return to the split view.
+- On mobile, CoAudit starts closed so the task content is visible immediately.
+
+## Workpaper improvements
+
+- **Problems panel is now resizable** — drag the divider between the grid and the detail panel to set your preferred split; the height is saved automatically and restored without any flash on reload.
+- **Analysis findings appear at the bottom** of the Problems list, below all configuration and data issues, so the most actionable items stay above the fold.
+- **Problems badge count** now reflects only configuration and data issues — analysis findings are still listed in the panel but no longer inflate the count.
+
+## Bug fixes
+
+- **Saving a task as a template** or cloning an engagement no longer fails silently when the task uses shared document groups.
+- **Engagement board** no longer shows a blank page when following a board link that needs to redirect to the correct audience view.
+- **Applying the same tick mark simultaneously** from two open tabs no longer produces an error — both actions now resolve correctly.
+- **Inviting a team member** with an incorrectly formatted email address (for example, two addresses pasted together) now shows a clear validation message instead of failing.
+
