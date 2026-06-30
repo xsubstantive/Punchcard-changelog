@@ -1,0 +1,25 @@
+---
+title: "Faster sampling on large workpapers, South African number format support, and navigation fixes"
+description: "Punchcard speeds up workpaper data handling on large engagements, adds South African number format support to Financial Statement Review, and fixes several navigation and editing issues."
+date: "2026-06-30"
+tags: [Feature, Bug Fix, Performance]
+version: "2026-06-30"
+---
+
+## Performance
+
+- **Pasting and saving sample data on large workpapers is dramatically faster.** On data-heavy engagements, operations that previously timed out or took more than ten seconds now complete in a fraction of that time — including both loading sample data and saving it with complex column dependencies.
+- **Workpaper cell edits and other workpaper actions load faster** on engagements with large volumes of records, improving responsiveness across the board on data-heavy engagements.
+
+## Features
+
+- **Financial Statement Review now supports South African number formats.** Firms using comma-decimal, space-grouped formatting (for example, "1 234 567,89") are correctly parsed and displayed throughout Financial Statement Review — including calculations, recalculation tolerance checks, and document matching.
+
+## Bug Fixes
+
+- **"Import Excel file" and "Copy from Request" are now available in the sampling modal** when a workpaper template already has selection columns defined. Previously, only clipboard paste was offered in that state; all three entry methods are now consistently accessible.
+- **Pressing Escape while editing a task title** now cancels the edit and restores the original title, instead of leaving you stuck in edit mode with a partially typed name saved.
+- **The app no longer hangs on the "Welcome Back" loading screen.** An intermittent issue that prevented the app from forwarding to your engagement board on a cold load has been fixed.
+- **Clicking the logo or home button no longer routes to a broken page** for users on certain engagements — the app now always resolves to a valid destination.
+- **The "Select All" checkbox in the multi-engagement client invite dialog** now shows an indeterminate state when some — but not all — engagements are selected, making the current selection state easier to read at a glance.
+
