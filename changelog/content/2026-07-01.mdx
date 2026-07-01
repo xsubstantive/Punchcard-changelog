@@ -1,0 +1,26 @@
+---
+title: "Live Automation Progress, Board Status Filtering, and Request Comment Fixes"
+description: "Punchcard now shows real-time workpaper automation progress in CoAudit chat, clicking the board's status chart filters your task list, and comment badges on request files open the right thread."
+date: "2026-07-01"
+tags: [Feature, Bug Fix, UI, Automation, AI]
+version: "2026.07.01"
+---
+
+## What's New
+
+- **Guide link in the sidebar**: A Guide link now appears under Co-Audit in the left navigation for all users. Auditors are taken to the platform guide; clients are taken to the client-specific guide. Both open in a new tab.
+
+## Improvements
+
+- **Workpaper automation progress in CoAudit chat**: While a workpaper automation is running, a compact bar above the chat input shows which step is active and how many remain. A Cancel button lets you stop the run at any time. Previously, in-progress steps showed no activity indicator and could appear stalled.
+- **Private engagement setting is now easier to find**: The option to mark an engagement as private has moved to the Overview section of Engagement Settings, where it sits alongside other engagement details rather than inside a separate options menu.
+- **File deletion takes effect immediately**: Deleting a file now removes it right away, without the previous short delay or undo prompt.
+
+## Bug Fixes
+
+- **Board status chart now filters your task list**: Clicking a status segment in the right-side panel on the engagement board now filters the board to show only tasks with that status. Clicking the same segment again clears the filter. Previously, clicking had no effect on the task list.
+- **Comment badges on request table files now open the comment thread**: The blue badge on a file cell in the Request Table now appears only when there are open, unresolved comments — not for resolved or reply-only threads. Clicking the badge takes you directly to that file's comment thread instead of opening the file viewer.
+- **CoAudit formatting in task descriptions and memo sections**: When CoAudit updates a task description or a memo section, the content now appears correctly formatted instead of showing unwanted markup characters.
+- **Activity feed filter panel no longer shows misleading counts**: The filter flyout in the activity feed was displaying counts based only on the items loaded on screen, which could be lower than the true total. The counts are now hidden to avoid confusion — filtering still works as expected.
+- **Documents containing tables now process reliably**: Some files with embedded table content were getting stuck and retrying repeatedly without completing. This has been resolved.
+
