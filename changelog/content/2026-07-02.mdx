@@ -1,0 +1,32 @@
+---
+title: "Grouped AI Approvals, Improved Financial Statement Review, and Reliability Fixes"
+description: "Punchcard consolidates multiple CoAudit action requests into a single approval card, improves sync scroll and proof-mark precision in Financial Statement Review, and resolves PDF viewer, Excel viewer, and chat stability issues."
+date: "2026-07-02"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-07-02"
+---
+
+## CoAudit Chat
+
+- **Grouped action approvals**: When the AI requests several actions at once — such as moving multiple files into document groups — all pending approvals are now consolidated into a single grouped card. A "Preparing N approvals…" indicator appears while the AI is still working, then a single **Approve all** / **Reject** button handles the entire batch. After approval, the card shows a result summary inline (e.g., "Moved 5 of 6 files — receipt_03.pdf couldn't be moved").
+- **Reject with reason**: Declining an approval now reveals an optional text field where you can explain why. The AI receives your note and can adjust its next steps accordingly.
+- **Clearer choice prompts**: When the AI asks you to choose from a list of options, the card now uses distinct, clearly labeled Submit and Cancel buttons — making it easier to respond without ambiguity.
+
+## Financial Statement Review
+
+- **Sync scroll preserves your alignment**: When reviewing current-year and prior-year PDFs side by side, enabling Sync Scroll now locks in whatever alignment you've already set manually, rather than snapping both panes back to identical page positions. Scroll together from wherever you left off.
+- **Prior-year tick mark editing**: Clicking an existing tick mark annotation while in Prior Year Consistency mode now opens the full context menu — giving you the same edit and delete controls available in other review modes.
+- **Shift-constrained proof marks**: Hold **Shift** while drawing a line, arrow, or double-line to snap it to horizontal, vertical, or 45° diagonal. Useful for drawing precise accounting double-underlines and tie-out arrows.
+
+## Workpaper
+
+- **Document group file uploads fixed**: Creating a new document group from a client request and then uploading files into it now works reliably. Previously this could fail silently, leaving the group unable to accept files.
+- **Datasource rename conflict explained**: Renaming a datasource to a name already used in the same task now surfaces a clear message explaining the conflict. Previously the rename would silently revert with no feedback.
+
+## Reliability
+
+- **PDF viewer recovery**: The PDF viewer no longer gets stuck with unresponsive zoom controls and dead page navigation when first opened inside a panel that was collapsed or hidden. The viewer now recovers automatically when the panel is expanded.
+- **Excel viewer stability**: Opening the Excel viewer on a file whose AI citations reference a sheet that no longer exists no longer crashes the viewer.
+- **Task chat stability**: The CoAudit chat panel no longer goes blank when navigating between tasks in the same session.
+- **Team and client invite error messages**: When adding a team member or client user to an engagement fails, the notification now explains the specific reason (for example, "identity provider temporarily unavailable — try again shortly") instead of showing a generic error.
+
