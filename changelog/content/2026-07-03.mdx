@@ -1,0 +1,38 @@
+---
+title: "Workpaper run limits, engagement ID fix, and reliability improvements"
+description: "Punchcard now warns or blocks oversized workpaper automation runs before they start—with guided corrective actions—plus reliability and display fixes across engagement creation, chat, PDF viewer, and the workpaper grid."
+date: "2026-07-03"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-07-03"
+---
+
+## Workpaper Automation
+
+- **Run size protection with guided actions**: Before any automation run starts, Punchcard checks whether the workpaper exceeds safe operating limits. Oversized workpapers now show a clear, quantified notice in the run dialog — a hard block if the limit is exceeded (with a direct link to "Test a sample" via JE Sampling, or CoAudit guidance), or an amber warning that still lets you proceed when you're close to the limit. The check appears the moment you open the run dialog, before anything is submitted.
+- **Larger formula-only workpapers**: When every column uses formulas or lookups with no AI prompts, automation can now process significantly larger datasets. Because no per-row AI cost is involved, the record limits are substantially relaxed for these runs.
+- **Correct column order for formula runs**: Workpaper columns that reference the values of other columns now run in the right order, so dependent columns always see up-to-date upstream values rather than stale or empty ones.
+- **Smarter auto-matching setup**: When you paste selection data or attach a document group to an oversized datasource, Punchcard no longer automatically configures AI matching in a way that would immediately be blocked when you try to run it.
+
+## Engagement Creation
+
+- **Identifier collisions are now blocked, not silently resolved**: If the identifier you enter for a new engagement is already in use, submitting the form now stops and highlights the collision — with a one-click **"Use [suggestion]?"** button to accept the recommended alternative. Previously, submitting would silently create the engagement under a different identifier than you chose.
+
+## PDF Viewer
+
+- **Zoom buttons always work**: The + and − zoom buttons in the workpaper PDF viewer no longer become stuck after zooming. Previously, certain cancelled zoom actions could leave the controls unresponsive until the page was reloaded.
+
+## Chat & AI
+
+- **Extraction results stay visible**: After asking the AI to extract structured data from a document, the results table now stays visible at the top level of the conversation — including the Copy Raw Data button and clickable PDF-linked cells. Previously, these were collapsed into the "worked for N seconds" summary once the AI finished, making them inaccessible until manually expanded.
+- **Working indicator during background steps**: In task chat, the "AI is working" indicator and Stop button now remain visible while the AI completes background steps (such as running automations) after its reply has appeared. Previously, the interface could look like a completed message while the Stop button lingered with no visible explanation.
+
+## Memo
+
+- **No more mis-routed clicks on accounting policy add**: The "+" button to add an accounting policy now shows a brief disabled state while engagement variables are loading. Previously, clicking during the loading window could silently add a plain text entry instead of opening the variable picker.
+
+## Platform Reliability
+
+- **Workpaper cell values display correctly**: Date, number, and currency cells in the workpaper grid now show formatted values (e.g., `01/06/25`, `1,200.00`) instead of raw stored values that were appearing after a recent update.
+- **Task creation no longer freezes**: The new task and request creation form no longer becomes unresponsive after you submit it.
+- **Invited clients and guests log in reliably**: First-time invited clients and guests no longer encounter an error on their very first login when there is a brief disruption to authentication services.
+
