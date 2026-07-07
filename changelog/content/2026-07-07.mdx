@@ -1,0 +1,47 @@
+---
+title: "Skills: Reusable AI Prompt Templates for CoAudit and Workpaper Automations"
+description: "Punchcard adds a Skills library where auditors can save, share, and reuse AI prompt templates directly in CoAudit chat and workpaper automation columns."
+date: "2026-07-07"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-07-07"
+---
+
+### New: AI Skills
+
+**Skills** are named, reusable sets of AI instructions you save once and reference anywhere in your audit work — a Personal skill is private to you; a Firm skill is shared with everyone at your firm.
+
+- **Use a Skill in CoAudit chat** by typing `/` or selecting one from the "+" Skills menu in the composer. The skill's instructions are automatically included when you send — you can still add your own context before hitting send.
+- **Reference a Skill in workpaper automation columns** by typing `/` in any retrieval, match, or deep-analysis prompt field. Firm and Punchcard skills are available here; the skill's instructions are applied automatically at run time across every record.
+- **Browse and manage all your Skills** in the Skills library, opened from the "+" menu in CoAudit chat. Search by name or description, filter by Personal / Firm / Punchcard scope, and view, edit, or delete skills you have access to. Saving a change to a Firm skill shows a confirmation before it affects your whole team.
+- **Co-Audit can author and refine Skills directly from the chat** — ask it to save the current approach as a reusable skill without leaving the conversation. Saving a Firm skill from chat requires your confirmation first.
+- Sent messages display skill names as **inline badges**; clicking a badge opens the skill's full detail view.
+- The Skills editor supports **full formatting** — Enter, undo, bold, italic, and list indentation work as expected.
+
+### Memo
+
+- **Testing attribute descriptions** in the Memo now use the same rich-text editor as the Audit Procedure field on the workpaper — format text and include assertion references without the description reverting to plain text or showing markup on reopen.
+- **Co-Audit now treats Testing Attributes as part of the memo.** Asking it to "complete the memo" or "fill in the memo" will include the testing attributes alongside the narrative sections, rather than treating them as a workpaper-only concern.
+
+### Request Table
+
+- The **amber acceptance-criteria badge** on a failing file upload is now a clickable button that opens the system validation notes for that file directly — no need to navigate through the Files tab first.
+- **Auditor-internal notes** written against specific workpaper values no longer appear in the shared client-facing columns of the Request table.
+- When a cell contains multiple files, the warning badge now correctly identifies the **specific file that failed** acceptance criteria rather than defaulting to the first file in the cell.
+
+### Board
+
+- The **selection checkbox** in board list view now appears when you hover anywhere on a row, not just directly over the small checkbox icon.
+- **Tooltips** in board list view no longer clip behind the sticky row header.
+
+### Engagement Settings
+
+- The **Private engagement toggle** is now clearly shown as disabled — with an explanatory tooltip — for auditors who don't have permission to change an engagement's privacy setting. Previously the toggle appeared enabled, allowed a click, and then silently reverted, with no explanation.
+
+### Bug Fixes
+
+- Opening an engagement link you don't have access to now shows an **access-denied message immediately** instead of displaying a loading screen that never resolves.
+- **Inviting a team member or client** no longer stays stuck on "Sending…" indefinitely. If there's a delay, the form surfaces an error message so you can try again.
+- The **task chat panel and task overview** no longer go blank during certain navigation or AI-streaming transitions.
+- The **@-mention suggestion popup** in text editors no longer causes a crash when you close a dialog while the suggestion list is still open.
+- When asking Co-Audit to create a custom file in the chat, it can now **load any task file** using the same references it uses for reading and searching — files that were visible but couldn't be processed before will now work correctly.
+
