@@ -1,0 +1,35 @@
+---
+title: "Skills onboarding, redesigned Informed By view, and workpaper reliability improvements"
+description: "Punchcard introduces a first-time Skills intro guide, replaces the workpaper's 'Informed by' tree with a cleaner per-source bullet summary, and ships a round of reliability fixes across file viewing, chat, and export."
+date: "2026-07-11"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-07-11"
+---
+
+### Skills
+
+- **First-time Skills intro**: New users now see a compact, one-time prompt anchored to the chat composer's "+" button introducing the Skills feature — "Save prompts as Skills: write a prompt once, reuse it in any chat, for yourself or your whole firm." Dismissing it in any chat silences it everywhere.
+- **Typing `/` always opens the Skills picker**: The `/` shortcut in the chat composer now opens the picker even when you have no skills yet, showing a "No skills yet" message with direct links to browse or create your first skill. Previously the picker stayed hidden entirely, leaving no path forward.
+
+### Workpaper
+
+- **Redesigned "Informed by" section**: The panel section explaining how an AI-produced cell value was derived now shows a concise bullet list — one bullet per contributing document group — instead of an expandable recursive tree. Each bullet names the group and describes in plain language how that group's data shaped the result, with inline document citations you can click to jump to the supporting page.
+- **Value references open the source document in place**: Clicking a referenced upstream value in the "Informed by" section now opens the document viewer at the page where that value came from — without navigating away from your currently selected cell. You can verify the evidence behind each input while staying in context.
+- **"..." file menu now matches the right-click menu**: The three-dot button on each file row in the file explorer now offers the same options as right-clicking — including **Move to another datasource** and **Undo Split** for multi-segment files, which were previously available only via right-click.
+- **Undo Split refreshes the file list immediately**: After merging a split file's segments back into a single document, the file list now updates automatically — no page refresh required.
+- **Document viewer recovers gracefully from rendering failures**: If a file can't be displayed (for example, due to a corrupted PDF), the viewer now shows a clear message with a **Try again** button and a **Download** option. The rest of the workpaper — the grid, sidebar, and all other panels — stays fully functional. Previously, a viewer failure could take down the entire workpaper page.
+- **Workpaper Excel export uses hierarchical row numbers**: The "#" column in exported Excel workpapers now shows the same hierarchical address (e.g. 1.1, 1.2, 2.1) as the workpaper grid view, rather than a flat sequential counter.
+
+### Co-Audit Chat
+
+- **Working indicator stays visible for the full response**: The activity indicator now remains on screen for the entire duration of a Co-Audit response — including brief pauses between steps — instead of disappearing early while the Stop button was still showing.
+- **Escape key correctly collapses the expanded chat**: When the chat panel is open in full-screen mode, pressing Escape now collapses it back to the sidebar. Previously, Escape navigated away from the task instead of collapsing the chat.
+
+### File Processing
+
+- **OCR progress updates in real time**: Files being processed for text recognition now show live status updates, replacing a frozen spinner that previously gave no indication of progress.
+
+### Reliability
+
+- **Login fixed for users at organizations sharing an email domain**: Users at firms where multiple accounts shared the same email domain could encounter login failures on every attempt. This is now resolved.
+
