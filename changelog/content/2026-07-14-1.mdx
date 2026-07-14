@@ -1,0 +1,14 @@
+---
+title: "Improved citation resolution and workpaper automation reliability"
+description: "Punchcard fixes citation links inside table-formatted chat responses and improves workpaper automation consistency for firms with a preferred language."
+date: "2026-07-14"
+tags: [Bug Fix, AI, Automation]
+version: "2026-07-14"
+---
+
+### Bug Fixes
+
+- **Citations inside table-formatted content now link correctly.** When a chat response presented information in a table, citations embedded in table cells previously failed to link back to the source document. They now resolve as expected.
+- **Workpaper automations apply your firm's preferred language throughout.** Each step in a multi-step workflow analysis now uses the firm's configured language, so AI evaluation responses are consistent end-to-end rather than reverting to a default.
+- **Workpaper automations are more resilient.** An optional lookup that previously could abort an entire automation run on a transient error now recovers gracefully, keeping the rest of the run on track.
+
