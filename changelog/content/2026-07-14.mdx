@@ -1,0 +1,58 @@
+---
+title: "AI Language Matching and Regional Format Support"
+description: "Punchcard now responds in the auditor's language across all AI features, and sampling correctly handles European number and date formats — plus a range of workpaper navigation and reliability improvements."
+date: "2026-07-14"
+tags: [Feature, Bug Fix, AI, Automation, UI]
+version: "2026-07-14"
+---
+
+## Features
+
+- **AI responds in your language.** CoAudit chat, cell reasoning, match agent, testing attributes, review checklists, and math validation notes all now reply in the language you write in. Write in French, get French back. English is the fallback when the language is ambiguous.
+
+- **Sampling handles European and regional number formats.** Pasting EU-formatted amounts like `1.234,56` (dot as thousands separator, comma as decimal) is now recognized and parsed correctly without manual reformatting. MUS, Random, and Journal Entry threshold inputs — performance materiality, tolerable misstatement, floor amounts — also accept your firm's regional number format. Dates in day-first firms (e.g. DD/MM/YYYY) resolve correctly when the firm's format is configured; format tokens are case-insensitive, so `dd/mm/yyyy` and `DD/MM/YYYY` both work.
+
+- **Sampling PDF receipts use the firm's currency and date format.** Currency amounts and dates in sampling reports now display in your firm's configured format. Currency symbols that can't be embedded in standard PDF fonts (₹, ₩, ₪, ₺, ₽, ₫) are shown as their standard three-letter codes (INR, KRW, ILS, TRY, RUB, VND) so values remain readable.
+
+- **Currency declared in source documents is preserved in the workpaper.** When the AI extracts a dollar amount from a document and your firm is configured for euros, the cell now shows the dollar sign while the firm's separator style still applies. The source document's currency no longer gets replaced by the firm's display currency.
+
+## Workpaper improvements
+
+- **Multi-question AI cards now show a visible Next button.** When the AI asks a series of questions, the primary button reads **Next** on each question (enabled once the current question is answered) and morphs to **Submit** on the final question. The previous keyboard shortcuts still work; the button makes the forward path discoverable.
+
+- **Arrow and Tab navigation no longer changes the file viewer or side panel.** Moving between cells with arrow or Tab keys now updates the cell detail panel only. Opening the file viewer or switching the right sidebar still requires an explicit click.
+
+- **Escape key follows a clear priority order in the Workpaper.** If the CoAudit chat is expanded full-screen, the first Escape collapses it. If a cell is selected, the next Escape clears it. If either side panel is open, the next Escape closes both.
+
+- **Workpaper load failures now show a Retry button.** If the workpaper fails to load (for example, during a brief interruption), the page now shows a friendly message and a **Retry** button instead of a loading spinner with no way to recover.
+
+- **Re-run now always forces fresh results.** Previously, re-running automations could silently produce no changes when the underlying data appeared unchanged. The Re-run action now always triggers a full re-evaluation.
+
+- **Circular column dependencies surface an immediate error.** If two columns reference each other in a cycle, automations now fail right away with a clear message identifying the involved columns, instead of silently retrying.
+
+- **Bulk validate and flag now work correctly across multi-cell selections.** Using Ctrl+click to select cells across multiple rows and then validating or flagging them in bulk now processes all selected cells, not just the first group.
+
+- **Citation highlights appear immediately after a match automation run.** Clicking a citation in a freshly matched cell now highlights the correct location in the document viewer without needing a page refresh.
+
+- **Testing attribute results appear immediately after running.** Pass (✓) and fail (✗) verdicts, evidence bullets, and citation highlights now appear in the grid as soon as a testing attribute automation completes, without requiring a page refresh.
+
+- **Validated cells no longer show anomaly indicator badges.** Cells that have been accepted/validated no longer display the amber count badge. Rejected cells retain the badge since the anomalies are typically the reason for rejection.
+
+- **More citations now correctly highlight in the document viewer.** The AI sometimes returns citations containing formatted text (HTML table markup, ellipsis spans, punctuation) that previously couldn't be located in the source document, leaving citation pills with no highlight. These citations now resolve correctly for a wider range of document formats.
+
+## Fixes
+
+- **Deleting a testing attribute in the Memo now confirms the result.** If the server was unable to remove the attribute, the row is automatically restored and an error message is shown, rather than appearing deleted until the next page load.
+
+- **Sampling receipts are no longer downloaded automatically when saving.** Clicking Save Data no longer triggers an immediate Excel and PDF download. The receipt is now included in the workpaper export. The per-datasource "Download sampling report" button still provides on-demand receipt downloads.
+
+- **Opening Notification Settings no longer freezes the page.** Previously, opening and then closing the Notification Settings dialog could leave the page unresponsive until a full reload. This is now fixed.
+
+- **@mention suggestions no longer cover the word being typed.** The suggestion popover now positions itself so it doesn't obscure the text you are typing, and the list scrolls correctly for long lists of results.
+
+- **Evidence and citation edits in the cell detail panel no longer silently fail.** Editing or deleting an evidence bullet on a cell whose citation was matched from plain text (rather than a bounding box region) now saves correctly.
+
+- **Downloading a deleted file from the activity feed now shows a clear message.** If a referenced file has been removed, clicking its download button now shows a "File unavailable" notice instead of failing silently.
+
+- **Double scrollbar in the chat sidebar on Windows and Linux is fixed.** The CoAudit chat sidebar no longer renders its own vertical scrollbar alongside the message list's.
+
