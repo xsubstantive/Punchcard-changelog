@@ -1,0 +1,36 @@
+---
+title: "Run selected cells, CoAudit writes with evidence, and improved citations"
+description: "Punchcard lets you run AI testing on exactly the cells you select, adds reasoning and evidence when CoAudit fills in values through chat, and significantly improves document citation resolution on complex financial statements."
+date: "2026-07-15"
+tags: [Feature, Bug Fix, AI, Automation]
+version: "2026-07-15"
+---
+
+## New
+
+- **Run AI testing on exactly the cells you select**: Drag to select any range of cells in the workpaper grid (or Ctrl+click individual cells), then choose Run from the right-click menu or the panel that appears. AI testing runs only on those cells — fill empty values only, or overwrite existing ones — and the confirmation dialog shows a count per document group before you commit.
+
+- **CoAudit fills cells and creates matches with reasoning and evidence from chat**: Ask CoAudit to fill in a specific cell value or match a document to a row, and the result now appears with AI reasoning, supporting evidence, and clickable citation highlights in the document viewer — stamped as AI-authored so it is distinguishable from manual edits. Writing over already-reviewed or locked cells requires your approval before the change is applied.
+
+- **Switch between files when reviewing a collective cell**: When a workpaper cell aggregates values from multiple files, the filename label in the document viewer header is now a dropdown listing every contributing file. Click to switch — and any citation you draw after switching is saved against the file you are viewing, not the original.
+
+## Improvements
+
+- **More citations resolve to clickable document highlights**: Citations on complex financial statements now resolve to highlighted regions far more reliably, including values in non-contiguous table cells (such as a label on one row and its amount on another) and scattered multi-value fields (such as a list of dates or amounts across different lines). Previously many of these appeared as unlinked text with no highlight in the PDF viewer.
+
+- **The free-text "Something else" option is always present on AI questions**: When CoAudit presents a multiple-choice question in the chat, the open-ended "Something else…" text field is now always shown — you are never limited to only the options the AI offered.
+
+- **Number and date formats always match the engagement's firm**: Workpaper cell values, pasted data, and sampling imports now consistently apply the number separators and date order configured for the engagement's firm — even when your account is pointed at a different firm. Previously, a European firm's amounts could display or import incorrectly in some sessions.
+
+- **Accepted and rejected cell states update the grid immediately**: Accepting or rejecting a cell value is now reflected in the workpaper grid right away, without needing to refresh the page.
+
+- **Scoped runs show only the relevant progress**: When CoAudit runs AI testing on a specific column or document group rather than the whole workpaper, the in-progress indicator now lists only the items being processed.
+
+- **Auto-generated chat titles match the conversation language**: When CoAudit automatically names a chat, the title is now written in the same language as the conversation.
+
+## Bug Fixes
+
+- **Citations drawn on a sibling file now save correctly**: After switching to a different file in the collective cell viewer and drawing a citation, the annotation is saved against the file you were viewing — not the original file the cell pointed to.
+
+- **Fill-empty runs now reach downstream document groups after a manual match**: After manually accepting a file match in an upstream document group, a subsequent fill-empty run now correctly processes the newly eligible downstream rows instead of skipping them.
+
