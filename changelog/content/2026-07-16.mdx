@@ -1,0 +1,43 @@
+---
+title: "Match actions fixed, AI reasoning redesigned, PDF viewer more reliable"
+description: "Punchcard fixes a critical issue where Add Match results weren't showing in the workpaper grid, redesigns AI cell reasoning to be scannable and basis-first, and makes the PDF viewer recover automatically from blank-page failures."
+date: "2026-07-16"
+tags: [Feature, Bug Fix, Performance, AI, UI]
+version: "2026-07-16"
+---
+
+## Workpaper Match Actions
+
+- **Adding a match now appears in the grid immediately** — clicking "Select Match" in the cell detail panel reflects the new association right away. Previously the grid cell stayed blank until you refreshed the page, even after a successful match.
+- **Removing a match from the cell detail panel now works correctly** — matches cleared through the panel are actually removed and no longer reappear after a refresh.
+- **Moving a match that partially fails now shows an accurate result** — when some records couldn't be moved because they were protected, you now see which records were kept rather than a false "Match moved" confirmation.
+- **Adding a match no longer causes a brief flash** on the match button or flicker in the cell detail tab bar.
+
+## AI Cell Reasoning
+
+- **Cell reasoning now leads with the decisive basis** — the first line states the key finding directly; each following line presents one supporting fact with its source citation. Lines prefixed with ✗ (shown in red) call out discrepancies or exceptions the AI encountered and how it resolved them. This makes it easy to scan what the AI found without reading through a paragraph of prose. Cells generated before this change continue to display as before.
+
+## Lasso & Citations
+
+- **Drawing a new lasso makes that region the primary citation** — the newly drawn bounding box becomes the top citation for the cell, displacing the previous primary. Citations still referenced in the cell's reasoning text are preserved; stale ones are removed. This applies to single-lasso, sum-lasso, and citation-removal paths.
+- **Drawing a lasso on a match or tick column attaches evidence without changing the column's result** — the pass/fail outcome or match state is preserved; only the supporting citation is updated.
+- **Lassoing any cell in a Collective-mode column syncs all siblings** — the same value and primary citation are applied to the whole group. Each sibling keeps its own individually referenced citations.
+- **Fewer unresolved citation pills on complex financial statements** — citations in match and testing attribute columns now reference precise locations in source documents using structural coordinates, virtually eliminating greyed-out (unresolved) pills on dense tables and financial-statement layouts.
+
+## Re-Pasting Data into a Workpaper
+
+- **You can now explicitly skip mapping a column** — the column mapping step (shown when you replace workpaper data that has downstream references) now always offers a clear skip option. For match columns the default is still to remove the old column; for columns referenced by a prompt or formula, the option is available but not pre-selected, so you have to make a deliberate choice to proceed.
+- **The mapping step shows only when something would actually break** — if every referenced column still has a matching name in the new data, the step is skipped automatically and your references carry across correctly. The step now also correctly detects when a match column depends on an entire datasource, not just a single named column.
+- **Unresolved columns warn rather than block** — if a prompt-referenced column is left unmapped, the modal explains what will be affected (including which specific columns) and lets you continue and fix the prompt later, rather than preventing the save entirely.
+
+## PDF Viewer
+
+- **The viewer recovers automatically when the browser reclaims display resources** — if a blank or black page appears due to the browser dropping the rendering canvas (common when switching between many tabs), the viewer silently remounts and restores your current page without any action on your part. A built-in limit prevents this from looping if recovery fails repeatedly.
+- **PDFs open faster in multi-panel views** — files are fetched and cached once per session and shared across all panels that show the same document, eliminating redundant downloads when the same file is open in multiple places.
+
+## Other Fixes
+
+- **Panel resize handles are much easier to grab** — the draggable divider between panels in the task view now has a wider interactive area, so you no longer need to position the cursor precisely on a 2-pixel line to resize.
+- **Chat accurately reports when a document isn't ready** — if a file's text hasn't been extracted yet or extraction failed, the chat names the file and explains the specific status (still processing, no extractable text, or failed) instead of silently skipping it or showing a generic placeholder.
+- **Financial Statement Review manual footings no longer flag scaled columns incorrectly** — manual footings in TEUR or "in thousands" columns are now validated using the same rounding tolerance as automated footings, so legitimate rounding residuals are no longer flagged as discrepancies.
+
