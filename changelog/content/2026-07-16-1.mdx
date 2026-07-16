@@ -1,0 +1,28 @@
+---
+title: "Workpaper Cycle Prevention, Activity Feed Client Filter Fix, and Reliability Improvements"
+description: "Punchcard now blocks circular column dependencies the moment you create them, fixes a broken Client filter in the activity feed, and resolves several hangs and silent failures that affected daily audit work."
+date: "2026-07-16"
+tags: [Feature, Bug Fix, AI, Automation]
+version: "2026-07-16"
+---
+
+## CoAudit Workpaper
+
+- **Circular column dependencies are blocked the moment you create them**: if a formula, column reference, acceptance criteria prompt, or column name change would form a cycle with existing columns, the edit is rejected before it saves — the warning banner appears immediately with clickable column badges identifying every column involved, so you can correct the issue without navigating away. Only the specific edit that would introduce the new cycle is blocked; unrelated changes and recovery edits on a workpaper that already has a pre-existing cycle proceed normally.
+
+- **Clear message when file association conflicts with a running automation**: if you try to match or drop a file onto records that are currently being updated by a running automation, you now receive an actionable message — "These records are being updated by another operation. Please retry in a moment." — instead of the operation hanging silently for several minutes before failing.
+
+## Activity Feed
+
+- **Client filter now correctly scopes the feed**: selecting a client organization in the activity feed filter now actually narrows results to that client's activity. Previously, choosing a client appeared to apply a filter but continued showing activity across all clients.
+
+## AI Chat
+
+- **More reliable during long or data-heavy sessions**: improvements to how the AI assistant manages context across extended audit sessions reduce the likelihood of unexpected failures or incomplete responses when working through large workpapers or multi-step automations.
+
+## General
+
+- **Expired sessions redirect to sign-in**: when your session expires and cannot be automatically renewed, you are now taken to the sign-in screen instead of encountering a confusing error with no clear path forward.
+
+- **Simultaneous tick mark applications no longer conflict**: if two auditors apply the same tick mark at the same time, both operations now complete successfully instead of one of them returning an error.
+
