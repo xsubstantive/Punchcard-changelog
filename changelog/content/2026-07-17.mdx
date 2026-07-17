@@ -1,0 +1,29 @@
+---
+title: "Faster large-file uploads, readable AI sandbox steps, and stronger workpaper validation"
+description: "Punchcard eliminates browser freezes on large Excel uploads, makes Co-Audit Agent sandbox activity readable at a glance, and catches more circular-reference scenarios in workpapers."
+date: "2026-07-17"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-07-17"
+---
+
+## Performance
+
+- **Large Excel uploads no longer freeze the browser tab.** Uploading large spreadsheets previously caused the tab to lock up for a minute or more and sometimes left a file that appeared in the list but could never be downloaded. Uploads now complete in under a second regardless of file size.
+
+## AI & Sandbox
+
+- **Co-Audit Agent sandbox steps now show what they're doing.** When the agent runs code to build a report or analyze data, each step is labeled in plain English — for example, "Building Excel workbook" — instead of a static spinner. The underlying code is still available behind a "View code" toggle for those who want it.
+- **The Stop button now immediately halts sandbox work.** Pressing Stop while the agent is executing code interrupts all further steps right away rather than letting them run to completion.
+
+## Workpaper
+
+- **Circular-reference detection covers more scenarios.** Punchcard now catches circular dependencies that arise when pasting data with a different column mapping, when a match relationship is auto-linked, or when a match mode is switched. When a loop is found, the warning banner displays the exact chain as clickable column pills so you can jump straight to the involved column.
+- **Batch run approvals now name each column.** When the Co-Audit Agent queues several column-level runs for approval at once, each entry in the approval card now shows the specific column name and its document group. Previously all entries showed only the document group, making a batch of runs on the same group indistinguishable.
+- **Editing a deleted column now shows a clear message.** If you try to update a column that a teammate has already deleted, Punchcard now explains that the column no longer exists instead of showing a generic error.
+
+## Reliability
+
+- **Extraction progress no longer flickers.** The Review & Corrections panel in the chat sidebar stays steady while an extraction is running instead of flashing repeatedly.
+- **Financial Statement Review consistency checks are more stable.** A rare scenario where two consistency rules targeted the same entry at the same time could cause the analysis to stop partway through. This is now handled gracefully.
+- **Logging in from multiple locations no longer produces an error.** Opening Punchcard in a second tab or browser at the same time as an existing session previously triggered a server error in some cases; it now resolves cleanly.
+
