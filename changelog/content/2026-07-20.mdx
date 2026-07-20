@@ -1,0 +1,50 @@
+---
+title: "Shared file safeguards, CoAudit citation quality, and upload reliability"
+description: "Punchcard now warns before moving or deleting files shared across multiple workpapers, brings full citation quality to CoAudit cell edits, and fixes ghost file entries left by abandoned uploads."
+date: "2026-07-20"
+tags: [Feature, Bug Fix, AI, Automation]
+version: "2026-07-20"
+---
+
+## Features
+
+### Safeguards for files shared across workpapers
+When you move or delete a file in a document group used by more than one workpaper, Punchcard now shows a confirmation listing exactly which other workpapers will gain or lose access to that file. This applies to all file-explorer entry points: menus, drag-and-drop moves, bulk moves, file replacements, and deletions.
+
+- **Activity stream awareness**: file moves and deletions in shared groups now appear in the activity stream of every affected workpaper, attributed to the person who made the change.
+- **Real-time notices**: if a colleague moves or deletes a file from a group your workpaper shares, a brief notice appears so you're aware without needing to refresh.
+- **CoAudit approval cards**: when CoAudit moves a file between document groups, the approval card now lists which other workpapers are affected before you confirm.
+
+### CoAudit: smarter PDF-to-Excel conversion
+Converting a PDF to Excel now detects when a document's layout cannot be reliably extracted — such as borderless tables or payroll reports where columns are positionally arranged rather than tabular. Instead of producing a useless single-column spreadsheet, CoAudit guides you through a stepped escalation: first upgrading the document's text recognition, then applying geometric layout analysis if needed.
+
+A **"Re-run with higher-quality text recognition"** option is also now available in CoAudit for any PDF processed with the standard engine — useful when a document's tables came out garbled or collapsed into a single column.
+
+### CoAudit: citations in AI-edited workpaper cells
+When CoAudit edits a workpaper cell directly in chat, the cell now renders with full citation quality: clickable document highlights, inline citation pills woven through the reasoning, and clearly separated supporting and counter-evidence. Previously, cells written via CoAudit chat showed the value and reasoning but no linked citations.
+
+### CoAudit: full citation coverage tracking
+CoAudit's citation-quality check now measures against all cells that *should* have citations — matched document rows across all retrieval columns — not only cells where citations were already attempted. Cells that were never filled and datasources with no matched files now surface as gaps, so the coverage report reflects the complete workpaper rather than only what was attempted.
+
+### CoAudit: aggregate and group spreadsheet data
+CoAudit can now sum, count, average, and group data from spreadsheet files in a single query. For example, asking "What is the total amount by vendor?" returns grouped subtotals directly, without needing to browse every row first.
+
+### Correcting auto-sorted files from the activity stream
+When Punchcard auto-sorts a file into a document group, the activity stream now shows a **"Correct this action"** link on that entry. Clicking it navigates the file explorer to the destination group, pre-selects the moved files, and shows an inline prompt to move them — making routing corrections a guided one-step flow.
+
+## Improvements
+
+- **Testing formulas — blank cell comparisons**: a formula comparing two workpaper cells (e.g. comparing an extracted amount against a budget figure) now correctly shows as failing when one of the referenced cells has no value. Previously, a blank cell could cause the comparison to show as passing (green ✓), potentially producing misleading conclusions in testing columns.
+- **CoAudit collective columns**: when CoAudit edits a collective (merged) column in chat, it now checks all rows sharing that merged value before writing, so changes to any member row never silently overwrite the entire group.
+- **Financial Statement Review sidebar**: the "Open a current year financial statement" prompt now only appears when a non-current-year file is already open. It was previously visible in the empty state where clicking it had no visible effect.
+
+## Bug Fixes
+
+- **Ghost file entries**: files whose uploads were abandoned mid-way (tab closed, network dropped) no longer appear as broken entries in the workpaper. A file now only appears after its upload is fully confirmed on the server.
+- **Unsupported file types**: uploading a file type Punchcard can't extract text from (such as `.html`) no longer fails the entire upload batch. The file is kept and available for download, with a non-blocking warning shown in the upload progress card.
+- **Clicking a second file cell**: clicking one workpaper cell to open a document, then clicking a *different* cell's file count, now correctly switches to the new cell's file list. Previously the viewer stayed pinned to the first cell's document.
+- **Word document viewer**: when a Word file fails to display (for example, an older format or a file that cannot be rendered), the viewer now offers a "Try again" button and a "Download" option. Previously it only offered a full page reload, which would fail identically for the same file.
+- **Memo action buttons**: the delete, move, and open buttons in the Memo tab's accounting-policy and testing-attribute rows no longer flicker and become unclickable as you move your cursor from the row toward the button.
+- **Incomplete AI-generated artifacts**: if CoAudit's environment runs out of memory while building an Excel or Word file, the incomplete file is now discarded rather than delivered as if it were complete. The failure is reported clearly so you can retry with a smaller scope.
+- **Accessibility**: the "Select All" checkbox now correctly communicates a partial-selection state to screen readers and assistive technology when only some items in a list are selected.
+
