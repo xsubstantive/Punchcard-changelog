@@ -1,0 +1,24 @@
+---
+title: "Workpaper Reliability and Deep Analysis Migration to Skills"
+description: "Punchcard delivers a broad set of workpaper reliability fixes — failed saves revert cleanly, task switching no longer mixes up edits — plus the ability to import Deep Analysis questions directly into Skills."
+date: "2026-07-21"
+tags: [Feature, Bug Fix, UI]
+version: "2026-07-21"
+---
+
+## Features
+
+- **Import Deep Analysis questions into Skills**: Each existing Deep Analysis question now has an "Import to Skill" button that opens the Skills editor pre-filled with the question's content and name. The option to add new Deep Analysis questions has been replaced with a link to the Skills library — existing questions continue to run, edit, and delete as before.
+
+## Reliability Fixes
+
+- **Files still processing after upload no longer appear as failed**: When a large file takes longer than expected to finish text recognition, the workpaper now shows a "still processing" notice rather than marking it as failed. The status updates automatically once processing completes, so there is no need to re-upload.
+
+- **Failed saves now revert to the last confirmed value**: Across status changes, memo fields, review states, task names, and descriptions, a save that doesn't go through now reliably restores the field to the last value the server confirmed, instead of leaving it stuck in the unsaved state.
+
+- **Switching tasks no longer mixes up edits between tasks**: A save started on one task will no longer affect the task you navigate to afterward. Each save stays in the context of the task where it was made.
+
+- **Review status changes now update all related items immediately**: Accepting or clearing a review state on one workpaper item in a linked group now immediately reflects on the other items in that group in the same view, without requiring a refresh.
+
+- **Narrative card review badges stay in sync**: Review status badges on narrative cards now consistently reflect the latest confirmed state, even when a save and a concurrent change arrive at the same time.
+
