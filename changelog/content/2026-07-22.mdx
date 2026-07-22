@@ -1,0 +1,24 @@
+---
+title: "Sort-aware exports, source tracing in cell panel, and reliability fixes"
+description: "Punchcard now exports workpaper data in the order you see on screen, shows where CoAudit pulled each value from as clickable chips in the cell panel, and fixes several reliability issues around large-file processing and bulk uploads."
+date: "2026-07-22"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-07-22"
+---
+
+### Features
+
+- **Workpaper exports match your current sort order.** Excel exports — Workpaper Only, Files + Workpaper, and Table Data Only — now output rows in the exact order displayed in the grid. If you sorted by balance largest-to-smallest before exporting, the downloaded file reflects that, with row numbers renumbered to match. Your sort is also saved automatically and restored when you navigate away and come back.
+
+- **Clickable source chips in the cell panel.** When you open a cell's detail panel to view the prompt or formula CoAudit used, values that were drawn from other columns now appear as highlighted, clickable chips. Click a chip to jump directly to the source cell in the grid; a back arrow in the panel header lets you return to where you started. This makes it straightforward to trace exactly which upstream values shaped a given result.
+
+- **Skill mentions appear as pills in the main chat view.** When you type an `@[Skill name]` mention in the standalone chat, it now renders as a blue pill — matching the visual treatment in the task chat sidebar — so it's immediately clear the skill was recognized and will be applied when you send the message.
+
+### Bug Fixes
+
+- **Engagement variable form stays open after a failed save.** If you try to create a variable with a name that already exists, the form now stays open with your entries intact so you can correct and retry — instead of closing as though it had saved successfully.
+
+- **Bulk file uploads recover from temporary conflicts automatically.** Uploading a large batch of files at once (common in payroll workflows) no longer surfaces intermittent "Upload Failed" errors when multiple files finish around the same time. Conflicts are resolved and retried automatically in the background.
+
+- **Large PDFs no longer trigger a false re-upload prompt.** Files that take 10–15 minutes to extract — such as large payroll PDFs — sometimes showed a timeout warning and prompted a re-upload even though processing was still running and would have completed. That false alarm no longer occurs.
+
