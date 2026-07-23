@@ -1,0 +1,14 @@
+---
+title: "CoAudit Activity Display and Excel Citation Reliability"
+description: "Punchcard fixes how CoAudit displays helper-agent activity in the chat sidebar and resolves cited Excel exports failing on large workpapers."
+date: "2026-07-23"
+tags: [Bug Fix, AI]
+version: "2026-07-23"
+---
+
+### Bug Fixes
+
+- **CoAudit's activity feed now shows consistent, readable steps when helper agents are at work**: CoAudit sometimes delegates parts of a task to specialized helper agents. Their activity now appears in the same clean format as the main agent's steps — showing actual file names, collapsing repeated actions into a single grouped count, and displaying a compact summary once the work is done. Tapping the summary expands a scrollable view of every step. Previously, this activity could show garbled internal codes instead of file names, repeat the same step dozens of times and flood the sidebar, or disappear from the chat entirely after a page reload.
+
+- **Cited workpaper cell references in Excel exports no longer fail on large workpapers**: When CoAudit builds an Excel export that cites specific workpaper cells, it can now anchor those citations directly from the workpaper data it already scanned — without going back to re-read source documents a second time. This resolves a failure that previously blocked cited Excel exports when working across a large workpaper.
+
