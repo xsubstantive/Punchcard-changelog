@@ -1,0 +1,35 @@
+---
+title: "AI-built workbooks with clickable citations, smarter CoAudit delegation, and folder uploads"
+description: "Punchcard's CoAudit chat now produces Excel workbooks with clickable citations, delegates heavy workpaper exploration to worker agents, and accepts folders and ZIP files as chat attachments."
+date: "2026-07-23"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-07-23"
+---
+
+## New in CoAudit
+
+- **Clickable citations in AI-produced Excel workbooks**: When CoAudit builds an Excel workbook for you, individual cells can now include citations that link directly to the source document pages — the same click-to-open experience you get from a workpaper exported in Punchcard. Ask CoAudit to build you a workbook and it will wire up the citations automatically.
+- **CoAudit can now delegate complex tasks to worker agents**: For requests that require reading many files and authoring detailed evidence across a large workpaper, CoAudit can now hand off that exploration to a focused worker — keeping your conversation responsive while the heavy lifting runs. This capability was previously available only to administrators; it is now part of every task-mode CoAudit chat.
+- **Filter workpaper rows by review state**: CoAudit can now scope its reads and actions to only the rows you've flagged, validated, or haven't reviewed yet. Ask it to "look at only the flagged rows" or "re-run only unreviewed items" and it will target exactly that subset.
+- **Automation re-runs preserve your reviewed work**: CoAudit now correctly understands that re-running a workpaper automation never overwrites cells you've already validated or flagged — so you can safely ask it to refresh the rest of the workpaper without worrying about losing your review work.
+- **Upgraded AI model**: CoAudit chat now runs on an upgraded model with noticeably better accuracy on complex routing and multi-step tasks.
+
+## Chat & UI
+
+- **Drag folders and ZIP files into the chat**: You can now drop a folder (or several folders at once), or a ZIP archive, directly into the CoAudit chat composer — all files inside are collected and uploaded as individual attachments. Previously only individual files could be dragged in.
+- **Scroll position stays put when the AI finishes responding**: When the AI completes a reply, your reading position is no longer snapped to the bottom of the conversation. If you scrolled up to read an earlier message, you stay there. The scroll-to-bottom button becomes highlighted with a bouncing arrow to signal that a new reply is waiting — clicking it or scrolling down clears the indicator.
+- **Redesigned AI loading indicator**: The indicator shown while the AI is generating a response is now a slim, solid bar pinned at the bottom of the conversation with an animated Punchcard mark and status text. It no longer lets transcript content bleed through behind it.
+
+## Requests
+
+- **Simplified request status labels**: Client-facing request statuses are now **Outstanding**, **Returned**, **Submitted**, and **Accepted**. The button clients use to submit work is now labeled **Submit Request**; when a request is already submitted, it shows **Return to Outstanding** instead. Both auditors and clients will see a one-time announcement on the board summarizing the label changes side-by-side.
+
+## Bug Fixes
+
+- **Testing attribute name saves reliably on the memo page**: Typing a name and then quickly reloading the page or closing the tab no longer silently discards the change — it now saves the moment you click away from the field.
+- **ZIP file previews work correctly in CoAudit chat**: Files extracted from an uploaded ZIP now preview correctly in the document pane instead of showing a fetch error.
+- **PDF black-page recovery improved**: Black or blank PDF pages are now detected and recovered from the moment a document opens, not only when navigating between pages.
+- **Collective workpaper columns compute correctly across multiple files**: A column configured to produce one shared result across all files in a datasource group now generates a single synchronized value and applies it to every file, rather than running independently per file.
+- **Excel workbook delivery is more reliable**: In rare cases, generating an Excel artifact could fail due to an internal step unrelated to the workbook's content. That step now fails gracefully so your workbook is still delivered.
+- **Task breadcrumb segments no longer collapse**: Breadcrumb text in the task header now maintains a visible minimum width instead of occasionally collapsing to nothing.
+
