@@ -1,0 +1,36 @@
+---
+title: "CoAudit post-run triage interview and AI approval improvements"
+description: "Punchcard now guides auditors through a structured triage interview after automation runs, previews AI-written cell values before confirmation, and honors the Citations toggle for workbook citation behavior."
+date: "2026-07-26"
+tags: [Feature, Bug Fix, Performance, UI, AI, Automation]
+version: "2026-07-26"
+---
+
+## What's New
+
+- **Structured triage interview after automation runs**: When an automation run finishes, CoAudit now opens an interactive interview instead of a block of text. The AI presents the top three to five findings as individual cards — each with concrete fix options and a "handle later" escape — and works through a root-cause sequence: are files in the right groups? are matches correct? are failures genuine or a workflow mismatch? Workpapers created from a task template get an additional note when repeated failures suggest the issue lives in the template rather than individual rows. The same interview runs when you ask CoAudit to "review my analysis," and it won't re-read data already visible in the run card above.
+
+- **Preview what the AI will write before you confirm**: When CoAudit proposes writing a value to a protected workpaper cell, the approval card now shows the pending value — or Pass / Fail for a testing column — plus the AI's one-line reasoning, before you confirm. Batches show up to eight rows at a glance so you can review the recommendations rather than accepting them blind.
+
+- **Citations toggle now governs the AI's citation behavior in workbook responses**: The Citations switch in the chat header controls how actively the AI cites workbook cell values. **On** — the AI treats citing every supported value as mandatory and finalizes citations before responding. **Off** — the AI cites workbook cells only when you explicitly ask. The ability to add citations is always available regardless of the setting.
+
+## Improvements
+
+- **Firm Library loads without freezing**: Firms with very large libraries no longer experience the browser becoming unresponsive when opening the Library page. The list now renders only what is visible on screen, so the page is responsive immediately regardless of file count.
+
+## Bug Fixes
+
+- **Workpaper editor suggestion pickers no longer crash**: The @ mention, / skill, and # assertion suggestion pickers no longer cause the workpaper editor to crash when document content is updated while a picker is open.
+
+- **Clear message when a document group name is already taken**: Creating a document group with a name already in use on the workpaper now shows a specific "Name already in use" notice instead of a generic failure message.
+
+- **Sidebar updates immediately after joining or leaving an engagement**: Adding or removing yourself from an engagement now refreshes the left sidebar list right away, without requiring a page reload.
+
+- **Workpaper cells save reliably when multiple changes land at the same time**: Simultaneous edits to workpaper cells are now saved reliably — an edit no longer fails when another save is happening concurrently.
+
+- **Files with unusual characters process correctly**: OCR output and AI responses that include uncommon text characters now save correctly instead of failing partway through processing.
+
+- **Client Organizations list is more resilient**: The client list now handles brief connection interruptions gracefully, showing your clients instead of an error page.
+
+- **"Replace Rows" replaces "Replace Selection Data"**: The sampling split-button dropdown option has been renamed from "Replace Selection Data" to "Replace Rows" for clarity.
+
