@@ -1,0 +1,38 @@
+---
+title: "Task Edits, Memo Policies, and Workpaper Reliability Fixes"
+description: "Punchcard resolves several cases where task title, description, and memo accounting policy edits appeared to save but were silently discarded, alongside workpaper, board, and file processing reliability improvements."
+date: "2026-07-28"
+tags: [Bug Fix, UI]
+version: "2026-07-28"
+---
+
+## Data Integrity
+
+- **Task title and description edits now always save.** The first edit made to a task's title or description after opening the page was silently discarded — the interface showed success but the change was never stored. Subsequent edits on the same page load were fine. This is now fixed.
+- **Accounting policy changes persist immediately when navigating away.** Adding, removing, or reordering accounting policies in the memo and then quickly leaving the page could silently drop those changes. Structural edits now save the moment you make them, so it is safe to navigate away or reload immediately after adding or deleting a policy.
+- **Accounting policy title and description edits save when you leave the field.** Typing a policy title or description and then immediately switching pages could lose the edit. The field now saves as soon as focus leaves it, matching the behavior of all other memo fields.
+
+## Workpaper
+
+- **Large PDFs no longer show as failed while they are still processing.** Files that go through a secondary OCR pass (used when initial text extraction quality is poor) can legitimately take longer to complete. Previously the page would declare these files failed too early, prompting unnecessary re-uploads. The check now correctly waits for the full processing window before reporting a failure.
+- **Files stuck in OCR processing surface as failed more reliably.** When OCR was interrupted by a server issue, affected files could remain visually stuck indefinitely. They now correctly show as failed (red filename), and auditors can use Re-run OCR to reprocess them. Files that fail OCR three or more times in a row stay shown as failed until you manually trigger a re-run — automatic retries are suppressed to avoid a loop on files with consistently problematic content.
+- **Long AI prompt injected values are now readable.** When a retrieval column prompt contained a long upstream value — for example, verbose findings from another column — the value was displayed as an oversized pill that was unreadable at paragraph length. Long injected values now render as a subtle inline text highlight, preserving readability at any length.
+- **Workpaper column group chevron now stays in sync.** Collapsing or expanding a column group left the expand/collapse arrow pointing the wrong direction. The chevron now correctly reflects the current state.
+
+## Engagement Board
+
+- **Board no longer reloads unexpectedly.** A spurious page reload could occur when certain browser extensions or session recording tools encountered a network error. The reload logic is now scoped to genuine app loading issues, so external network activity no longer triggers it.
+- **Select-all checkbox works consistently in grouped board view.** When grouping the board by status, assignee, or another property, the column header's select-all checkbox was missing its expected behavior. Grouped and ungrouped views now behave the same way.
+
+## Memo
+
+- **Accounting policy reorder arrows are easier to click accurately.** The move-up and move-down buttons in accounting policy rows were small and tightly packed next to the delete button, making them hard to target and occasionally triggering accidental deletes. The buttons now have larger hit areas with more spacing between them.
+- **The accounting policies toolbar + button now opens the type picker reliably.** Clicking the + button in the accounting policies section of the memo was not opening the policy type picker in certain configurations. This is fixed.
+
+## Other
+
+- **Assigning a category to a task for the first time no longer causes a display error.** Selecting a category on a task that had never had one assigned could temporarily break the category label on that task. This is now fixed.
+- **Empty task titles can be clicked to edit.** A task title that had been cleared to empty had no visible click target, making it impossible to edit without workarounds. An empty title now shows a placeholder that keeps the field clickable.
+- **The status-rename announcement modal no longer blocks the rest of the page.** While this modal was open, clicking anywhere outside it — including board columns and other page controls — was silently swallowed rather than dismissed or acted upon. Clicking outside the modal now closes it.
+- **CoAudit chat no longer shows duplicate controls in certain task chats.** In some cases the chat panel could display two sets of send and attachment controls simultaneously. This is now fixed.
+
