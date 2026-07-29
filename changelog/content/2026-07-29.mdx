@@ -1,0 +1,26 @@
+---
+title: "Client File Downloads, Acrobat PDF Fix, and Reliability Improvements"
+description: "Clients can now download engagement files as a ZIP archive in Punchcard, annotated Financial Statement Review PDFs open correctly in Adobe Acrobat Reader, and datasource operations are more reliable when AI is actively running."
+date: "2026-07-29"
+tags: [Feature, Bug Fix]
+version: "2026-07-29"
+---
+
+## New Features
+
+### Client file downloads
+
+**Clients can now download all engagement files as a ZIP archive** directly from the engagement page. Previously, clients could only access the Status Report — the files section was visible only to auditors. The new "Files → Download .zip" option gives clients access to uploaded evidence files and reference materials. Auditor-only documents are never included.
+
+If any files cannot be packaged, the download will still complete and include a plain-text list of exactly what is missing, so clients always know what they received.
+
+## Improvements & Bug Fixes
+
+### Financial Statement Review
+
+- **Annotated PDF exports now open correctly in Adobe Acrobat Reader on Windows.** Some exports were previously flagged as corrupt when opened in Acrobat (while opening fine in other PDF viewers). This is now resolved — exports work consistently across all major PDF viewers.
+
+### Stability
+
+- **Removing or replacing a datasource while AI is actively processing it no longer fails.** Users previously encountered an error in this scenario that interrupted the operation; it now completes as expected.
+
