@@ -1,0 +1,42 @@
+---
+title: "Financial Statement Review: group verdicts, recalculation detection, and cross-country number format handling"
+description: "In Punchcard's Financial Statement Review, confirming or flagging a number group now resolves all occurrences at once, derived-value relationships like margin percentages are detected automatically, and each statement's number format is identified from the document itself."
+date: "2026-07-30"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-07-30"
+---
+
+### Financial Statement Review
+
+**Group-level decisions in Internal Consistency and Prior Year Consistency**
+
+- **Settling a group is now a single action.** Confirming or flagging a number group resolves all its occurrences — current-year and prior-year — simultaneously. Previously each occurrence had to be handled individually, and prior-year numbers had no controls at all, leaving some groups stuck showing a partial verdict indefinitely.
+- **Groups display the number of occurrences they cover** rather than a running reviewed/total count. Sidebar progress now tracks groups, not individual occurrences — one group is one decision.
+- **Each occurrence can be removed from its group independently.** Every row, including prior-year rows, now has a "Remove from group" action to dispute a number's membership without changing the group's verdict for the remaining occurrences.
+
+**Recalculation: multiplication and division relationships**
+
+- Financial Statement Review now **automatically detects when a value is mathematically derived from other cells** via multiplication or division — for example, a margin percentage calculated from revenue and expenses, or a contributions figure expressed as a percentage of covered payroll. Tick marks are suggested when the relationship holds and flagged when the calculation does not reconcile.
+- Only well-supported relationships are surfaced; proposals without enough corroborating evidence are filtered out automatically, keeping exception marks meaningful.
+
+**Number format detection per statement**
+
+- FSR now **detects whether each financial statement uses US or European number formatting** from the document itself, rather than always applying the firm's default. This prevents incorrect footing results when a firm audits statements prepared in a different country's format — for example, a European firm reviewing a US-formatted balance sheet.
+
+**Fewer false exceptions in Internal Consistency**
+
+- IC no longer raises exceptions on numbers that are part of an **expected allocation or breakdown** — for example, one expense line disaggregated across Program Services, Management, and Fundraising columns, or a list of component lines that sum to a total elsewhere on the statement. These represent expected differences, not genuine inconsistencies.
+- IC group formation is more precise: each member of a group must have an individual reason to belong, reducing cases where unrelated occurrences were incorrectly grouped together.
+
+**Foot/Crossfoot validation accuracy**
+
+- The Foot/Crossfoot check now **identifies more total rows across your statements** and produces fewer incorrect corrections, including on statements where some formulas are genuinely wrong elsewhere on the same page.
+
+### Workpaper
+
+- **Uploads of large files are more resilient.** When the initial processing request took too long to return a response, files could appear as failed even though processing was still running in the background. The upload now checks the actual processing status and updates automatically when it completes.
+
+### Task Overview
+
+- **The task overview page no longer fails to load when a category was deleted.** If a task's assigned category had been removed from the engagement, opening that task would previously show an error. The page now opens normally and treats the task as uncategorized.
+
