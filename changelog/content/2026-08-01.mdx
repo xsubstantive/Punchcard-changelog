@@ -1,0 +1,32 @@
+---
+title: "Workpaper export labels, chat feedback confirmation, and Financial Statement Review accuracy"
+description: "Punchcard now shows the correct export format in the workpaper menu, confirms AI chat ratings with a toast, and delivers more accurate Financial Statement Review results with fewer false exception flags."
+date: "2026-08-01"
+tags: [Feature, Bug Fix, AI]
+version: "2026-08-01"
+---
+
+## Workpaper
+
+- **Export menu labels now match what you receive**: the "Workpaper Only" and "Files + Workpaper" export options now show the correct file format — **.zip** when sampling reports are bundled in, **.xlsx** otherwise. The label and the download now always agree.
+
+## CoAudit Chat
+
+- **Feedback is now confirmed with a message**: clicking thumbs up or thumbs down on a CoAudit response now shows a brief confirmation ("Thanks for your feedback") so you know your rating was recorded.
+- **The AI recovers from spreadsheet column name mismatches**: when querying or filtering spreadsheet data, the AI now finds columns even when capitalization or spacing differs from the file's headers, and tells you the available column names when it still can't resolve one — so fewer repeated failed attempts before it finds the right data.
+- **Documents with spaces or special characters in their names now work correctly**: files whose names include spaces, parentheses, or similar characters no longer cause issues when the AI processes or delivers them.
+- **Engagement variables are resolved more reliably in task chats**: the AI can now look up engagement-wide variables correctly across all task types, including scenarios that previously returned an error.
+
+## Financial Statement Review
+
+- **Citation highlights now point to the correct text**: an issue where a citation sometimes highlighted text in the wrong part of a page — such as a character inside a row label instead of the actual value — has been fixed.
+- **Fewer false exception flags on valid line items**: several categories of incorrectly flagged amounts are no longer surfaced as exceptions, including roll-forward opening balances, ratio and rate rows, amounts in limit or percentage columns, and certain narrative-captioned items.
+- **Progress tracking during analysis is accurate**: the status indicator shown while Financial Statement Review is running now reflects each step's real progress. Previously, the indicator could show outdated information during a re-run or after reconnecting.
+- **Analysis completes reliably after a re-run**: a case where the progress spinner would hang indefinitely following a failed re-run has been fixed.
+
+## Platform
+
+- **Invite dialog shows the correct client name**: the dialog for inviting team members or clients in Engagement Settings now reliably displays the correct client organization name. It previously showed "No client" in some situations.
+- **Library content search closes correctly when dismissed**: clearing or closing a content search while results were still loading now dismisses the panel as expected instead of leaving it stuck open.
+- **Login restored for users with duplicate account records**: a small number of users who were unable to access Punchcard due to a duplicate account record can now log in successfully.
+
