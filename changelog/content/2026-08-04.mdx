@@ -1,0 +1,38 @@
+---
+title: "Word add-in ribbon parity, PDF viewer comments on drawn marks, and platform reliability"
+description: "Punchcard's Word add-in ribbon now has the same controls as Excel; drawn lines and arrows in the PDF viewer support comments; and uploads, OCR processing, and automation runs are more reliable across the platform."
+date: "2026-08-04"
+tags: [Feature, Bug Fix, Performance, UI, AI, Automation]
+version: "2026-08-04"
+---
+
+## Office Add-ins (Excel & Word)
+
+- **Word ribbon now matches Excel** — The Word add-in ribbon now includes the same controls as Excel: CoAudit (AI chat), Sum (draw boxes across pages to total values), and Clear citations. These were previously absent from the Word ribbon, requiring workarounds.
+- **CoAudit / Review tabs in full-screen chat** — When the AI chat panel takes the full screen on a narrow pane, tabs at the top let you switch between CoAudit and Review without navigating away.
+- **Cross-document search cycling** — After searching across your source documents, the next/previous arrows now cycle through results from all files in sequence, opening each document at the matching location as you step through.
+- **Sum mode keeps drawn boxes visible** — While drawing additional sum components, citation boxes already saved for that cell stay highlighted in the viewer so you can see exactly what you have already captured before adding more.
+- **Upload destination redesigned** — Choosing where to upload files now shows a card list with an "Upload Here" button for each folder, matching the look and feel of the document import flow.
+
+## PDF Viewer
+
+- **Comments on drawn lines and arrows** — Selecting a drawn line or arrow in the PDF viewer now opens the same action menu as a citation number, including the ability to add and view comment threads. Previously, drawn marks only offered a delete option.
+- **Sum calculator matches cell currency format** — The running total in the sum calculator now uses the same number and currency format as the workpaper cell it feeds, so the displayed values are consistent.
+
+## Workpaper & Automation
+
+- **Automation conflicts give a clear retry message** — When a match or automation run encounters a conflicting in-progress operation (such as a file deletion), it now fails within seconds with a clear message to retry, rather than hanging silently for several minutes before erroring.
+- **Manual footings are fully editable** — Manually added footings in the math sidebar now support the same edits as pipeline-discovered footings: you can correct the stated result and adjust operator signs, and the verdict updates automatically when the numbers change.
+
+## Reliability
+
+- **Bulk uploads recover from brief network interruptions** — Large file uploads now automatically retry when a transient network issue occurs, instead of failing and requiring a complete re-upload.
+- **Files that finish processing late no longer stay stuck** — OCR occasionally completed after the initial wait window, leaving files in a permanent "timed out" state. These files now automatically show as ready when processing finishes.
+- **Deleting tasks with many files now succeeds reliably** — Tasks with a large number of attached files now delete completely rather than timing out partway through.
+
+## Financial Statement Review
+
+- **More consistent table structure reading** — The AI that identifies rows, headers, and columns in financial statement tables has been upgraded to a significantly more reliable approach, reducing misclassified rows and inconsistent results across successive runs on the same document.
+- **Improved accuracy on German financial schedules** — Several patterns that caused false exceptions on German-format statements are now handled correctly, including schedules where the total column appears to the left of the detail columns, and expense or provision line items that were incorrectly flagged as subtotals.
+- **Footing discovery improvements** — The system now correctly proposes footings for single-member section subtotals, balance-sheet identity rows (where two total rows are cell-for-cell equal), and paragraphs containing label-less totals that were previously invisible to the discovery engine.
+
