@@ -1,0 +1,84 @@
+---
+title: "Table Merge in FSR, CoAudit Workbook Authoring in Excel and Word"
+description: "Punchcard adds non-destructive table merge for financial statement review, CoAudit chat with live workbook writing in Excel and Word, inline scale correction for math validation, and AI analysis in the language of the reviewed document."
+date: "2026-08-06"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026-08-06"
+---
+
+## Financial Statement Review
+
+### Merge tables that span page breaks
+
+- **Select two adjacent-page tables** in the review sidebar and choose a merge strategy: **Vertical** (the table continues across the break) or **Horizontal** (columns are split side by side).
+- A **live preview** shows row accounting, a list of any values that would not carry over (named by amount, not just counted), and whether column headers can be reconciled — all before you commit.
+- Merges are **non-destructive**: existing tick marks, variance analyses, and comments are preserved and carried to the merged result.
+- A **dashed seam line** in the PDF marks where tables were joined. **Undo a merge** by hovering the seam and clicking Unmerge, or using the revert control in the sidebar list. Math validation re-runs automatically after each merge or unmerge.
+
+### Correct a misread presentation scale
+
+- Every Foot/Crossfoot calculator now shows a **unit chip** (e.g., "TEUR", "thousands") auto-detected from the table header.
+- **Click the chip** to correct a wrong detection — for example, changing "full amounts" to "thousands" when the statement is in TEUR. All findings in that calculation re-score immediately, and tick marks on findings whose verdict changed are flagged for recheck.
+- A filled chip indicates a system-detected unit; an outlined chip means you set it manually. A "Reset to detected" option restores auto-detection.
+
+### PDF text search
+
+- Press **Cmd/Ctrl+F** while viewing a PDF to open a find bar with previous/next navigation through all matches.
+- In dual-pane Current Year / Prior Year view, the shortcut routes to the pane you last interacted with.
+- The shortcut is not intercepted when the cursor is inside a text field such as a comment box.
+
+### AI analysis now matches the document's language
+
+- Internal Consistency grouping labels, Foot/Crossfoot correction reasoning, and Prior Year comparison analysis are now written in **the document's own language** — German, Spanish, Italian, and others — rather than always in English.
+- Table titles extracted during enrichment are preserved verbatim rather than translated.
+
+### Accuracy improvements
+
+- **Fewer false math exceptions**: the math correction step now discards proposed total-row compositions that fail to reconcile on any constraint before flagging them. This removes a class of false exception marks on correct statements, such as the example where two unrelated line items were incorrectly marked as totals.
+- **Percent-change columns with negative bases**: whether a "% change" figure uses a signed or absolute-value convention is now inferred from the document by majority vote rather than assumed, removing false exceptions on correctly-stated rows.
+- **Multi-line row labels** in European-format statements — including labels that open with a currency-prefixed value like "−€1,234.56" or "€−1,234" — are now correctly joined into a single row, preventing false footing exceptions on wrapped captions.
+
+---
+
+## CoAudit Chat in Excel and Word
+
+### Workbook authoring (Excel)
+
+- CoAudit can now **read and write the live Excel workbook** — cell values, formulas, number formats, fill colors, merged cells, and citations — directly from the task pane.
+- Ask CoAudit to **build a cited workpaper schedule**: it reads source PDFs, extracts figures with page references, writes values and formulas into cells, and attaches citations so each number traces back to its source page in the PDF.
+- **Write Sessions**: approve a described block of work once ("populate the detail sheet for 26 paystubs, with citations") and all workbook writes in that scope proceed without interruption. Sharing a document group from another task still asks individually.
+- **Approve All**: a toggle beside the Citations control grants a standing approval for the current conversation, so nothing interrupts a long unattended run. Resets when the tab is closed.
+
+### CoAudit chat now in Word
+
+- The **Word task pane now includes CoAudit chat** with the same AI assistant as the web app. Citation review and source evidence are unchanged; workbook authoring tools are Excel-only.
+
+### Document group management in the pane
+
+- **Create, rename, and delete document groups** from the task pane without opening the web app. A 3-dot menu on each group offers Rename and Delete, with a file count shown in the confirm dialog before deleting.
+- The **+ tile** offers two options in one click: create a new group or import an existing group from another task in the engagement.
+- **Empty document groups** now appear immediately after creation rather than staying invisible until a file is uploaded into them.
+- Files uploaded through the pane now **trigger text recognition automatically**, matching web upload behavior.
+- **Renaming or removing a shared document group** from an importing task no longer affects the source task or any other task that shares the group.
+
+### Other add-in improvements
+
+- The ribbon button that opens the citation and evidence surface is now labeled **"Viewer"** (previously "Review") to distinguish it from the Validate / Flag / Clear review actions.
+- The **import panel navigation** has been simplified: the engagement name and a back chevron appear in the header rather than in the scrolling body, so the context label stays visible as you drill into folders.
+
+---
+
+## Workpaper
+
+- **PDF text search**: press Cmd/Ctrl+F while a PDF is open in the workpaper to search the document's recognized text with previous/next navigation.
+- **Removing the last client-uploadable document group** now presents an explicit choice: move the task to the internal Tasks board, or keep it as a client request with no upload destination. The outcome is no longer decided automatically without input.
+
+---
+
+## Reliability
+
+- **Certain files were permanently undownloadable** if their name contained a space near a dot (e.g., "Report pg. 2"). These files now download correctly.
+- **Navigating directly to an engagement board URL** could occasionally leave the page blank if a navigation attempt was dropped during load. The page now shows a spinner and retries until navigation succeeds.
+- **MUS formula panel**: the formula result shown in the Monetary Sample Size panel now matches the formula's own arithmetic rather than the final selected row count, which could differ on small populations.
+- **File moves within the workpaper** now complete atomically, so a move on a large file with many records no longer risks leaving data in a half-migrated state if it runs long.
+
