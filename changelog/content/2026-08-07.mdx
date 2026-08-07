@@ -1,0 +1,36 @@
+---
+title: "Excel Add-in: Unified Workbook Authoring and Document Status Visibility"
+description: "Punchcard's Excel add-in now writes values, citations, and formatting in a single approved step; a new Text tab in the Document Manager shows file-by-file recognition status with automatic status refresh."
+date: "2026-08-07"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-07"
+---
+
+## Excel Add-in — Workbook Authoring
+
+- **Writing to a workpaper cell now requires a single approval, not three or more.** Previously, filling one cell correctly could require separate approvals for the value, the formatting, and the citation. All of these are now batched into one step, so you approve once and everything is applied together.
+- **AI can read a cell's current contents — including its formula, citation, and formatting — and update only the parts that need to change**, leaving everything else untouched. This makes targeted corrections predictable and avoids accidentally clearing a reviewer's existing work.
+- **Cells you've already filled are protected from silent overwrites.** If AI tries to write over a cell that contains your work, it stops, shows you what is already there, and waits for you to confirm before replacing anything. When you do approve a replacement, the confirmation card leads with a clear notice that existing data will be replaced.
+- **AI can now attach multiple evidence citations to a single cell.** When a figure rests on more than one piece of supporting evidence — for example, a ship date and freight terms from two different lines of the same document — each source gets its own clickable highlight in the document viewer.
+- **When AI cites a passage it cannot locate in the source file**, it now reports exactly which quote didn't match and suggests how to retry, rather than silently appearing to succeed with no highlight to click.
+- **The approval mode selector is now labeled Manual and Skip all approvals** (previously "Ask" and "Approve All"), with a raised-hand icon for Manual and a warning-triangle for Skip, making the difference clear at a glance. The collapsed toggle shows the short form (Manual / Skip) to fit the task pane.
+- **File imports always require their own approval**, even when a write session is active. Other workbook writes — values, formatting, citations — still proceed without interruption once a session is approved; importing a document group always shows a separate approval card.
+
+## Excel Add-in — Document Manager
+
+- **Two tabs now appear over the file list: Cited and Text.** The Cited tab shows which files have evidence linked to workbook cells. The new **Text tab** groups files by text-recognition status — successfully processed, still recognizing, failed, and unsupported — with a red badge for failures and a purple badge for files still being processed, visible from the Cited tab so extraction problems are never silent.
+- **Text recognition status refreshes automatically** while files are processing: every two seconds for the first 30 seconds, then every five seconds up to two minutes, then every 15 seconds. A "Check again" link appears if recognition hasn't finished within that window.
+- **File names appear in the Document Manager as soon as you select them for upload**, with a spinner in place of the file-type icon, so you can see what is in flight without waiting for the transfer to complete.
+- **Drag files, folders, or ZIP archives directly onto the Document Manager** to upload them. Dropping onto an open document group uploads into that group; dropping above the list opens the standard destination chooser.
+- **The region selector (US / EU) now appears only when needed** — during sign-in or when the pane cannot connect — rather than displaying a banner on every launch.
+
+## CoAudit Citations
+
+- **Multi-word quotes now match correctly in source documents.** Citing a phrase such as "Pay Date: 12/22/2025" previously failed to find a match because the quote spans multiple words in the document's underlying text, producing a full-page highlight with nothing to click. The highlight now lands precisely on the quoted text.
+- **Citation highlights cover the full quoted phrase, not just the first word.** A three-word quote now produces a single highlight spanning all three words.
+- **False citation matches are prevented.** A quote can no longer match text where it appears only as part of a longer phrase — for example, "Pay Date" will not highlight "Repay Dated."
+
+## Karbon Integration
+
+- **Firm admins can now connect their Karbon integration without contacting support.** Previously this required a backend command run by an operator. Firm admins can now go to **Admin → Integrations → Karbon** and paste their Karbon access key directly. The key is verified against Karbon before being saved, so a typo cannot replace a working connection.
+
