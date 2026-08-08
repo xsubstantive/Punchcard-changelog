@@ -1,0 +1,38 @@
+---
+title: "Engagement navigation, in-turn AI approvals, and reliability improvements"
+description: "Punchcard adds hover-based breadcrumb navigation between engagements, approval cards that pause and resume the AI without ending the session, and fixes for bulk file upload drops and shared library previews."
+date: "2026-08-08"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-08"
+---
+
+## Navigation
+
+- **Browse sibling engagements from the breadcrumb** — hovering the engagement name in the breadcrumb opens a panel listing all engagements under the same client, sorted by most recently updated. Each row shows the engagement's status, title, and a color-coded bar of task and request counts by status. Clicking any row navigates to that engagement while preserving your current Tasks or Requests view.
+- **Refreshed breadcrumb design** — the breadcrumb adopts a new chip style with cleaner idle, active, and hover states. On the engagement board, the audience label ("Tasks" or "Requests") no longer appears as a trailing segment; the trail ends at the engagement name.
+- **Board Display menu no longer freezes the page** — the column, row, and ordering settings panel now stays open while you select options from its dropdowns, and the board behind it remains scrollable. Previously, opening the Display menu made the entire page unscrollable until it was closed.
+
+## CoAudit AI
+
+- **Approval cards no longer end the AI session** — when CoAudit reaches a step requiring your approval, it pauses inline and resumes automatically once you approve or decline. You no longer need to type anything to continue the AI's work after acting on an approval.
+- **Decline reason improves the AI's next attempt** — when you decline an approval, you can optionally explain why. The AI receives your explanation and adjusts its next proposal, eliminating the need for a separate follow-up message.
+- **Excel add-in: approval cards stay visible across all tabs** — a pending approval now appears above the chat, Documents, and Viewer tabs so you won't miss it if you switch views while the AI is waiting.
+- **Excel add-in: workbook operations run without interruption** — the AI can now read and write workbook cells across a long authoring session without pausing between operations, making complex workbook tasks faster to complete.
+
+## Firm Library
+
+- **Contextual empty states** — when a tag filter returns no results, the library shows "No documents match the selected tags." When a text search returns nothing, it shows "No matching documents found." The upload prompt appears only when the library is genuinely empty with no active filters, so filtered views no longer suggest your library is empty.
+- **Preview files uploaded by colleagues** — firm members can now open and preview documents that a colleague uploaded to the shared library. Previously, opening another person's file showed a "Failed to load file preview" error.
+
+## File Uploads
+
+- **Bulk uploads no longer silently drop files** — uploading a large batch of files at once no longer fails partway through and discards some files. A real production session had previously lost files mid-batch; this is resolved.
+
+## Workpaper Automation
+
+- **AI processing recovers from concurrent edits** — if workpaper records are deleted while the AI is actively processing them, the remaining extracted results are now preserved rather than the entire batch being discarded.
+
+## Accessibility
+
+- **Screen reader labels for draw and comment controls** — the comment toggle, draw line/arrow button, and split-button in the document viewer toolbar now announce their names and active states correctly to screen readers.
+
