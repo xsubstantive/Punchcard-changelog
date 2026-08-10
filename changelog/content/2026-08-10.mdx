@@ -1,0 +1,20 @@
+---
+title: "Redesigned citation review panel for Office add-ins and workpaper navigation fixes"
+description: "Punchcard's Excel and Word add-ins now show citation details in a docked bottom panel with in-pane Validate and Flag controls; clicking a workpaper cell reliably opens the cited document."
+date: "2026-08-10"
+tags: [Feature, Bug Fix, UI]
+version: "2026-08-10"
+---
+
+### Office Add-ins — Redesigned Review Panel
+
+- **Citation details now appear in a docked bottom panel** below the document viewer, so the source document and your review notes are visible at the same time. Toggle the panel open or closed with a button in the pane controls, drag the divider to adjust its height, and the add-in remembers your preference across sessions. The panel works the same way in both Excel and Word.
+- **Validate and Flag are now available directly in the panel** — no need to reach for the ribbon for single-citation verdicts. Unreviewed citations show Validate and Flag buttons in the bottom panel; once a verdict is set, the button becomes a status badge (Validated / Flagged) with a one-click clear option. The ribbon Review group still handles bulk selections in Excel.
+- **New Settings button (gear icon) in the ribbon** lets you re-link a bound workbook or Word document to a different engagement or task without closing the pane. Use the familiar cascading picker to select or create a client, engagement, or task.
+- **Sign-in is more reliable.** If Microsoft's authentication flow takes an unusual path, the add-in now detects the completed sign-in and returns to the pane automatically rather than appearing stuck. If the pane ever lands on the wrong page, clicking any ribbon button brings it back immediately.
+
+### Workpaper
+
+- **Clicking a cell now opens the correct source document.** The document viewer opens to the file where the cell's primary citation is highlighted — not to a fallback file that may have nothing to do with that cell's evidence. Citations that reference a file from a different part of the engagement also load correctly.
+- **The collapse/expand arrow on datasource column groups** now points in the correct direction after each click.
+
