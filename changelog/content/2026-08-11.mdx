@@ -1,0 +1,50 @@
+---
+title: "Auto-sorted file uploads, CoAudit data queries, and Financial Statement Review upgrades"
+description: "Punchcard adds drag-anywhere auto-sorted file uploads to the Workpaper, expands CoAudit AI to query your audit data, and ships a dedicated comment button and unified Recalculation procedure in Financial Statement Review."
+date: "2026-08-11"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-08-11"
+---
+
+## New
+
+### Drop files anywhere on the Workpaper — they sort themselves
+
+Drag files onto any row in the Workpaper table to upload and attach them to that specific selection. Drop files anywhere else on the page and each file is automatically sorted into the best-matching document group — no manual assignment needed. A new **"Unsorted" column** on the right side of the table tracks files as they process, with a per-file status popover showing progress and an option to remove files that couldn't be matched. The reference-file panel now only expands when you deliberately hover the paperclip icon, so dropping files anywhere else on the page always goes to the auto-sort flow.
+
+### CoAudit can answer questions about your audit data
+
+The CoAudit chat assistant now has direct access to your audit portfolio. Ask **"show me all overdue tasks,"** **"what's the oldest outstanding client request?"** or **"find tasks assigned to me in this engagement"** — CoAudit queries your clients, engagements, tasks, activity log, and workpaper comments to answer. Available in both standalone chat and task-embedded chat.
+
+### Financial Statement Review: footing and recalculation in one unified procedure
+
+Footing (sum checks) and Recalculation (multiplication and division checks) are now presented as a single **"Recalculation"** procedure in the sidebar and cover sheet. Draw your operands as usual — the system detects the operation type automatically and routes the result to the correct check. Your firm's existing footing glyph applies to all results. The Manage Tick Marks dialog no longer shows the now-redundant duplicate entries from before the merge.
+
+### Financial Statement Review: dedicated "Add a comment" button
+
+A new **message icon** in the PDF toolbar puts you directly into comment-placement mode — click any spot on the document to start a thread, without navigating through the tick-mark picker. Previously, adding a standalone document comment required going through the tick-mark flow, and in math-validation mode it was not possible at all. Standalone comments are now visible and accessible across every sidebar mode.
+
+---
+
+## Improvements
+
+- **Engagement Settings empty states are now clickable** — "Add your first category" and "Add your first variable" now open the creation form when clicked. Previously they looked like buttons but did nothing.
+- **Activity stream file names open the viewer** — clicking a file name in a task's activity feed now opens that file in the document viewer. Deleted files remain as plain text.
+- **Activity feed updates after file changes** — uploading or deleting a reference file now refreshes the activity stream immediately, without requiring a full page reload.
+- **Archived engagements display correctly** — engagements in Archived status now show as "Closed" across the client list, engagement table, and sidebar, rather than appearing as "Planning." Archived is also now a selectable option in the engagement status picker.
+- **Financial Statement Review outputs in the document's language** — tick-mark notes, group labels, and analysis text now match the language of the financial statement being reviewed. A regression had been causing English-document output to appear in Spanish or German for many files across multiple firms.
+- **FSR accuracy improvements for German and EU-format statements** — Financial Statement Review now correctly skips index pages, asset registers, and other appendix tables rather than flagging their entries as financial exceptions. Single-column numeric tables in EU decimal format are now correctly extracted and validated.
+- **FSR navigation after confirming a result** — after confirming a footing or recalculation result, the sidebar now correctly advances to the next item in sequence, including sibling relationships on the same cell (such as both a row sum and a column crossfoot on one number).
+- **PDF viewer controls always respond** — the zoom, page navigation, and fullscreen controls now respond to clicks even when the toolbar has faded from inactivity. Hovering them brings the toolbar back.
+- **@mention comments always save** — if a notification email to a mentioned colleague can't be delivered, the comment saves successfully regardless. Previously a delivery failure would cause the whole comment to appear to fail.
+- **"Paste from clipboard" shows a loading indicator** — the paste button in the sampling table now shows a spinner while waiting for clipboard permission, so it no longer looks unresponsive during the browser prompt.
+- **Citations in AI responses render correctly** — inline citations in CoAudit responses now display properly even when some references can't be resolved, and unresolved placeholders no longer appear as stray characters in the message text.
+
+---
+
+## Bug Fixes
+
+- Fixed a hang that could occur when selecting a match on certain workpaper files — the action now responds quickly rather than waiting several minutes before failing.
+- Fixed an issue where navigation could freeze for users with Cyrillic, Asian-script, or emoji characters in engagement or task names.
+- Fixed large documents occasionally failing to complete text recognition when multiple documents were being processed at the same time.
+
