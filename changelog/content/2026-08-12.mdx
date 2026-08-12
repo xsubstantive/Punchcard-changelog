@@ -1,0 +1,20 @@
+---
+title: "AI model selection in CoAudit chat, plus file handling and chat reliability fixes"
+description: "Punchcard restores the CoAudit AI model picker, fixes automatic file routing in Financial Statement Review, and surfaces clear explanations when a conversation grows too long."
+date: "2026-08-12"
+tags: [Feature, Bug Fix, AI]
+version: "2026-08-12"
+---
+
+## CoAudit Chat
+
+- **Choose your AI model and effort level**: A compact dropdown in the CoAudit chat footer lets you select which AI model to use and how deeply it should reason — from fast responses to more thorough analysis. The platform's recommended setting for most audit tasks is pre-selected. Your choice is saved per conversation and restored when you reopen it; switching between chats restores each conversation's individual setting. Models that are temporarily unavailable are shown as disabled rather than hidden.
+- **Conversations that grow too long now explain what happened**: When a conversation reaches a length the AI can no longer continue from, CoAudit surfaces a clear inline message — "This conversation has grown too long for the model to continue. Start a new chat to keep going — the messages here are saved." Your full conversation history remains accessible from chat history.
+- **Conversations that stop responding now tell you why**: If CoAudit completes several turns without producing a response (typically because the conversation has grown very long), it now surfaces a "This conversation has stopped responding" message with guidance to start a new chat. Nothing is lost — all prior messages are saved.
+
+## Workpaper & File Handling
+
+- **Files in Financial Statement Review stay where you put them**: A bug was causing files uploaded to a specific document group in Financial Statement Review to be automatically re-routed to a different group. Files now land and stay in the document group you chose — FSR never applies automatic sorting.
+- **Automatic file sorting is now targeted**: Drag-and-drop auto-sorting only activates when you aim at a designated upload target — a row's Unsorted cell or the corner task-level cell. Dropping files elsewhere on the workpaper page no longer triggers auto-routing.
+- **Dropping a file on an empty area of the page no longer navigates away**: Previously, dropping a file outside a recognized upload target could cause the browser to leave the workpaper and open the file directly. This no longer happens.
+
