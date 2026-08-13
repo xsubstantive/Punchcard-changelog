@@ -1,0 +1,24 @@
+---
+title: "CoAudit-first add-in layout with file sorting and grouping"
+description: "Punchcard for Excel and Word now opens directly in CoAudit chat, with the document viewer in a collapsible sidebar; new file display settings let auditors sort and group source files by what matters most."
+date: "2026-08-13"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-13"
+---
+
+## Features
+
+- **Redesigned Excel and Word add-in layout.** CoAudit chat is now the default view when you open the task pane — no extra click required. The document viewer and file manager live in a collapsible right sidebar. On wider panes, both panels appear side by side with a draggable divider; on narrower panes, dedicated controls let you switch between them. The sidebar's width is remembered across sessions.
+- **File sorting and grouping in the Document Manager.** A new display-settings control (gear icon) in the file toolbar lets you sort files by date added (newest first, the default) or by name, and — when inside a document group — group files by citation status or text-recognition status so you can focus on what still needs work. If any files have failed text recognition, the gear shows a red badge and the first menu item takes you straight to those files.
+- **Clear guidance for unprovisioned accounts.** If you sign in with an account that isn't yet connected to an audit firm, the add-in now shows a plain "Welcome to Punchcard" screen explaining what to do, with a **Check again** button (provisioning can complete while the pane is open) and a sign-out option — instead of a working-looking interface where every action silently failed.
+
+## Bug Fixes
+
+- **Non-admin workbook attachment now works.** Non-admin users can now attach a workbook or document to an engagement from the add-in — the form was previously locked and gave no indication why.
+- **CoAudit "Conversation too long" shows immediately.** When a chat grows too large to continue, the error appears right away instead of after several invisible failed attempts. The message and guidance remain the same.
+- **Scrolling in Excel no longer jumps.** With the add-in open, scrolling the spreadsheet no longer snapped back to the selected cell.
+- **Word add-in notifies you when a restart is needed.** If a ribbon action stops responding because Word needs to be restarted, the add-in now shows a clear notification — instead of silently freezing all ribbon controls.
+- **Cite, Lasso, and Sum now open the document viewer.** Activating a drawing tool from the ribbon now reliably brings the document into view, rather than landing on the file list and cancelling the draw.
+- **Document Manager no longer shows a previous user's files.** After signing out of the Word add-in, the file tree is cleared — a subsequent user no longer sees the prior account's document groups and file names before their own files load.
+- **Engagement category colors are more readable.** Dot colors in the engagement breadcrumb menu now use the same calibrated palette as the rest of the product — several shades that were previously too light to read against their backgrounds have been corrected.
+
