@@ -1,0 +1,59 @@
+---
+title: "Office Add-ins: Engagement-Based Workpapers, FSR Calculator Ordering, and Reliability Improvements"
+description: "Punchcard's Excel and Word add-ins now bind to an engagement directly with a redesigned document browser and unified CoAudit history; Financial Statement Review calculators now support drag-to-reorder operands and typed constants."
+date: "2026-08-13"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-13"
+---
+
+### Financial Statement Review
+
+- **Reorder calculation operands** — drag the grip handle on any operand row to set the formula sequence that is right for your calculation. Arrow keys on a focused grip do the same. The order you set is saved with the finding.
+- **Enter a value not printed in the document** — in Calculate-First mode, type a literal number (such as × 100 for a common-size percentage) without needing to draw a box around anything in the source file. Typed values are treated as constants and excluded from rounding estimates.
+- **Operand set stays fixed on AI-discovered recalculations** — when editing a relationship the system detected automatically, the remove button now appears disabled with a tooltip explaining why, rather than being hidden. You can still adjust operators and sequence.
+
+### Excel & Word Add-ins
+
+**Attaching and changing engagements**
+
+- **Bind to an engagement directly** — the setup flow when opening an unattached workpaper now asks for a client and engagement only, skipping the task step. The confirm button reads "Attach to engagement."
+- **Change Attachment opens pre-filled** — the overlay now shows your current client and engagement already selected. Update only the level that actually changed.
+- **Switching to a different engagement clears previous documents** — re-linking to a new engagement removes document groups from the old one so your Documents panel reflects the new scope immediately.
+
+**Document manager**
+
+- **Groups appear at the top level** — the Documents panel now lists your document groups directly, without having to open a task folder first. The originating task appears as context on each row.
+- **Import multiple groups in one step** — check individual groups or an entire task header to select all its groups, then confirm in one action. Groups already in the workpaper appear as "Added" rather than offering a tick.
+- **Remove a group from this workpaper** — the group menu now includes a "Remove from this workbook" option that detaches the group without deleting it. Files remain available to other workpapers.
+- **Empty groups say so** — a document group with no files now shows an explanatory message and an Upload button instead of appearing as blank space.
+- **Files cited from other sources remain visible** — documents your workpaper has cited that live outside its imported groups appear as a read-only entry, so you can still open and reference them.
+- **Client request groups fully manageable** — document groups tied to client request tasks can now be renamed, deleted, and used as upload targets in the add-in.
+- **Uploading into a new engagement works immediately** — if the engagement has no tasks yet, the upload flow now offers to create the first one in the same step rather than discarding your file selection.
+
+**CoAudit chat**
+
+- **Unified conversation history across Excel and Word** — the chat history panel shows all your conversations in the current engagement regardless of which add-in started them. Moving between an Excel workpaper and its Word narrative shows one combined history.
+
+**Sign-in**
+
+- **Unverified email shows a clear next step** — if your account email has not been verified, the add-in now shows a specific, actionable message and a "Check again" button rather than a generic error.
+
+**Reliability**
+
+- **Selecting cells no longer jumps the scroll position in Excel** — an issue where Excel scrolled back to the selected cell after you had scrolled away is fixed.
+- **Ribbon buttons recover automatically from brief failures** — temporary update failures now retry on the next action without requiring a reload.
+
+### Partner API
+
+- **Retry-safe sampling submissions** — include a `request.id` field in your POST request to make it idempotent. Submitting the same identifier again updates the existing sampling task rather than creating a duplicate, equivalent to a manual resend. The response echoes back the identifier you sent. Omitting `request.id` preserves the original behavior where each POST creates a new task.
+
+### Bug Fixes
+
+- **FSR tasks open on the review page from the breadcrumb menu** — clicking a Financial Statement Review task in the top navigation breadcrumb menu previously landed on the task overview. It now opens the review page directly.
+- **Opening a task with @mentions no longer shows "Save failed"** — a formatting step that ran when loading a task was incorrectly treated as an unsaved edit. This no longer triggers a save attempt or an error notification.
+- **Task overview errors no longer affect the rest of the workspace** — if the overview panel encounters a problem, it now degrades locally rather than replacing the entire work area with an error screen.
+- **Lasso and cite work for all same-firm auditors** — auditors from the same firm who were not explicitly listed on a task could not lasso or cite evidence in the add-in. This is fixed.
+- **Annotating a document no longer closes it** — using lasso, cite, or Sum on a freshly opened document no longer dismissed the document while the operation was in progress.
+- **Review sign-offs show the actual reviewer's name** — on workpapers bound to an engagement without a linked task, sign-offs now identify the reviewer by name correctly rather than showing a generic placeholder.
+- **All cited files appear in workpapers with many citations** — workpapers citing a very large number of files now correctly display the full set.
+
