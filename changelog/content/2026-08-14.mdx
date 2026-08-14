@@ -1,0 +1,36 @@
+---
+title: "Auto-generated engagement identifiers, redesigned CoAudit search, and multi-page table support"
+description: "Punchcard now generates engagement identifiers automatically, CoAudit's document search in Excel and Word is fully redesigned with semantic always on, and wide multi-page financial tables are correctly detected and processed."
+date: "2026-08-14"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026.08.14"
+---
+
+### New Features
+
+- **Engagement identifiers are now auto-generated.** When creating a new engagement, Punchcard automatically produces a short identifier from the client name and audit period year — for example, CVS26 for a CVS Health engagement ending in 2026. If that identifier is already in use, a unique variation is generated without any extra steps. The identifier field has been removed from the creation form.
+
+- **CoAudit search in Excel and Word is fully redesigned.** Semantic search is now always on — no checkbox required. Results are split into two groups separated by a divider: exact text matches at the top, and topically related mentions below. A scope selector sits directly under the search box and is always visible; choose between the open file, the document group, all files in the workbook, or the entire engagement. Cross-file hits surface as cards showing the filename, page, and a snippet, split into verbatim matches and related-by-topic. The result count row shows compact badges for related mentions and cross-file hits. A spinner inside the search box indicates when a search is still running.
+
+- **Wide multi-page financial tables are automatically joined before processing.** Financial schedules that overflow across pages — where the continuation page carries only amounts with no row labels, such as German fixed-asset rollforward tables (Anlagenspiegel) — are now automatically detected and merged into a single table. Foot/crossfoot validation and AI extraction now see the complete table rather than disconnected fragments.
+
+- **Netting entries are now recognized as valid footings.** The Foot/Crossfoot validator now correctly identifies offsetting entries — where two titled rows cancel each other exactly to a zero total, common in German GAAP § 246 disclosures — and validates them rather than flagging them as exceptions. The validator also prevents double-counting when a formula's operands include a subtotal alongside that subtotal's own components.
+
+### Improvements
+
+- **Reordered F/CF calculator operands now survive page reload.** When you drag operands into a custom order in the Foot/Crossfoot calculator, that order is saved and restored the next time you open the calculation.
+
+- **F/CF operand reordering is now available on all standard calculation types.** Drag-to-reorder was previously limited to Calculate-First mode. It is now also offered on regular row footings and column crossfootings. The drag handle has been updated to match the grip style used elsewhere in the product, and the drop indicator is no longer hidden behind the dragged row.
+
+- **The CoAudit add-in now detects your firm's data region automatically.** On first use, the add-in uses your device's timezone and network signals to determine whether your firm's data is in the US or EU cluster. When signals are clear, it routes silently. When they disagree, a banner asks which region your firm uses before proceeding — and that answer is remembered permanently. If you land on the wrong region after sign-in, a "Try the other region" option appears on the provisioning screen.
+
+### Bug Fixes
+
+- **Image files (PNG, JPG) no longer get stuck on a loading spinner.** Image attachments on task pages now open and display correctly. Citation highlights on image files also now appear at the correct position on the page.
+
+- **Task pages no longer crash when a file appears in more than one document group.** A configuration where the same file was shared across multiple document groups could cause task pages to fail entirely for everyone on the engagement. This is resolved.
+
+- **Internal Consistency no longer incorrectly groups large numbers of unrelated zero values.** IC was sometimes lumping dozens of independent zero or round-number cells into a single group even when the underlying values had nothing to do with each other. Groupings now require a shared identifiable fact before cells are linked.
+
+- **English review checklists always produce output in English.** Running the Review Checklist analysis on an English-language checklist could occasionally return extracted prompts in another language (such as Spanish). The language of the checklist is now detected and stated explicitly, so output language is consistent.
+
