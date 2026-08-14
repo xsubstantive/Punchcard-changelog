@@ -1,0 +1,30 @@
+---
+title: "CoAudit chat finds engagements by partial name, Office Add-in flow improvements, and Financial Statement Review accuracy gains"
+description: "Punchcard improves engagement search in CoAudit chat, fixes the image evidence viewer on first open, and delivers several Office Add-in document management and Financial Statement Review improvements."
+date: "2026-08-14"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-14"
+---
+
+## CoAudit Chat
+
+- **Find engagements by partial client name**: Searching for an engagement in CoAudit chat no longer requires an exact match. Typing a short or partial name now finds the correct client automatically.
+
+## Office Add-in
+
+- **Create a new task directly from the document group destination chooser**: When adding a document group, the destination picker now includes a "＋ New task…" option regardless of whether tasks already exist. Type a name and the task and document group are created together in one step.
+- **AI cell updates now complete on the first attempt**: CoAudit's AI tool for writing values directly into workbook cells now works reliably. Previously it could get stuck making repeated attempts without making any changes.
+- **Land on the rename row after creating a group**: After creating a new document group, the Add-in now brings you directly to the group's rename row so you can name it immediately.
+- **Duplicate group name error is now readable**: Trying to name a document group with a name already in use now shows a clear, plain-language message — and keeps the rename field open so you can choose a different name right away.
+- **No unexpected navigation when selecting a task in the chooser**: Choosing a task in the document group creation flow no longer caused the document manager to jump unexpectedly to a different location.
+
+## Evidence Viewer
+
+- **Image evidence files display correctly on first open**: Opening a PNG or other image evidence file for the first time now shows the image in the correct position. Previously, a loading indicator could push the image out of view until you closed and reopened the file.
+
+## Financial Statement Review
+
+- **Fewer false exception flags**: The AI layer that checks formula accuracy now rejects certain patterns that were producing incorrect flags, reducing cases where valid numbers were marked as exceptions.
+- **Multi-page table structures handled more accurately**: Two-page financial tables — including those with multi-line header bands common in German-format statements — are now correctly identified and merged, improving the accuracy of reviewed figures.
+- **Text recognition in analysis workflows is more reliable**: Files requiring text recognition during certain analysis runs now process correctly instead of failing silently.
+
