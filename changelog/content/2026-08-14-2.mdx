@@ -1,0 +1,19 @@
+---
+title: "Smarter CoAudit navigation and more reliable AI validation"
+description: "Punchcard improves CoAudit task routing, AI query reliability in CoAudit, and reduces false exceptions in Financial Statement Review."
+date: "2026-08-14"
+tags: [Bug Fix, AI]
+version: "2026-08-14"
+---
+
+### CoAudit
+
+- **Task navigation goes to the right place.** When you ask CoAudit to take you to a task — for example, "go to the most recent @mention" — it now opens that task's actual working area (the review page, workpaper, or overview) rather than the chat interface.
+- **AI queries are faster and more reliable.** An issue caused the AI to get stuck repeatedly failing when querying certain engagement data, significantly delaying responses before eventually working around the problem. This is now resolved and queries succeed on the first attempt.
+
+### Financial Statement Review
+
+- **Fewer false math exceptions from AI correction.** The AI math engine now rejects formula proposals that would incorrectly flag correctly-stated rows — including proposals that reference empty or header columns and single-cell assertions that don't hold. This reduces noise in Foot/Crossfoot results.
+- **Citation highlights point to the correct cell in wide tables.** For statements with tables that span across multiple pages, clicking a citation now highlights the correct source cell. Previously, the highlight could appear over the wrong value.
+- **More reliable file processing.** Fixed a regression where files requiring OCR could fail to complete, showing an error instead of finishing normally.
+
