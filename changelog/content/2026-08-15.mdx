@@ -1,0 +1,42 @@
+---
+title: "Clickable CoAudit Cell References, PDF Page Navigation, and Workpaper Reliability"
+description: "Punchcard adds clickable cell references in CoAudit Excel chat, direct PDF page jumping, a cleaner file match workflow, and fixes for stuck workpapers and lost reasoning notes."
+date: "2026-08-15"
+tags: [Feature, Bug Fix, Performance, AI, UI]
+version: "2026-08-15"
+---
+
+## New Features
+
+- **CoAudit cell references are now clickable (Excel add-in)**: When CoAudit mentions a cell address, range, worksheet, or named range in a response, it appears as a clickable chip. Clicking it immediately selects those cells or navigates to the referenced sheet in your workbook — no more manually hunting for the reference.
+
+- **Jump to any page in a PDF**: The page indicator in the PDF viewer is now an editable field. Type a page number and press Enter to jump there directly, instead of stepping through one page at a time on long documents.
+
+- **Cleaner file match states**: Files now show one of five clear review states — **Needs Match**, **Needs Review**, **Flagged**, **Accepted**, and **Out of Scope** — with a badge indicating whether the match was made by AI or manually. This replaces the previous lock/unlock terminology for a more straightforward review workflow.
+
+- **Unsorted files are now reachable**: Files that couldn't be automatically placed into a document group now appear in a dedicated **Unsorted** folder in the file explorer. You can open, move, or delete them from there, just like any other file. Previously these files were invisible and inaccessible.
+
+## Bug Fixes
+
+- **Reasoning notes no longer lost in the Excel add-in**: Typing reasoning notes and then clicking back into the spreadsheet — or using a ribbon action like Validate or Flag — would silently discard the draft. Reasoning is now saved before switching to a new cell or closing the panel.
+
+- **Reasoning notes also saved when the panel is closed by a ribbon command**: Even when a ribbon action closes the reasoning panel while you are mid-edit, your draft is captured before the panel disappears.
+
+- **Rotated PDF pages now display correctly**: Pages stored sideways in a PDF now render upright, with citation boxes, tick marks, and review overlay numbers landing in their correct positions.
+
+- **Workpaper no longer shows a blank screen on errors**: A loading failure previously left auditors on an unstyled, featureless page with no way to recover. A proper error screen with a **Retry** button now appears instead.
+
+- **"Loading conversation" no longer gets stuck**: Navigating to a task via a chat's "Take me there" link could leave the task's chat pane spinning indefinitely. The conversation now loads correctly after navigation.
+
+- **Client not-found page keeps the full app layout**: Navigating to a client URL that no longer exists now shows a clear "We could not find this client" message with a **Back to clients** link, rather than an unstyled plain-text error that looked like a broken page.
+
+- **Workpaper Run is more resilient**: If a column was deleted between opening the Run dialog and confirming, the entire run would fail with an error. Now the stale column is quietly skipped and the run proceeds. A slow or dropped connection when starting a run also no longer shows a false failure banner while the run continues in the background.
+
+- **Financial Statement Review: improved accuracy for South African number formats**: Space-grouped numbers with dot decimal separators — common in South African financial statements — are now correctly extracted. Multi-group numbers in this format were previously dropped silently during matching.
+
+- **Financial Statement Review: renamed document groups now included in file classification**: Document groups that had been renamed by an auditor were previously excluded from the classifier, causing files to be routed to the wrong group. Classification now uses the group's current name.
+
+## Performance
+
+- **Pages load faster**: The JavaScript delivered to your browser is meaningfully smaller — primarily by reducing the code bundled for syntax highlighting in CoAudit chat responses. Pages should feel snappier, especially on first load or on slower connections.
+
