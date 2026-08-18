@@ -1,0 +1,48 @@
+---
+title: "Rebuilt CoAudit approvals, Outlook-style invites, and Excel selection chip"
+description: "Punchcard delivers a ground-up redesign of CoAudit's workbook-write approval experience with per-cell diffs and explicit overwrite consent, an Outlook-style invite picker with firm autocomplete, and a live Excel selection chip that shows exactly what context rides with each message."
+date: "2026-08-18"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-18"
+---
+
+## CoAudit Workbook Approvals — Rebuilt
+
+- **Per-change diffs before you approve**: when CoAudit wants to write to the workbook, the approval card now shows a row-by-row breakdown — the cell address (click it to jump there in Excel), what each cell will hold after the write, the current value shown struck through when it will be replaced, and CoAudit's stated reason.
+- **Explicit overwrite consent on the card**: if a proposed write would replace existing data, a dedicated **"Replace existing data"** button appears so you can authorize it directly — no need to send CoAudit back to rephrase the same request.
+- **Safe writes proceed automatically**: when CoAudit's writes are confirmed to fill only empty cells, the approval card is skipped entirely and the changes are applied without interruption.
+- **Impossible patches return automatically**: if a proposed write genuinely cannot be applied (for example, it targets a range or worksheet that doesn't exist), it is automatically returned to CoAudit for revision — no dead card to dismiss.
+- **Partial write tracking**: when a batch of writes partially succeeds, the resolved card clearly reports how many changes were applied and how many were skipped, and why.
+- **copy_range now uses the same overwrite protection**: copying a range to an occupied destination now shows the same disclosure and requires the same explicit confirmation before replacing existing content — or auto-approves when the destination is empty.
+
+## Ask CoAudit — Redesigned Choice Cards
+
+- **Click to answer**: for single-choice questions, clicking an option **is** the answer — no separate Submit step. The card advances to the next question or completes the batch automatically.
+- **Skip individual questions**: a **Skip** button on each question lets you skip just that one while still answering the rest. The **✕** at the top right dismisses the entire card at once.
+- **Keyboard shortcuts**: press **1–9** to pick the corresponding option directly, use arrow keys to move between choices, and **←/→** to page between batched questions.
+- **Streaming-safe**: answering is blocked while CoAudit is still generating the option list, so you never answer against an incomplete set of choices.
+
+## Invite Dialogs — Outlook-Style Recipient Picker
+
+- **Chip-and-input recipient field**: type or paste email addresses and they appear as removable chips. Paste an Outlook-style recipient list ("Display Name \<email\>") and names are preserved automatically.
+- **Autocomplete from your firm directory**: start typing and matching firm members appear as suggestions with their name and email — click to add without typing the full address. The field is active immediately; you don't have to wait for suggestions to appear before entering addresses.
+- **"Add yourself" shortcut**: your own name pins to the top of the suggestion list for one-click self-enrollment.
+- **Clear domain validation**: addresses that don't pass your firm's domain check appear as red chips; click a red chip to restore the address to the input for correction. Chips entered before the directory finishes loading are automatically re-checked once it arrives.
+- **Client domain advisory**: inviting clients from a different email domain than your existing client members shows a non-blocking warning so you can review before sending — the invite still proceeds.
+
+## Excel Add-in Improvements
+
+- **Live selection-context chip**: when you have cells selected in Excel, a chip labeled with the range address (e.g., "N17:O18 selected") appears directly above the chat composer — so you always know exactly what selection will accompany your next message. Click **×** to exclude it from the outgoing message without changing your Excel selection.
+- **Cell-detail panel for uncited cells**: the bottom panel now opens for **any** selected cell, not only those with attached citations. Cells without reasoning or evidence show a clear "No reasoning or citations on this cell" placeholder instead of hiding the panel entirely. The panel also defaults to open.
+- **CoAudit asks when context is unclear**: when the linked task description doesn't provide enough signal to understand what is being tested, CoAudit will ask you to describe the audit purpose before acting. Once context is established — from your messages or a detailed task — it resumes its normal proactive behavior.
+- **Legacy workbooks open cleanly**: workbooks created with an older version of the Punchcard add-in now open without compatibility warnings unless the workbook contains actual legacy citations.
+
+## Reliability
+
+- **Large file uploads are more resilient**: the platform now handles resource pressure during bulk uploads more gracefully, reducing the chance of processing errors when many files are uploaded at once.
+
+## Bug Fixes
+
+- **Invite dialog suggestion list no longer clipped**: the autocomplete dropdown in invite dialogs now renders in full over the dialog content instead of being cut off at the edge.
+- **Templates no longer include deleted document groups**: saving a template no longer captures document groups that were previously removed from the task.
+
