@@ -1,0 +1,28 @@
+---
+title: "Comment threads open by default, visual overwrite previews, and per-cell citations"
+description: "Punchcard expands PDF comment threads automatically, replaces the overwrite approval text list with a navigable cell grid, and lets CoAudit attach per-cell citations to data tables in one approved step."
+date: "2026-08-19"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-19"
+---
+
+## Features
+
+- **PDF comment threads now open automatically.** When you open a document with comment annotations, each thread expands below its marker without any extra click. You can still collapse or expand individual threads by clicking the yellow comment icon.
+
+- **Visual overwrite preview in approval cards.** When a workbook write would replace existing data, the approval card now shows a color-coded cell grid — occupied cells are highlighted in red, empty cells are muted — so you can see exactly what will be overwritten before approving. Individual cells are clickable to navigate directly to them.
+
+- **Per-cell citations for data tables in the Excel add-in.** When CoAudit populates a table of numbers, each cell can now carry its own evidence. The value and its source quote are written together in a single approved operation, without requiring a separate citation step per cell.
+
+## Bug Fixes
+
+- **"Replace existing data" button now shows the correct cell count.** The button previously reported the number of operations (e.g., "1 area") rather than the number of cells actually at risk. It now shows the true count — for example, a range with 129 occupied cells reads "129 cells."
+
+- **Clearing only evidence from a cell no longer looks like a data casualty.** When a workbook change removes only a citation or rationale — not the cell value itself — the approval preview no longer incorrectly lists the existing cell value as something being deleted.
+
+- **Manual approval mode now always asks before writing.** Previously, writes confirmed to target empty cells would sometimes skip the approval step even in Manual mode. Approval is now correctly requested in all cases; the auto-skip behavior is limited to Skip mode and active write sessions.
+
+- **Workbook reads that fail no longer silently allow writes to proceed.** If the live cell read before an overwrite approval cannot complete, an amber note now appears with a "Try again" link. No write is approved until the current cell contents have been confirmed.
+
+- **Math calculator operand values no longer obscured by a tooltip.** A tooltip on the calculator's drag handle was overlapping the numbers displayed in each row. The tooltip has been removed; drag-to-reorder and keyboard reordering still work as before.
+
