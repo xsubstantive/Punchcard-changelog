@@ -1,0 +1,34 @@
+---
+title: "CoAudit undo, smarter write consent, and EU number format accuracy"
+description: "Punchcard now lets auditors undo CoAudit's workbook edits message by message, automatically approves writes to empty cells, and correctly parses EU-format financial statements."
+date: "2026-08-20"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-08-20"
+---
+
+## New features
+
+- **Undo CoAudit edits, message by message (Excel add-in).** Each message where CoAudit wrote to your workbook now shows an **Undo from here** chip. Clicking it opens a preview showing exactly how many cells will be reverted. If you've edited any of those cells yourself since CoAudit wrote them, you can skip the conflicts or revert them anyway — your choice, always confirmed before anything changes. This is not Excel's Ctrl-Z: it reverses only CoAudit's changes while leaving your own edits intact.
+
+- **Empty-cell writes auto-apply in Manual mode (Excel add-in).** CoAudit no longer pauses for approval when writing to cells that are confirmed empty — changes that can't overwrite existing data go straight through. Approval cards still appear when CoAudit would overwrite a cell that already contains data, delete rows or columns, or copy to an occupied destination. Skip mode continues to apply all writes unattended. Write sessions have been retired in favor of this approach.
+
+- **PDF comment panels start collapsed.** Comment annotation panels on PDFs are now collapsed by default and expand on hover, reducing visual clutter when reviewing a document with many annotations.
+
+## Improvements
+
+- **Prior Year sidebar: per-pane row navigation.** In dual-pane Prior Year view, clicking an individual occurrence row now scrolls only the pane that owns it — current-year rows navigate the left pane, prior-year rows navigate the right. Group-header clicks continue to sync-navigate both panes simultaneously. Occurrences within each group are now organized under **Current Year** and **Prior Year** sub-sections so it's clear at a glance which document each figure comes from. Current-year selections highlight in blue; prior-year selections in grey.
+
+- **Recalculation formula edits now survive pipeline re-runs.** When you adjust operators or reorder operands on a discovered recalculation, that edit now persists across subsequent review runs — including "Run All." Previously, edits were silently discarded the next time the pipeline ran.
+
+- **Lassoing an unreadable value now offers manual entry.** When you draw a lasso around a figure that the document reader can't parse cleanly (for example, when surrounding label text gets picked up alongside the number), the calculator now presents a manual-entry field so you can type the correct value directly. Previously this returned an error with no path forward.
+
+## Bug fixes
+
+- **EU and international number formats now parse correctly.** A significant fix for auditors working on German and other EU-format financial statements. Amounts like `153.063` (one hundred fifty-three thousand in German notation) now read correctly at every step — lassoing operands, creating tick marks, and running foot/crossfoot validation — instead of being misread as the decimal 153.063. The calculator also displays figures in your firm's configured number format rather than always using US separators.
+
+- **South African Rand amounts now recognized.** Amounts prefixed with `R` (e.g., `R1 043`) are now correctly identified as currency figures when lassoing operands on South African statements.
+
+- **Spurious recalculation exceptions removed.** A fix prevents the AI from publishing exception marks based on formulas that don't actually reference any cells in the document. Meaningless hypotheses that previously generated large numbers of false findings are now rejected before they reach the review sidebar.
+
+- **Financial Statement Review page no longer goes blank.** Fixed an issue where the FSR review page could enter a state that caused it to display a blank screen, requiring a full page reload to recover.
+
