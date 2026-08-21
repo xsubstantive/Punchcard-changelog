@@ -1,0 +1,40 @@
+---
+title: "Excel Add-in Opens Instantly, File Deletes Are Undoable, and Prior Year Matching Is More Accurate"
+description: "Punchcard's Excel add-in no longer requires an engagement link before you can work; file deletions now include a short undo window; and Financial Statement Review prior-year matching is significantly improved for rollforward schedules and European filings."
+date: "2026-08-21"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-21"
+---
+
+## Excel Add-in
+
+- **Open and start working immediately — no engagement link required at startup.** The Excel add-in no longer blocks you with an engagement-link prompt when you first open a workbook. Chat, citation review, and cell work are all available right away with a slim banner you can act on when you're ready. Features that need an engagement (like importing documents) will ask you at the moment they're needed, with a short explanation of why.
+
+- **File deletions now include a short undo window.** After confirming a file deletion, the rows disappear immediately and an Undo button appears for a few seconds. Clicking Undo cancels the deletion completely. The confirmation dialog now also clearly states that deletion removes the file from the entire engagement — including the web app — and that citations pointing to the deleted file will stop resolving.
+
+- **The Settings (gear) button now opens the engagement-link flow on an unbound workbook**, giving you a proactive way to attach without waiting for a feature to prompt you.
+
+- **Ribbon buttons now close the pane when pressed a second time.** Pressing CoAudit, Viewer, or Documents while already on that view closes the pane. Pressing a different ribbon button navigates directly to that view without extra steps.
+
+- **Document groups browser shows all tasks and groups in an expandable tree.** The Add Document Groups picker now displays the full engagement tree at once — tasks expand to show their groups, groups expand to show a read-only file preview — rather than requiring you to drill into one level at a time.
+
+- **Clicking a file in the document manager opens it beside CoAudit.** On wider panes, clicking a file in the document list now opens the document side by side with CoAudit, rather than replacing the chat view.
+
+- **Fixed: CoAudit no longer falsely reports that a range selection was cancelled.** A bug caused CoAudit to say "the range selection was cancelled" even after you had successfully selected a range, prompting an unnecessary do-over. The selected range is now always honored correctly.
+
+- **Clicking a cited cell now reliably reopens the pane.** Various edge cases where the pane would fail to reopen automatically after being manually closed have been resolved.
+
+## Financial Statement Review
+
+- **Prior Year: Opening balances now match their prior-year closing counterparts.** In rollforward schedules (fixed-asset movements, debt, equity, and similar tables), opening-balance columns (e.g., "01.01.2025") are now correctly matched against the prior-year file's closing-balance columns (e.g., "31.12.2024"). These pairs were previously skipped entirely, leaving rollforward schedules with no prior-year tick marks.
+
+- **Prior Year: Column headings with currency units match across files regardless of formatting.** Column headings that express the currency unit differently between files — for example "31.12.2024 / EUR" in one file and "31.12.2024 EUR" in another — are now recognized as the same column and correctly grouped for comparison.
+
+- **Prior Year: Category headings that span a full table page are no longer dropped.** Fixed an issue where a section heading covering an entire table (common in German fixed-asset schedules, e.g., "Anschaffungs-/Herstellungskosten") was silently discarded during processing, causing the figures in that section to lose their column context and fail to match their prior-year counterparts.
+
+- **Recalculations: Add or remove individual values from AI-discovered relationships.** Auditors can now add or remove operands in multiplication and division relationships detected by the AI — not just reorder them or change their operators. A change applies only to the specific cell you opened, leaving all other cells that share the same relationship template untouched.
+
+## Home
+
+- **My Engagements panel now shows per-engagement task progress.** Each engagement row in the My Engagements panel now includes the number of tasks in review, tasks due in the next 7 days, overdue tasks, and a completion ratio (completed tasks out of all tasks). The due-soon count uses the same 7-day window as the suggestion chips at the top of the page.
+
