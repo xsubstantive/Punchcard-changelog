@@ -1,0 +1,61 @@
+---
+title: "My Engagements dashboard, Excluded files, and Manage Document Groups redesigned"
+description: "Punchcard's home page now shows all your active engagements with attention indicators and inline activity history; the Excel add-in gains an Excluded files bucket, full-text group search, and approval cards that dock above the chat input."
+date: "2026-08-22"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-22"
+---
+
+## My Engagements
+
+The home page now opens to a **My Engagements** panel listing every active engagement you belong to, ordered by most recent activity. Each row shows:
+
+- **Attention indicators** — overdue tasks, outstanding requests, and unanswered client questions, with the age of the oldest item so you know where to focus first.
+- **Completion progress** — the percentage of the engagement's work marked done.
+- **Last-activity chiclet** — who acted last (Team or Client) and a relative timestamp; a pulsing dot marks activity within the past hour.
+
+Three **filter chips** narrow the list to engagements needing your attention, ready for review, or due this week. A text filter narrows further by client or engagement name without leaving the page.
+
+**Activity tray** — clicking a row's chiclet expands an inline panel showing recent activity for that engagement. Attention items appear at the top so you can see exactly what is waiting; the rest of the activity stream follows, with "Show more" to load further history. Clicking a viewable document in the stream opens it directly in that task's file viewer.
+
+## Excluded files in the CoAudit Excel add-in
+
+A permanent **Excluded** bucket has been added to the file list in the CoAudit Excel add-in. Right-click any file and choose "Exclude from this workbook," or drag it onto the Excluded section, to set it aside for this workbook's test only:
+
+- **CoAudit cannot see excluded files** — the AI cannot list, read, or cite an excluded file while it is in this bucket.
+- The exclusion is **workbook-local**: other workbooks, other team members, and the web app all see the file normally.
+- Right-click an excluded file and choose "Restore to workbook" to undo the exclusion at any time.
+
+## Manage Document Groups — search, removal, and inline creation
+
+The document group overlay is now called **Manage Document Groups** and handles the full lifecycle in one place:
+
+- **Groups already in the workbook arrive pre-checked** — unticking a group queues it for removal; pending adds and removals are applied together when you save, with a confirmation step before any removal takes effect.
+- **Create groups inline** — a ＋ New group button under each task creates a group immediately, ready to rename in place.
+- **Search** — type to find groups by name (matches from the first character) or search document contents (3+ characters, semantic). Matching groups are highlighted in the tree; a results sidebar shows file-level snippets and snippets from within pages. Keyboard navigation (‹ ›) steps through all hits.
+- **Delete from the context menu** — right-click a group to permanently remove it (if this is its only home) or detach it from this task only (if other tasks also hold it). A two-stage dialog shows exactly what will be affected before you confirm.
+
+## CoAudit approval cards dock above the chat input
+
+Approval cards in the Excel add-in now appear **directly above the chat input** instead of covering the entire pane. Each card opens with a plain-language sentence from CoAudit describing what it is about to do — for example, "Fill in the recalculated March totals." When a write would overwrite existing data, a single **Replace existing data** button shows the number of affected cells; the decision is one click, not two.
+
+If you switch to Documents or the viewer while an approval is pending, a slim notice remains visible with a "Show CoAudit" link to return and answer it.
+
+## File deletion shows who uploaded each file
+
+When deleting files from the document manager, the confirmation dialog now lists files **grouped by uploader** — your own files first, then other team members alphabetically. Uploaders affiliated with a client organization are marked with an asterisk (*) so you can see whose files are in scope before confirming.
+
+## CoAudit add-in renamed
+
+The Excel and Word add-ins now appear in Office as **CoAudit by Punchcard**, and the ribbon tab is labelled **CoAudit** (previously "Punchcard"). No other behavior has changed.
+
+## Pane width remembered
+
+The CoAudit pane in Excel now **remembers the width you last set** and restores it the next time you open the pane, including after reopening the workbook.
+
+## Bug fixes
+
+- **Financial Statement Review** — fixed a crash that could occur on the review page when navigating between tasks. The page is now stable under all workflows.
+- **Excel add-in pane layout** — clicking a cell no longer rearranges a Documents view you had deliberately navigated to; the pane only adjusts automatically in cases that make sense given your last action.
+- **CoAudit writes** — multi-line values written by CoAudit no longer automatically turn on text wrapping; wrapping is only applied when CoAudit explicitly chooses it for a column where it makes sense (such as narrative or comment columns).
+
