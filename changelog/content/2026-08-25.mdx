@@ -1,0 +1,30 @@
+---
+title: "CoAudit Connection Health Indicator and Add-in Reliability"
+description: "Punchcard adds a real-time connection status light to CoAudit chat, makes the Excel and Word add-ins recover automatically from session expiry, and fixes a workpaper column type setting that was silently reverting."
+date: "2026-08-25"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-25"
+---
+
+## What's new
+
+### CoAudit connection status indicator
+
+**A small status dot now appears in the CoAudit chat composer**, next to the model picker. It shows at a glance whether CoAudit is connected (green), reconnecting (amber), or unreachable (red). Hovering the dot reveals which service is affected and how much time remains on your current session. The dot only appears once the session is active — it won't show on the login screen or when no task is open.
+
+## Improvements
+
+### Excel and Word add-in — more resilient sessions
+
+The CoAudit pane now handles session expiry and brief connection drops without requiring a manual sign-out and sign-in. All connection types inside the pane — chat, automations, citation lookups, and progress updates — automatically re-establish themselves when the session refreshes or a connection drops mid-use. A transient server hiccup also no longer ejects the pane to the system browser with a forced login; the add-in now holds in place and shows a manual sign-in option instead.
+
+### PDF citation highlights in the add-in pane
+
+When CoAudit cites a source document in the Excel or Word pane's chat, the cited region now highlights reliably in the evidence viewer. Previously, citation lookups in the pane could fail silently, leaving highlights missing and causing CoAudit to re-quote the same passage repeatedly.
+
+## Bug fixes
+
+### Workpaper column type — "Set as Testing Attribute" now saves correctly
+
+Changing a workpaper column's type to **Testing Attribute** (or any other type from the column menu) now persists correctly. Previously the change appeared to apply but reverted silently — reopening the column menu showed the original type as if nothing had changed.
+
