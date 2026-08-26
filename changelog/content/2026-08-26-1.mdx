@@ -1,0 +1,27 @@
+---
+title: "CoAudit add-in now works in browser-based Office, with Excel boot recovery"
+description: "Punchcard's CoAudit add-in now works in browser-based Excel and Word (office.com, SharePoint, and OneDrive), and the Excel pane recovers gracefully when Office stops responding during load instead of showing a blank screen."
+date: "2026-08-26"
+tags: [Feature, Bug Fix, AI]
+version: "2026-08-26"
+---
+
+## CoAudit works in Office on the web
+
+The CoAudit by Punchcard add-in now works in **browser-based Excel and Word** — opened through office.com, SharePoint, or OneDrive. Previously, signing in through the Office web app would result in a redirect loop; the add-in now authenticates correctly in browser-hosted workbooks, giving you the full CoAudit experience without needing the desktop app.
+
+- When sign-in cannot complete — for example, in private or incognito windows, or in browser configurations that block third-party cookies — a clear **"Sign-in could not complete"** screen now explains the issue and provides a **Try again** link, instead of a confusing browser error page.
+
+## Excel add-in: recovery when Office stops responding during load
+
+If Excel refuses or stops responding while the CoAudit pane is starting up, the pane now **detects the failure within 15 seconds** and shows a recovery screen instead of staying blank.
+
+- The recovery screen names **exactly which step failed** and whether Excel refused the request or stopped responding — so you know what happened and what to do next.
+- The screen confirms that your **citations and sign-offs in the workbook were not changed**.
+- A **Try again** button re-runs the complete pane startup so you can recover without restarting Excel.
+- While waiting, a **CoAudit chat** opens beneath the recovery screen so you can continue asking questions even when the workbook is temporarily unreachable.
+
+## Fixes
+
+- On shared Office profiles, **signing out now clears CoAudit chat history** so the next user starts from a clean state rather than seeing the previous user's conversation.
+
