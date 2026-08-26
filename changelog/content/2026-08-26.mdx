@@ -1,0 +1,32 @@
+---
+title: "Citations Ledger and Smarter Evidence Management in the Excel Add-in"
+description: "Punchcard's Excel add-in gets a redesigned Citations panel with numbered, reorderable source cards, value-first inline links in Reasoning, and improved document uploads with live OCR progress."
+date: "2026-08-26"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-08-26"
+---
+
+## Features
+
+- **Redesigned Citations panel in Excel**: The cell detail panel now shows a numbered **Citations ledger** — each source appears as a card with a document group › file breadcrumb, the full quoted text, and status chips. You can reorder cards by dragging the ordinal handle or using arrow keys, and designate any citation as the **Primary** — the one that opens automatically when you click a cited cell. Workbook cross-references appear as their own cards, showing the live cell address and a live preview on hover.
+
+- **Value-first inline links in Reasoning**: AI-authored reasoning now renders cited values as clickable, underlined links (for example, "$1,234,567") that jump directly to the relevant page in the source document. Hover over a workbook cross-reference in the reasoning text to preview the referenced cells; click to navigate to them.
+
+- **Browse the full document group tree when uploading files**: Dropping files into the Excel add-in now opens the complete engagement document tree so you can pick any group as the upload destination — or create a new task or group on the spot. Dropped files appear immediately as in-progress rows under the chosen group, a live counter shows how many have uploaded ("2 of 5"), and the surface auto-closes and lands you directly inside the uploaded group once processing is complete.
+
+- **Create a new task from the document management surface**: A new icon in the document group manager lets you add a task without leaving the surface.
+
+## Improvements
+
+- **Copy-paste now carries reasoning**: Copying a cited cell and pasting it elsewhere now brings the full reasoning text along with the citations. Previously only citations transferred, leaving any inline references in the reasoning with nothing to resolve against.
+
+- **Evidence cleans up when you edit cells**: Deleting a cell or pasting over a cited cell now automatically removes its citations and reasoning so no orphaned evidence lingers. Editing a cell's value in place leaves its evidence untouched.
+
+- **More reliable processing for complex Financial Statement Review files**: Files with a large number of sections are no longer prone to timing out during processing.
+
+## Bug Fixes
+
+- **Moving cited cells no longer destroys their evidence**: Cutting and pasting a block of cited cells now correctly relocates the citations and reasoning to the destination instead of deleting them.
+
+- **Failed uploads no longer lock the document picker**: If an upload fails, the document picker recovers immediately and becomes fully usable again.
+
