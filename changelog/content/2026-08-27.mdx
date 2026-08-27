@@ -1,0 +1,31 @@
+---
+title: "Excel Add-in Conversation Memory, Document Navigation Upgrades, and Citation Fixes"
+description: "The Punchcard Excel add-in now auto-resumes your last CoAudit conversation per workbook, adds date-grouped conversation history, turns viewer breadcrumbs into live document pickers, and opens Document Groups in a wider dedicated window — plus citation highlighting is more accurate."
+date: "2026-08-27"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-08-27"
+---
+
+### Excel Add-in: Conversation and Navigation
+
+- **Workbook conversation memory**: CoAudit in Excel now automatically resumes your last conversation each time you reopen a workbook. Each workbook maintains its own independent conversation thread — opening two workbooks side-by-side keeps two separate, unentangled chats.
+- **Conversation history popover**: The chat header now shows the current conversation title. Clicking it opens a date-grouped history list (Today, Yesterday, Last 7 days, Last 30 days, Older) covering conversations from both Excel and Word sessions for the engagement — so moving between your workpaper and a Word narrative shows one combined timeline.
+- **Viewer breadcrumb navigation**: The file and folder labels in the document viewer header are now clickable pickers. Clicking the filename shows the other files in the same group so you can switch without going back to the Files tab; clicking the folder label opens the full document group browser to jump anywhere.
+- **Manage Document Groups opens in a wider separate window**: Instead of taking over the task pane, the Document Groups manager now opens in a dedicated window with more room to work. On workbooks not yet linked to an engagement, the window includes an engagement selector so you can link and start importing without leaving it.
+- **Citation links open the viewer reliably**: Clicking a numbered citation reference in an Excel add-in chat response now consistently opens the document viewer at the cited page and highlights the relevant passage — even when the Files tab was previously open.
+
+### CoAudit Chat
+
+- **Citations are always on**: The toggle for enabling or disabling PDF citation highlights has been removed. When document context is present, citations are always active — no switch to manage.
+- **Workbook write approval cards show changes by default**: When CoAudit asks for approval before writing to the workbook, the full list of cell-by-cell changes is now shown immediately so you can review exactly what will be written before confirming.
+
+### Skills
+
+- **All users can change a skill's audience**: Non-admin users can now switch a skill's visibility between Personal and Firm. Previously the audience selector appeared interactive but did nothing for non-admins on existing skills. Promoting a skill to the firm still requires a confirmation step; the Punchcard-wide global option remains admin-only.
+
+### Bug Fixes
+
+- **Citation highlights work for possessives and apostrophes**: Citation highlights now correctly resolve for words like "employees'" and "participants'" as well as contractions. Previously these could fail to highlight or land on an unrelated passage in the document.
+- **Task descriptions no longer cleared on open**: A bug that could silently overwrite a task's written description the moment the task page opened has been fixed. Task descriptions now load and display without risk of accidental erasure.
+- **Smoother sidebar transitions in the Excel add-in**: Opening, closing, expanding, and collapsing the document sidebar no longer causes a brief blank flash. Content remains visible throughout the transition.
+
