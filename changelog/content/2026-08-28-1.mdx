@@ -1,0 +1,23 @@
+Looking at the commits, I can identify several user-facing changes: a new sum-formula feature in the Excel add-in, a new Download capability in the Files panel, and several fixes around file downloads on Mac/Windows. Let me write the changelog.
+
+---
+title: "Excel Add-in: Live Sum Formulas and File Downloads"
+description: "Punchcard's Excel add-in now writes inspectable sum formulas to the formula bar and lets auditors download evidence files directly from the Files panel."
+date: "2026-08-28"
+tags: [Feature, Bug Fix, UI]
+version: "2026-08-28"
+---
+
+## New in the Excel Add-in
+
+- **Inspectable sum formulas in the formula bar.** When you use the sum lasso to cite and total values, the add-in now writes a live formula (e.g., `=1000+250−300`) to the cell instead of just the computed result. The arithmetic stays visible and verifiable directly in Excel's formula bar.
+- **Download files from the Files panel.** The Files panel now includes a **Download** option in the bulk-actions menu. Select one or more evidence files and download them as a single zip — no need to leave the task pane or switch to the web app.
+
+## Fixes
+
+- **Mac Excel downloads now save correctly.** Selecting a file and clicking Save in Finder sometimes completed without writing anything to disk. Downloads now land on disk reliably on Mac.
+- **Downloaded zips now extract on Windows when file names contain special characters.** Evidence files with names like `Q1: revenue?.pdf` or Windows-reserved names now extract cleanly on Windows machines instead of failing silently at extraction.
+- **Duplicate file names in a zip are no longer dropped.** When multiple selected files share the same name, each one is now preserved in the zip with a disambiguated name.
+- **Download failures now surface an error message.** Previously, if a download encountered a problem, nothing happened and no feedback was shown. You'll now see a clear error so you know to try again.
+- **Sum cells with very many operands no longer get stuck.** In rare cases where a citation list was too long to fit as a formula, the cell could be left with a stale formula that Excel refused to accept. It now falls back to showing the correct numeric total instead.
+
