@@ -1,0 +1,50 @@
+---
+title: "Citation hover preview, CoAudit workbook-edit awareness, and FSR reliability"
+description: "Punchcard adds transient citation hover previews in the Excel add-in so you never lose your place, CoAudit now tracks your cell edits between turns, and Financial Statement Review is faster and more reliable on large documents."
+date: "2026-08-28"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-08-28"
+---
+
+## Excel Add-in
+
+### New and improved
+
+- **Hover to preview citations without losing your place**: Moving the pointer over a citation card in the evidence panel now shows a transient document overlay. Your current document's scroll position, zoom, and search state stay exactly as you left them — the preview simply appears on top. Move the pointer away and it disappears. Clicking a card still permanently navigates the viewer to that citation. The "Peeking" label on the hovered card confirms which preview is showing.
+
+- **CoAudit notices when you edit cells between turns**: When you change workbook cells after a CoAudit message, the next reply automatically includes context about which ranges changed. CoAudit can reason about your edits without you needing to explain them — useful for sessions where you're working through the spreadsheet alongside the AI.
+
+- **Approval cards now lead with the AI's intent**: When CoAudit proposes a write action, the card's headline is the AI's plain-language description of what it's doing — for example, "Fill in the recalculated March totals." The full cell-by-cell detail is still available and still runs behind the scenes to power the Apply button and safety checks, but the card face gives you the summary at a glance. Top-level approval prompts appear over the message input, not nested inside the conversation.
+
+- **"Copy info for support" in the chat menu**: The ⋯ menu in the CoAudit chat header now includes a **Copy info for support** option for all users. Clicking it copies a formatted diagnostic summary you can paste directly into a support email.
+
+### Fixed
+
+- **White text on CoAudit-authored table headers**: When CoAudit wrote header or total rows in a spreadsheet, the result was sometimes white text on a white background — unreadable. Header and total rows now use a proper blue fill with white text, matching standard table styling. Review-state highlights on cited cells are always preserved and unaffected by table formatting.
+
+- **Workbook cross-references in reasoning now render correctly**: When CoAudit's reasoning references other cells or ranges in the workbook, those references now appear as clickable pills — click to select those cells, hover to preview them. Previously they appeared as raw syntax in the text.
+
+- **Cells cited from the workbook no longer show "No match found"**: Cells whose evidence comes from other cells in the workbook — for example, a "Traced – agree" conclusion citing figures from elsewhere in the spreadsheet — no longer incorrectly display the red "No match found" banner.
+
+- **Selecting a cited cell opens evidence immediately**: Switching to a cited cell while the Documents list or a bulk-selection view was active now navigates directly to the citation evidence, without prompting you to confirm.
+
+- **Excel pane no longer flickers on open**: Removed the visible screen flicker that occurred when opening or resizing the task pane on Windows desktop Excel.
+
+- **Reasoning in the evidence panel is read-only**: The click-to-edit reasoning field and "Add reasoning" button have been removed from the cell detail panel. CoAudit writes and updates reasoning through its own tools; the panel now displays it as read-only text. Inline citation links and workbook cross-references in the reasoning remain interactive.
+
+## Chat
+
+- **Status indicator hidden when everything is healthy**: The connection status dot in the message composer footer now only appears when a problem is detected — amber when reconnecting, red when disconnected. When all connections are working normally, the indicator is not shown.
+
+## Financial Statement Review
+
+- **Internal Consistency step shows a live completion count**: The FSR progress card now displays a running tally during the Internal Consistency step — for example, "14 / 87 groups checked" — so you can see how far along the check is on large financial statements. The math step is labeled **Recalculation** in the progress card.
+
+- **Internal Consistency completes reliably on large documents**: Several issues were causing the Internal Consistency step to fail partway through on large financial statements. These are now resolved.
+
+- **Internal Consistency analysis runs faster**: The analysis step that powers Internal Consistency now handles large financial statements significantly faster.
+
+## Reliability
+
+- **Fixed a crash on direct page navigation**: Going directly to a page URL (rather than navigating within the app) could crash the sidebar in some situations. This is fixed.
+
