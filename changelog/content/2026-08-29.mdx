@@ -1,0 +1,42 @@
+---
+title: "Excel Evidence Citing, Citation UI Polish, and Platform Reliability"
+description: "Punchcard now supports Lasso, Cite, and Sum on Excel and CSV source files in the add-in, alongside major citation UI improvements and reliability fixes across the workpaper."
+date: "2026-08-29"
+tags: [Feature, Bug Fix, UI]
+version: "2026-08-29"
+---
+
+## Excel and CSV Evidence Citing
+
+**Lasso, Cite, and Sum now work on Excel and CSV source files** in the Office add-in, not just PDFs and images. When the active source document is a spreadsheet, each tool draws on the underlying cell values — so the precision you see in the source workbook is exactly what gets captured, with no OCR involved.
+
+- **Sum on a spreadsheet selection** inserts a signed formula (e.g. `=1000+250-300`) into the target cell, keeping the arithmetic transparent in Excel's formula bar. If a selection contains more than 200 numeric cells, the tool declines with a clear message rather than silently using a partial figure.
+- **Lasso on a single spreadsheet cell** writes the workbook's exact underlying value — the actual number behind a formatted display such as a percentage or a rounded figure.
+- Date-formatted cells are automatically excluded from numeric operations regardless of how they display.
+
+## Lasso Numeric Accuracy
+
+Several improvements make Lasso more accurate when interpreting values from PDF and image sources:
+
+- **Accounting-style negatives** — parenthesized amounts like `(500)` and currency-prefixed variants like `USD (500)` — are now correctly written as negative numbers.
+- **Space-grouped numbers** common in European documents (e.g. `1 043,50`) are recognized as numeric rather than treated as text.
+- **Prose containing digits** (reference codes, names with numbers) is no longer misread as a numeric value and written into the cell.
+
+## Citation UI Improvements
+
+- **Inline citations and the Citations ledger stay in sync**: hovering an inline citation pill in the Reasoning section highlights the matching card in the Citations ledger, and hovering the card lights up the inline pill — both surfaces always reflect the same state.
+- **"Viewing" takes priority immediately**: when you click a citation to commit the evidence viewer to it, the card badge switches to "Viewing" right away, even while the pointer is still resting on the card.
+- **Hovering a citation in Reasoning peeks the source in the evidence viewer** after a short pause rather than showing a pop-up card — consistent with how the Citations ledger cards already behaved.
+
+## PDF Search
+
+**Pressing Enter in the PDF search bar now advances to the next result** instead of restarting the search from the beginning. Shift+Enter moves to the previous match.
+
+## Fixes
+
+- **Citation drawing errors are now always visible** — if the details panel was closed when a drawing was refused, the error was hidden; it now appears in all panel states.
+- **The workpaper Run button no longer gets stuck disabled** after an automation finishes or when a run was started from a different session; it recovers automatically.
+- **Large file deletions now complete reliably** — files with extensive OCR data could previously time out during deletion, leaving the file apparently stuck.
+- **Deleting a workpaper column with many values** no longer fails for large columns.
+- **Multi-file ZIP downloads** now place all files at the top level of the archive correctly, regardless of special characters in file names.
+
