@@ -1,0 +1,42 @@
+---
+title: "Private Requests and Workbook Citation Redesign"
+description: "Auditors can now restrict individual PBC requests to named clients, and CoAudit's workbook cross-references open document evidence on hover and click — just like document citations."
+date: "2026-09-01"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-09-01"
+---
+
+## Private Requests
+
+- **Auditors can mark any request private** using the lock icon in the request's property row. Private requests are hidden from clients unless they are explicitly granted access.
+- A per-request access panel lets auditors **toggle each engagement client on or off** — granting or revoking their view of that request without affecting other tasks or other auditors.
+- Clients who have been granted access see a **"Private" badge** on the request. Clients without access don't see the request at all, including in document search results.
+- **Document search now respects request privacy**: searching within an engagement no longer returns files from private requests to clients who aren't on the access list.
+- Auditors are never restricted by request privacy — any engagement auditor always has full access regardless of the privacy setting.
+
+## CoAudit Add-in: Workbook Citations
+
+- **Hovering a workbook cell reference** in CoAudit's reasoning now peeks that cell's document evidence in the viewer — the same behavior as hovering a document citation. Clicking commits the view and lights the citation card "Viewing."
+- A new **"Open →" chip** on workbook citation cards navigates to the referenced cell in Excel directly.
+- **Viewing and Peeking indicators** now appear consistently on both document and workbook citation cards and their matching inline pills, staying in sync as you hover and click between them.
+- Whole-column and whole-row range references (e.g. `E:E` or `28:30`) now correctly find and open evidence when any cell in the range is cited.
+
+## CoAudit Add-in: Smarter Viewer Navigation
+
+- When you're working in **full-screen CoAudit chat** and select a cited cell, the add-in now asks whether you'd like to open the document viewer — rather than switching automatically. The prompt dismisses on its own if you navigate to a different cell, clear the citation, or ignore it for a few seconds.
+- Pressing the **Viewer tab or Viewer ribbon button** while the prompt is showing accepts it and opens that cell's evidence directly.
+- Selecting an empty or uncited cell while in full-screen CoAudit **no longer disturbs your chat context** at all.
+
+## CoAudit Add-in: Region and Updates
+
+- A **region selector** now appears inline next to the "Sign in to Punchcard" button. Reviewers routed to the wrong cluster (US vs. EU) can switch before attempting a login, instead of completing a failed sign-in first.
+- If a new version of CoAudit is deployed while your pane is open, an **"Update available"** notification appears with a Refresh button. The pane never reloads automatically — you choose when to pick it up.
+
+## Bug Fixes
+
+- **Stale add-in UI after updates**: Users occasionally saw outdated CoAudit screens even after reopening Excel or Word. The add-in now always loads fresh when opened, and a mid-session update notification handles the in-between case.
+- **Financial Statement Review crash**: The FSR route occasionally hit a repeating error that displayed a "Try again" button that immediately re-crashed. The error is now identified correctly and a clear, non-repeating message is shown instead.
+- Fixed a flicker where moving the cursor from a citation card to its action button ("Open →" or "Set primary") briefly cleared the Peeking indicator.
+- Inline citation pills in the **evidence and contra-evidence** sections of CoAudit's reasoning now show the correct Viewing and Peeking state, matching the behavior of the main rationale section.
+- The document viewer no longer occasionally paints over the CoAudit chat column when switching between full-screen and side-by-side layouts.
+
