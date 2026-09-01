@@ -1,0 +1,22 @@
+---
+title: "Engagement Settings Now Lives Directly on the Board"
+description: "Punchcard brings engagement settings inline as a dedicated tab on the board, so auditors can adjust configuration without leaving their work context."
+date: "2026-09-01"
+tags: [Feature, Bug Fix, UI]
+version: "2026-09-01"
+---
+
+## Features
+
+- **Settings tab on the board**: Engagement settings are now a **Settings** tab in the board header, sitting alongside Requests and Tasks. Clicking it opens the settings panel in place — team management, engagement variables, board visibility, and all other configuration is accessible without navigating away from the engagement. Any saved bookmarks or links to the old settings page redirect automatically.
+
+- **Excel add-in — engagement history empty state**: The engagement history panel now displays a clear message when no prior sessions exist, rather than appearing blank.
+
+## Bug Fixes
+
+- **Settings tab always visible for auditors**: Auditors who had previously viewed an engagement in client mode could sometimes find the Settings tab hidden or inaccessible. This is now resolved — the tab appears consistently based on your account role, regardless of how you last viewed the engagement.
+
+- **Clients page error recovery**: When an unexpected error occurs on the Clients page, you now see a **Try again** button that reloads the page, rather than a dead-end screen that only offered sign-out. Also fixed a display issue where the access management panel showed "undefined" instead of a team member's name or email when a client had no associated engagements.
+
+- **Accurate engagement counts**: Engagement counts shown on client rows and in the sidebar were sometimes inflated by internal system entries. These counts now reflect only real engagements, so what you see matches what's actually there. The same internal entries no longer appear in client lists or the Office add-in engagement picker.
+
