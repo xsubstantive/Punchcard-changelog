@@ -1,0 +1,25 @@
+---
+title: "Workpaper numbering fix, add-in sign-in improvements, and smarter update prompts"
+description: "Punchcard fixes a workpaper numbering collision that could assign two tasks the same number, streamlines first-time sign-in for the CoAudit Excel and Word add-ins, and makes the 'Update available' refresh resilient to mid-deploy timing."
+date: "2026-09-02"
+tags: [Bug Fix, UI]
+version: "2026-09-02"
+---
+
+## Workpapers
+
+- **Workpaper numbers are always unique**: Two team members creating workpapers at nearly the same moment no longer get assigned the same number. Each task now receives a unique sequential workpaper number regardless of how quickly tasks are created back-to-back.
+
+## CoAudit Excel & Word Add-in
+
+- **Hover-to-cell shortcut restored**: Hovering over a cell reference in CoAudit for Excel now jumps the spreadsheet to that cell so you can see the source data while your pointer rests there, then returns to your previous selection when you move away. This behavior was inadvertently removed in a recent update and is now back.
+- **First-time sign-in no longer requires signing out and back in**: New users completing their very first sign-in no longer land on a screen asking them to sign out and sign back in. The add-in now handles the initial account setup automatically and brings you straight to your work.
+- **"Try the EU region" suggestion appears only when it would actually help**: The option to switch to the EU region during sign-in now appears only when your firm might genuinely be on the EU cluster — it no longer shows up during a first-time sign-in delay or an email verification step.
+- **Signing in again after a failed attempt works cleanly**: If a sign-in attempt doesn't complete, signing in again now always shows the full account chooser, preventing a stuck state from the previous attempt.
+- **"Update available" refresh is smarter and more resilient**: Clicking **Refresh** when an update is ready now confirms the new version is available to serve before reloading. If a deploy is still in progress, the add-in shows progress and retries automatically — rather than opening a browser tab or appearing to do nothing. The prompt also automatically clears if the update is no longer needed (for example, after a rollback).
+
+## Platform
+
+- **Automation progress updates are more reliable**: Automation progress is now reported correctly even immediately after the server restarts, closing a window where progress notifications could be silently lost.
+- **CoAudit chat citation lookups are more resilient**: Brief connectivity hiccups no longer cause citation lookups in CoAudit chat to fail — the request recovers automatically without any action needed.
+
