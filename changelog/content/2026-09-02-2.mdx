@@ -1,0 +1,12 @@
+---
+title: "Office Add-in sign-in loop fixed for newly activated accounts"
+description: "Punchcard's Excel and Word add-ins no longer trap newly activated accounts in a repeating sign-in dialog that opens and closes on a loop."
+date: "2026-09-02"
+tags: [Bug Fix]
+version: "2026-09-02"
+---
+
+### Bug Fixes
+
+- **Excel & Word add-in — sign-in loop for new accounts**: Fixed an issue where a user whose account had just been activated could get stuck in an unescapable cycle: the add-in would show a sign-in pop-up, the pop-up would detect a valid session and close itself automatically, then the whole sequence would repeat. Affected accounts now move directly into the add-in after sign-in. If a session has genuinely lapsed, the add-in displays a clear prompt to sign out and back in — no loop.
+
