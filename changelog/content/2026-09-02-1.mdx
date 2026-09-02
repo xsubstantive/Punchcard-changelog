@@ -1,0 +1,28 @@
+---
+title: "Image evidence now displays correctly; Excel add-in citation improvements"
+description: "Punchcard fixes image file rendering in the evidence viewer — photos and screenshots now open at readable size with correct orientation and accurate citation highlighting — and delivers several improvements to workbook cross-references in the Excel and Word add-ins."
+date: "2026-09-02"
+tags: [Feature, Bug Fix, UI]
+version: "2026-09-02"
+---
+
+## Evidence viewer — image files
+
+- **Photos and screenshots open at a readable size** — image files now display at a comfortable width in the evidence viewer, matching how PDF documents look. Previously, a high-resolution phone photo could render far too large to read, while a small screenshot could appear too small.
+- **Portrait photos display upright** — photos taken in portrait orientation now appear correctly in the viewer instead of landing on their side.
+- **Citation highlights and lasso boxes land on the right region** — when you draw a lasso or CoAudit places a citation on an image file, the highlighted area now aligns with the actual content. Previously, highlights on image files were positioned far outside the visible page.
+- **In-document search highlights work on image files** — when CoAudit searches within an image, matching regions are now highlighted in the correct location.
+- **TIFF files show a clear explanation** — opening a TIFF file in the evidence viewer now displays a message explaining that this file type cannot be previewed inline, with a prompt to download the file instead of showing an error.
+
+## Excel and Word add-in
+
+- **Workbook references display a link chip** — when CoAudit's reasoning includes a reference to a cell or range in the workbook, it now shows a small "↗" chip next to the linked value, making it clear the reference is a live workbook link rather than plain text.
+- **Hovering a workbook citation card moves Excel's selection** — moving your pointer over a workbook citation in the cell detail panel temporarily highlights the referenced cell or range in the spreadsheet, making it easy to see where the citation points. When you move the pointer away, the selection returns to where it was.
+- **Hovering a citation does not dismiss active error messages** — briefly moving the pointer over a workbook citation no longer clears an error message that was already visible in the panel.
+- **Citation ledger stays accurate after CoAudit updates reasoning** — when CoAudit rewrites a cell's reasoning, the citation list in the detail panel now reflects only the references in the updated text. Removed references are cleaned up automatically; the panel no longer accumulates outdated entries over time.
+- **New users no longer get stuck after signing in** — auditors signing in to the Excel or Word add-in for the very first time no longer encounter a "sign out and back in to finish" screen. The add-in now waits silently for your account to be fully recognized and proceeds automatically.
+
+## Workpaper sampling
+
+- **Monetary Unit Sampling shows guidance when no numeric columns exist** — if you choose Monetary Unit Sampling for a population that contains only text columns, the Amount Column selector now shows a clear message explaining what is needed and how to proceed, instead of displaying a blank dropdown with no options.
+
