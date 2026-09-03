@@ -1,0 +1,26 @@
+---
+title: "Export folders match your board layout, plus smarter audit digests and FSR navigation"
+description: "Punchcard's engagement file exports now mirror your board's current grouping, auditor digests focus on client-only activity, and Financial Statement Review makes it easier to return to a document from the Files browser."
+date: "2026-09-03"
+tags: [Feature, Bug Fix, UI]
+version: "2026-09-03"
+---
+
+### Engagement Exports
+
+- **Export ZIP folder structure now mirrors your board's row grouping.** When you download engagement files as a `.zip`, the folder layout matches however your board is currently grouped — by category, assignee, priority, or status. If your board is grouped by assignee, the zip arrives with one folder per assignee; switch to category and you get category folders instead. Requests with no value for the active grouping (unassigned, no category, etc.) go to the zip root. If the board is set to no grouping at all, all requests land at the root with no subfolders. Both the auditor "Files + Workpapers" export and the client "Files" export follow the same rule.
+
+### Financial Statement Review
+
+- **Back-to-review shortcut in the Files browser.** Opening the Files browser while a document is already under active review no longer leaves you stranded. A back-arrow button now appears in the browser header; clicking it returns you immediately to the document you were reviewing without having to navigate through folders and re-select it. The button disappears automatically if the file under review is deleted.
+
+### Notifications
+
+- **Auditor activity digests now show only client-initiated activity.** Auditor digest emails now include only what clients have done — status changes, file uploads, and comments by client users. Activity between auditors is no longer included, keeping the digest focused and actionable. Client digests are unchanged.
+
+### CoAudit Add-in (Excel & Word)
+
+- **Faster, smoother sign-in.** After completing sign-in, the add-in moves directly into the review surface with no white gap or unresponsive button in between. For brand-new accounts where your access role is still being granted, the add-in now self-heals within a couple of seconds rather than showing a "Checking sign-in…" screen for up to a minute.
+- **Improved sign-out on desktop.** Signing out from the ribbon now shows a branded "You've been signed out" confirmation inside the add-in before returning to the sign-in screen. The session is properly closed on both Mac and Windows — identical behavior to signing out on the web.
+- **Word add-in loading screen.** The Word add-in now displays the same branded loading experience as the Excel add-in while a document is loading, replacing a blank or partially-rendered state during slow opens.
+
