@@ -1,0 +1,26 @@
+---
+title: "Editable MATCH Cells, OCR Engine Badges, and European Number Fixes"
+description: "Punchcard adds direct editing and format control for MATCH columns, per-file extraction method badges with fast/thorough re-run options, and fixes European decimal number parsing in workpapers."
+date: "2026-09-04"
+tags: [Feature, Bug Fix, UI]
+version: "2026-09-04"
+---
+
+## Workpaper — MATCH Column Improvements
+
+- **Edit MATCH cells directly**: Double-clicking a classic MATCH cell now opens an inline editor so you can type a correction when the matched value was misread or left blank.
+- **Lasso corrects MATCH values**: Drawing a selection box over the correct text in a document now replaces a MATCH cell's value with the selected text — the same way it works for other column types. Useful when a matched source value was misread and you want to point at the right region.
+- **Format control for MATCH and Table columns**: The display format selector (number, currency, date, plain text) is now available on classic MATCH columns and Table columns, so you can fix how values are displayed without re-running extraction.
+- **Pasted integer columns display without forced decimals**: When you paste a column whose values are all whole numbers (invoice IDs, reference codes), it now defaults to plain number display instead of showing unnecessary decimal places.
+
+## Files — OCR Visibility and Control
+
+- **Extraction method badge on the Text tab**: Each file in the Text tab now shows a small labeled badge indicating how its text was extracted — **Text** (fast recognition), **OCR** (thorough optical recognition), or **Native** (built-in document or spreadsheet text). Hover the badge for a description. Helps you spot files that may need a thorough re-run when text coverage is poor.
+- **Choose fast or thorough when re-running OCR**: The re-run option in the file menu is now a two-choice submenu — **Text Recognition (fast)** uses the default extraction path; **Optical Character Recognition (thorough)** forces a deeper scan for PDFs, images, and Word documents. The thorough option only appears for file types it actually supports, so it can no longer be applied to spreadsheets or plain-text files where it would erase existing good text.
+
+## Bug Fixes
+
+- **European decimal amounts now parse and sum correctly**: Values like "768,15 EUR" (comma as decimal separator) were being misread as a thousands-grouped number and corrupting column totals. These amounts now display and sum correctly regardless of the format tag on the column.
+- **Format changes reliably revert when a save fails**: If a column format change could not be saved, the displayed format now reverts to the last confirmed value rather than getting stuck on an incorrect intermediate state.
+- **Financial Statement Review**: Math items you confirm as passing now correctly leave the Needs Review queue instead of remaining listed.
+
