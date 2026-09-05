@@ -1,0 +1,36 @@
+---
+title: "Expanded document search, sticky My Engagements header, and Cite draw mode"
+description: "Punchcard extends document search to Excel, CSV, and Word files in the viewer, adds a sticky My Engagements header on the home page, and introduces a Cite draw mode that attaches evidence without changing cell values."
+date: "2026-09-05"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-09-05"
+---
+
+### New Features
+
+- **Document search now works in Excel and Word files** — a search button in the viewer header opens the same tiered search panel for Excel spreadsheets, CSV files, and Word documents that was previously available only for PDFs. Exact text matches surface with neighboring cell context (for spreadsheets) or surrounding lines (for PDFs), and semantically related results appear in a "Related by Topic" section below. Scope your search to the open file, its document group, all files in the task, or your full engagement library.
+
+- **"Cite" draw mode** — a new Cite option in the draw mode menu lets you annotate which part of a document supports a cell value without overwriting the value itself. Lasso remains available when you want to extract text directly into the cell.
+
+- **My Engagements header stays pinned while scrolling** — on the home page, the "My Engagements" title and filter chips now pin to the top of the screen as you scroll through your engagement list, so your selected filters and engagement count stay visible at all times.
+
+- **Navigate to any document directly from the viewer** — the filename at the top of the document viewer now opens a full list of every document group in the task, letting you jump to any file without returning to the file explorer.
+
+### Improvements
+
+- **Excel files render with full formatting** — Excel (.xlsx) files now display frozen panes, merged cells, conditional formatting, charts, and images as they appear in the original spreadsheet. Files up to 100 MB are supported. CSV files use a dedicated grid viewer.
+
+- **Zoom controls and sheet tabs in Excel and CSV viewers** — zoom in/out and sheet navigation (for multi-sheet workbooks) are now available directly in all spreadsheet viewers, consistent with the PDF viewer.
+
+- **"Lasso" replaces "By Individual Cell" in the draw mode menu** — the draw mode previously labeled "By Individual Cell" is now called "Lasso," matching the terminology in the Excel add-in.
+
+### Bug Fixes
+
+- **European-format dates display and export correctly** — dates written in day-first format (e.g., "10.07.2023" meaning 10 July) now appear and export correctly when your firm is configured for DD.MM.YYYY. Previously, ambiguous dates with a day value of 12 or under could show the day and month transposed, both on screen and in exported files.
+
+- **Clicking cell references in the Excel add-in no longer jumps the spreadsheet's selection** — in the Excel add-in, clicking an inline cell reference in the reasoning panel now marks that reference as "Viewing" and shows an explicit "Open →" button for navigation, rather than silently moving Excel's active cell.
+
+- **Drawing over very large areas now shows a prompt instead of freezing** — selecting an oversized region with Lasso, Cite, or Sum now shows a message asking you to draw a smaller range, instead of causing the viewer to become unresponsive.
+
+- **Draw modes no longer accidentally capture unintended regions** — Lasso, Cite, and Sum no longer commit evidence when clicking column headers, chart areas, or viewer controls; only intentional cell selections are captured.
+
