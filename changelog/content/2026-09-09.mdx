@@ -1,0 +1,23 @@
+---
+title: "CoAudit now batches multiple AI approvals into one step"
+description: "Punchcard's CoAudit AI assistant groups spreadsheet changes into a compact approval list with a single 'Approve all' action, making multi-cell fill tasks faster and more transparent."
+date: "2026-09-09"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-09-09"
+---
+
+## CoAudit: Approve multiple AI-proposed changes in one step
+
+When CoAudit proposes two or more changes to your spreadsheet — for example, filling in a schedule or populating a set of fields — those changes now appear as a compact, scrollable list instead of stacked individual cards.
+
+- **"Approve all" stays pinned in view**: A summary strip anchored at the bottom of the list shows how many writes are pending and how many cells are affected ("3 writes · 12 cells · one click covers all"). It stays visible regardless of how many items are in the list — only the rows above it scroll.
+- **One-click approval for routine writes**: Click **Approve all** to accept every standard value write in a single step. Each item in the list can also be expanded individually to review the before-and-after detail and approved or skipped on its own.
+- **Before-and-after always visible on expand**: Opening a collapsed change row now reliably shows what the cell currently contains and what CoAudit will write — this preview was hidden in certain cases before.
+- **Bulk approval waits for full disclosure**: The **Approve all** button only becomes active once every change that touches an existing cell value has fully loaded its before-and-after preview. You can only bulk-approve changes you have actually been shown.
+- **Changes that can't be undone stay separate**: Any action that permanently removes data — such as clearing audit notes or evidence — is excluded from **Approve all** and appears as its own item labeled "needs review," requiring an individual decision.
+- **Clearer button style**: The button to approve a routine data overwrite is now blue, consistent with standard confirm actions. Red is reserved for changes that permanently delete or clear content.
+
+## Excel workbook chat reliability
+
+- **First message in a new workbook chat now behaves correctly**: Sending your first message right after opening a workbook chat could previously result in each approval appearing one at a time with pauses in between, instead of all together. This is now resolved.
+
