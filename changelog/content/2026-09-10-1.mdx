@@ -1,0 +1,14 @@
+---
+title: "Slash command picker improvements in the CoAudit Office Add-in"
+description: "The CoAudit command picker now positions correctly inside the Excel and Word Add-ins, with clearer dismiss behavior and more stable suggestion menus."
+date: "2026-09-10"
+tags: [Bug Fix, UI]
+version: "2026-09-10"
+---
+
+### Bug Fixes
+
+- **Command picker displays in the right place in the Excel and Word Add-ins** — the slash command menu was appearing at an incorrect position when used inside the add-in panel. It now anchors reliably to the correct spot on screen regardless of the surrounding layout.
+- **Clearer dismiss behavior for the command picker** — pressing Escape now permanently closes the picker until you type `/` again. Clicking outside or switching focus temporarily hides it; your next keystroke in the same search brings it back automatically, matching how it works on the main web app.
+- **Slash command suggestion menus close cleanly** — menus that appeared after typing `/` now dismiss properly when no longer needed, and outdated suggestions no longer linger in the composer footer.
+
