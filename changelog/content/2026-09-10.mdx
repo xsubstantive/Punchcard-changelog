@@ -1,0 +1,43 @@
+---
+title: "Streamlined approvals, Excel skill library, and faster workbook writes"
+description: "Punchcard's CoAudit Excel add-in now surfaces your firm's saved prompts, lets you settle every pending approval in one click with clear disclosures, and writes and highlights cited cells significantly faster."
+date: "2026-09-10"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-09-10"
+---
+
+## What's new
+
+### Skill library now available in the Excel add-in
+
+**Firm-saved and personal saved prompts** are now accessible directly from the CoAudit pane in Excel. Browse your firm's authoring conventions, invoke prompts with @-mentions, or save new ones — without switching to the web app.
+
+### Approval controls redesigned for clarity and speed
+
+Several improvements to how CoAudit presents pending actions for your review:
+
+- **"Approve all" now settles every pending action in one click.** Previously, certain actions (file deletions, moves, patches that merge cells or clear evidence) were excluded and required one-by-one handling. They're now included. What each action will do — "merges cells," "clears evidence," "clears reasoning" — is stated in plain text on each row and in the strip summary so you know exactly what you're authorizing before clicking. All confirm buttons are consistently blue; the nature of the action is communicated in words, not button color.
+
+- **Each pending action has its own quick Approve button.** Alongside the existing Skip button on each collapsed row, a matching Approve button lets you settle individual actions without expanding the card.
+
+- **Clickable cell-reference badges show where CoAudit will write.** Each pending write displays cell-reference pills (e.g., "B5:D12 · 18 cells"). Clicking one selects that range in your workbook so you can inspect the target area before approving — nothing changes until you confirm. When any pending write lacks a sheet qualifier, all badges become plain text so a navigation click can't accidentally retarget a waiting write to the wrong sheet.
+
+- **Applied-writes summary after each AI turn.** Once CoAudit finishes writing, an "Applied N cells in M writes" line appears with clickable badges for each range — a quick way to see and navigate to everything that just landed.
+
+- **Approval cards no longer get permanently stuck.** On some machines, reading the workbook before showing the Approve/Decline buttons could stall indefinitely, leaving the card unresponsive with no way out. After a short wait, decision buttons now become available regardless, with a clear note describing what approving will do.
+
+## Performance
+
+- **Citations highlight faster after CoAudit writes.** When CoAudit fills in multiple cited cells at once, all citation highlights now resolve together in a single request rather than sequentially. On a heavily cited grid this is the difference between highlights appearing in seconds versus a minute or more.
+
+- **Workbook writes complete faster for large batches.** CoAudit now groups multiple cell writes, format loads, and container saves into fewer Excel round-trips. Larger workpaper fills — especially those spanning many rows or columns — complete noticeably faster.
+
+## Bug fixes
+
+- **Numbers now land as numbers.** When CoAudit writes a value like "5000," it now correctly becomes a number in Excel — picked up by SUM formulas, sortable, and format-aware — rather than text that formulas skip.
+- **Dates written to date-formatted columns become proper Excel dates.** A date string written to a column already formatted as a date (or declared with a date format) now converts to an Excel date value — sortable and formula-compatible — rather than quote-prefixed text.
+- **Lasso dates from Excel sources write as proper date values.** When you Lasso-select a date from an Excel or CSV source, the captured date now writes to your workbook as an Excel date in your locale's format, rather than as a text string.
+- **No more false "overwrites existing data" warning for dates.** CoAudit was incorrectly flagging a write as destructive when re-sending a date that already matched what was in the cell. Re-sending the same date is now correctly recognized as a no-op.
+- **Import retry stays available in the Files view.** The option to retry a failed document import was disappearing when you were on the Files tab; it now remains accessible.
+- **Current view is preserved when importing context.** Importing a context no longer navigates away from whichever view (Files, Documents, Viewer) you were on.
+
