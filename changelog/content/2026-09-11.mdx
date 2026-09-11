@@ -1,0 +1,22 @@
+---
+title: "Upgraded AI for Max reasoning, unified approval dock in web chat, and Excel reliability fixes"
+description: "CoAudit's Max reasoning level now runs on a higher-capability AI for eligible users, write approvals gained a consistent in-chat dock on the web, and the Excel add-in handles multiple open workbooks more reliably."
+date: "2026-09-11"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026-09-11"
+---
+
+## Features
+
+- **Higher-capability AI at Max reasoning.** For eligible users, selecting the Max effort level in the CoAudit AI model picker now runs on a more powerful model — no extra menu entries or separate option to find. The picker looks the same; the Max rung silently upgrades the engine for those with access.
+
+- **Write approval dock in web chat.** When the AI pauses to ask for your approval before writing to a workpaper cell, the confirmation now appears as a full-width dock anchored to the message composer in the CoAudit web interface — the same consolidated experience previously available only in the Excel add-in.
+
+## Bug Fixes
+
+- **Saved model preference holds while the picker loads.** A chat conversation saved with a specific AI model no longer briefly switches to a different model (or another chat's preference) while the available options are loading on re-open — it waits for the correct model to resolve and then restores your saved choice.
+
+- **Multiple Excel workbooks no longer interfere with each other's sign-in.** Opening Punchcard in more than one workbook simultaneously no longer causes the workbooks to share or overwrite each other's sign-in state; each pane signs in and operates independently.
+
+- **Save As in Excel preserves add-in context.** Saving your workbook under a new filename no longer causes the add-in to lose track of which workbook it is attached to — the connection carries over correctly after the rename.
+
