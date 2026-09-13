@@ -1,0 +1,45 @@
+---
+title: "Keyboard review shortcuts for Excel, smarter CoAudit approvals, and reliability fixes"
+description: "Punchcard adds native keyboard shortcuts for Validate and Flag in the Excel add-in, improves CoAudit's automatic write approval logic, and delivers a broad set of reliability and usability fixes across the platform."
+date: "2026-09-13"
+tags: [Feature, Bug Fix, Performance, AI]
+version: "2026-09-13"
+---
+
+## New Features
+
+### Native keyboard shortcuts for Excel review
+- **Validate (Alt+Shift+V / Option+V on Mac)** and **Flag (Alt+Shift+F / Option+F on Mac)** are now registered as native keyboard shortcuts in Excel — they work whether the spreadsheet grid or the CoAudit task pane has focus, so you never need to click back into Excel to stamp a verdict
+- Shortcuts now apply to your **entire selection at once** — a single cell, a contiguous range, or a discontiguous Ctrl+click multi-area selection — matching what the ribbon Review buttons do
+- On Mac, pressing Option+V or Option+F while the pane is focused no longer produces a system error beep
+- The current shortcut assignments are always viewable from **Keyboard shortcuts** in the chat header ⋯ overflow menu
+
+### Arrow key navigation from the task pane
+- **Plain arrow keys** pressed while the CoAudit task pane has keyboard focus now move Excel's active cell — you can navigate the workbook without clicking back into the spreadsheet
+
+### Smarter CoAudit write approvals
+- When CoAudit writes to cells in **multiple passes within a single response**, later writes back to those same cells auto-approve — you no longer see a redundant approval prompt for cells CoAudit already wrote earlier in the same turn
+- The **"N writes only partly landed"** notice is now expandable: clicking it reveals exactly which operations didn't complete and why, with color-coded markers distinguishing a value that never reached the cell (amber) from a citation or annotation that missed while the cell value itself wrote correctly (grey)
+
+### One-step engagement switch for cited workbooks
+- When you try to link a cited workbook to a **different engagement**, the refusal now includes a **Delete citations & reset workbook data** button — a two-step confirm that wipes all citations, imported document groups, and the engagement binding in one action, then automatically continues the switch; cell values and formatting are never touched
+
+### Lassoed evidence becomes the default citation
+- **Lassoing or citing new evidence** onto an already-cited cell now promotes the incoming citation to the primary (the one that opens when you click the cell) and demotes the prior one to supplementary — previously the original citation stayed primary regardless of what was added; if the cell's value write is blocked (e.g., a protected cell), the prior primary is automatically restored
+
+## Improvements
+
+- **Discontiguous bulk review**: the ribbon's Validate / Flag / Clear buttons and the bulk selection banner now count and act on **Ctrl+click multi-area selections** — previously only a contiguous block was reviewed
+- **CoAudit date reading**: CoAudit now reads date-formatted cells as proper calendar dates rather than raw serial numbers, preventing phantom discrepancies like revenue cutoff dates appearing a month off
+- **Clickable filenames in activity feeds**: file links in the global Activity Feed and the task activity stream now open the file directly **in the viewer** for PDF, Excel, Word, and other supported formats — previously these always triggered a download
+- **Excel add-in responsiveness**: moving between cells in the workbook is noticeably faster, especially when navigating quickly through a workpaper
+
+## Bug Fixes
+
+- **Roll-forward with duplicate data source names**: rolling an engagement forward no longer fails when the source engagement contains workpapers that share a data source name — the duplicate is reused automatically rather than aborting the whole operation
+- **Workpaper Validate/Flag errors**: when saving a verdict fails, the error dialog now shows the specific reason and offers a **Retry** button — previously a dead-end message appeared with no recovery path
+- **Workpaper grid after refresh errors**: if the workpaper grid encounters an error after the initial load, it now shows a clear error state with a Retry option instead of displaying an empty grid with no explanation
+- **Client page navigation**: navigating directly to a client's URL (including sandbox clients) no longer incorrectly shows "We could not find this client"
+- **PDF viewer blank pages**: a PDF page that fails to render now shows an error overlay with a Retry option instead of a blank pane with citation overlays drawn over nothing
+- **OCR false failures**: files that showed as failed during text recognition (but were actually stored successfully) now recover automatically rather than requiring a delete and re-upload
+
