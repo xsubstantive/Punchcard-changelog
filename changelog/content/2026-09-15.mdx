@@ -1,0 +1,31 @@
+---
+title: "Task renumbering, expanded CoAudit review controls, and new keyboard shortcuts"
+description: "Punchcard lets auditors renumber tasks to match the current board order, review any Excel cell whether or not it has evidence attached, and clear review verdicts with a single keyboard shortcut."
+date: "2026-09-15"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-09-15"
+---
+
+## Engagement Board
+
+- **Inline task numbering** (list view, auditors only): hover over a task or request's index number to reveal an edit icon. Type a new number and a preview shows exactly which tasks will shift before you confirm; press Escape to cancel without saving.
+- **Renumber all** (list view, auditors only): a new "Renumber" option in the Display menu reassigns sequential numbers to every task and request in the order they currently appear on screen. A preview dialog shows every change before anything is written.
+
+## CoAudit Excel Add-in
+
+- **Review any cell, cited or not**: **Validate** and **Flag** now work on any cell — including cells with no attached evidence — from the ribbon buttons, keyboard shortcuts, or the in-pane verdict controls. Useful for values you've checked by eye and want to sign off on. Clearing a verdict-only cell removes the record entirely with no leftover trace.
+- **Clear keyboard shortcut**: **Alt+Shift+C** (Windows) / **Option+C** (Mac) now clears a review verdict from the selected cell or range, completing the Validate/Flag/Clear keyboard shortcut set. Works whether the spreadsheet grid or the task pane has focus.
+- **Simpler engagement-switch confirmation**: re-linking a workbook that has existing citations to a different engagement now shows a single, clearly-labeled button instead of two overlapping options — making the consequences easier to understand before confirming.
+
+## Engagement Settings
+
+- **External ID**: auditors can now set or clear an External ID on any engagement — a unique identifier used to connect the engagement to an external integration. The field saves automatically when you move away; a conflict with an existing ID in your firm shows an inline error.
+
+## Fixes
+
+- The Skills introduction callout can now always be closed: the close button, pressing Escape, and clicking outside the panel all dismiss it immediately, even if the network is slow.
+
+## Performance
+
+- Notification emails are delivered more consistently. A recurring issue that occasionally caused digest emails to be delayed has been resolved.
+
