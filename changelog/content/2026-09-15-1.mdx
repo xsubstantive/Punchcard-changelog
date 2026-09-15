@@ -1,0 +1,13 @@
+---
+title: "Requests and tasks renumber as separate blocks"
+description: "Punchcard's Renumber action now keeps Requests and workpaper tasks in separate sequential groups, so client-visible items always get their own clean 1…N numbering."
+date: "2026-09-15"
+tags: [Feature, UI]
+version: "2026-09-15"
+---
+
+## Task Numbering
+
+- **Requests and tasks renumber independently**: When you use the Renumber option in the Display menu, Requests are numbered first (1, 2, 3…) and workpaper tasks follow in their own sequence starting after the last Request. Previously the two types were interleaved into a single numbered list, which could leave client-visible Requests with non-contiguous numbers.
+- **Renumber is now the only way to change task numbers**: The hover-to-edit pencil that previously appeared on individual task number badges has been removed. Use Renumber in the Display menu (list view) to reassign numbers across the board.
+
