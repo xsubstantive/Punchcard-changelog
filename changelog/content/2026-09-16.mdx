@@ -1,0 +1,24 @@
+---
+title: "Precise citation highlighting and Excel add-in reliability improvements"
+description: "CoAudit now pins citations to the exact line or row a figure was read from, and several Excel add-in issues — including a ribbon button hang and an intermittent PDF viewer error — are resolved."
+date: "2026-09-16"
+tags: [Feature, Bug Fix, AI]
+version: "2026-09-16"
+---
+
+### New
+
+- **Pinpoint citation highlighting in Excel**: When a source document contains the same figure more than once on a page — a subtotal and a grand total, a positive and a negative, or two rows with matching amounts — CoAudit now highlights the exact line or table row the number was read from. Previously, the viewer could land on a nearby match instead of the precise cell. This applies when reviewing workpaper citations authored through the Excel add-in.
+
+### Fixes
+
+- **Excel add-in — ribbon buttons no longer freeze after using keyboard shortcuts**: Using the Validate, Flag, or Clear keyboard shortcuts earlier in a session could cause the corresponding ribbon buttons to become permanently unresponsive, showing "CoAudit is working on your Validate" with no way to recover short of reopening the workbook. Keyboard shortcuts and ribbon buttons now operate independently.
+
+- **Excel add-in — PDF viewer loads reliably**: An intermittent "Failed to load document" error that appeared when opening reasoning citations in the add-in viewer is resolved. A "Try again" click always fixed it, but the extra step is no longer needed.
+
+- **Citation highlighting respects negative signs and accounting notation**: A figure like `-120` or `(120)` could previously rank below `120.00` as a match for a citation of `120`, causing the wrong figure to be highlighted. Signs, accounting parentheses, and percent symbols are now treated as part of the value, so each is matched against the correct cell.
+
+- **Simultaneous file uploads no longer produce false extraction errors**: Uploading several files at the same time occasionally left one file reporting that text extraction had not completed — even though it had — and CoAudit would write incorrect exceptions into the workpaper. This is resolved.
+
+- **Partner API "Try it out" works on all regional endpoints**: Integration partners using the EU endpoint of the Partner API documentation can now authenticate and test calls directly from the browser. Previously, the OAuth flow silently routed to the wrong region and failed.
+
