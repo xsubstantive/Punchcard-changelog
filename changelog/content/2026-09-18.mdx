@@ -1,0 +1,27 @@
+---
+title: "CoAudit can now read and analyze large files, plus evidence viewer navigation improvements"
+description: "Punchcard's CoAudit can now read, search, and analyze files that were previously too large to process, and the evidence viewer gains compact auto-hiding navigation controls in the Office task panes."
+date: "2026-09-18"
+tags: [Feature, Bug Fix, Performance, UI, AI]
+version: "2026-09-18"
+---
+
+### New Features
+
+- **CoAudit reads and analyzes large files directly in your browser**: Files that were too large for standard text extraction — where read and search tools previously returned nothing — can now be fully read, searched, and computed over by CoAudit. The analysis runs in your browser against the file's real contents with no extra wait time or server processing. This works in both the web chat and the Excel and Word task panes. If a computation is too intensive for the browser, CoAudit will tell you and prompt you to continue in the web chat where it can handle the load.
+
+### Improvements
+
+- **Compact, auto-hiding navigation controls in the evidence viewer**: Page navigation and zoom controls now appear as floating pill capsules anchored to the bottom of the evidence viewer. They fade out while you scroll or when the viewer is idle, and reappear when you move your pointer or press a key. You can type a page number directly into the page field and press Enter to jump straight there.
+
+### Bug Fixes
+
+- **Excel add-in no longer silently disappears on Office desktop**: A configuration issue was causing the CoAudit add-in to vanish for some users on Office desktop installations. This is now resolved.
+- **CoAudit icon displays in the correct color**: The cyan CoAudit icon now renders and refreshes correctly in the Excel and Word task panes.
+- **Parallel AI research writes are now properly coordinated**: When CoAudit researches multiple topics simultaneously and writes findings to different cells, those writes are now correctly coordinated — no cells are left blank due to a permissions conflict between parallel tasks.
+- **Worksheet tabs with special characters in their names now work correctly**: Cells on sheets whose tab names contain certain special characters are now handled correctly when CoAudit validates or writes to them.
+
+### Performance
+
+- **More reliable processing of large workpapers**: Improvements to how the platform handles large document processing reduce system load during peak usage, making workpaper processing faster and more consistent when many large files are being handled at once.
+
