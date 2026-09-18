@@ -1,0 +1,36 @@
+---
+title: "Click-to-edit task numbers, Excel add-in Context tab, and CoAudit citation improvements"
+description: "Punchcard adds click-to-edit task index numbers in list view, a redesigned document Context tab in the Excel add-in, and a significantly improved CoAudit citation and review experience."
+date: "2026-09-18"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-09-18"
+---
+
+## Engagement Board
+
+- **Click any task's index number** in list view to type a new value directly (auditor only). A preview shows every task whose number will change — old and new — before anything is written. Press Escape to cancel without a dialog.
+- **Renumber all** is now accessible from the `…` menu in the engagement breadcrumb in addition to the Display menu.
+- When two people edit task numbers at the same time, the system detects the conflict and prompts the second person to retry — no silent overwrites.
+
+## Excel Add-in: Redesigned Context Tab
+
+- The pane's **Context tab** now shows your workbook's document folders and files inline, with per-file status and processing state visible at a glance — no need to open a separate window.
+- Upload files directly from the Context tab; per-file progress and Retry appear inline.
+- **Browse Punchcard** is now a focused, attach-only window. Managing your workbook's documents and uploading files happens in the Context tab.
+- The engagement picker now starts at the firm level when browsing, with a cleaner navigation trail. The **Save** button stays disabled and explains why until you select a different engagement.
+
+## Excel Add-in: CoAudit Citation and Review
+
+- **Draw mode is gated on the cite panel**: the crosshair cursor is active only while the cite panel is open, so you can freely select and copy text from the document at any other time — no accidental draws.
+- **Delete a viewed citation** with the Delete or Backspace key — no need to click the citation box first.
+- Sum citations now show **each number as its own operand** with its own sign, so you can see and adjust every value in a total individually. Adding a sum to a cell that already has one appends the new operand instead of replacing the existing sum.
+- **Percentages and rounded figures** now compute correctly in sums — the underlying number is used rather than what's displayed on screen.
+- A **compact persistent panel** at the bottom of the reviewer card provides Reasoning and Citations tabs; the Citations tab label shows the count at a glance.
+- When uploading multiple files with the same filename in a single batch, each file now shows the correct outcome independently — no more mixed-up statuses between same-named files.
+- The upload destination list now leads with **Create New** at the top, so starting a new folder is always one click away.
+
+## Reliability Improvements
+
+- Signing into the Excel add-in is more reliable across different Office and browser configurations; a browser-based sign-in option is available when the in-pane flow is unavailable.
+- The citation viewer, workbook loading, and sign-out flow in the Excel add-in received several stability improvements.
+
