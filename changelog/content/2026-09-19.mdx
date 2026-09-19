@@ -1,0 +1,35 @@
+---
+title: "Client file-deletion controls and request auto-reopen"
+description: "Punchcard now lets auditors set per-engagement rules for which files clients may delete — with a 'Before submission' default for new engagements — and automatically reopens submitted requests when clients add new activity."
+date: "2026-09-19"
+tags: [Feature, Bug Fix, UI]
+version: "2026-09-19"
+---
+
+## Features
+
+### Per-engagement client file-deletion policy
+
+Auditors and admins can now set a **client file-deletion rule** for each engagement in Engagement Settings. Four modes are available:
+
+- **Always allow** — clients can delete any file
+- **Before submission** *(new default for all new engagements)* — clients can delete a file until the request it belongs to is submitted for review; once submitted, the file is locked for clients permanently
+- **Their own** — clients can only delete files they uploaded themselves
+- **Never allow** — only auditors can delete files
+
+When a file is locked and a client tries to delete it, they see a **"Request deletion"** option that drafts a ready-made comment to the auditor asking them to remove the file. If a selection mixes locked and deletable files, a dialog explains exactly which files need auditor help and lets the client delete the rest right away.
+
+### Submitted requests automatically reopen when clients add activity
+
+When a client **comments on or uploads a file to a request** that is already submitted for review or marked Done, the request automatically moves back to **Returned** — so auditors immediately see the new activity. Clients are prompted to confirm before their activity moves the request back to open, keeping the transition intentional.
+
+## Improvements
+
+### Excel add-in: contextual guidance and cleaner navigation
+
+The CoAudit Excel add-in now shows **contextual guidance** in the Agent, Context, and Viewer panels when they are empty, explaining what to do next (for example, prompting the reviewer to open a document before drawing citations). Workspace navigation controls are also visually separated from panel-specific actions, making it easier to find the right control at a glance.
+
+## Reliability
+
+- Workpaper automations are more resilient when the service starts up or restarts; a class of errors that could interrupt background work during a service restart has been resolved.
+
