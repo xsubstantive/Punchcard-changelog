@@ -1,0 +1,32 @@
+---
+title: "Review panel refresh, searchable skills, and match automation resilience"
+description: "Punchcard's CoAudit Excel add-in ships a redesigned Review panel with click-to-view citations, a searchable skill picker, and workpaper match automations that recover from slow lookups instead of failing."
+date: "2026-09-21"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-09-21"
+---
+
+### Features
+
+- **Reasoning and citations combined in Review**: The cell detail panel in the CoAudit Excel add-in now shows a cell's reasoning and all its citations together in one unified view.
+- **Click-to-view citation evidence**: Evidence opens when you click a citation — hovering no longer switches the document view, giving you deliberate control over which citation is displayed.
+- **Long-press cell references to navigate your spreadsheet**: Hold a cell reference link in reasoning text for a moment to temporarily jump your spreadsheet to that cell; release to return. The cited document stays in view throughout.
+- **Citation box requires a click to resize**: A cited region in the document must be clicked once before its resize handles appear, preventing accidental adjustments while you browse evidence.
+- **Searchable skill picker**: Type to filter skills directly in the CoAudit skill picker — find the right prompt without scrolling through your full library.
+- **Create clients and engagements from the upload flow**: While uploading source documents in the Excel add-in, you can now create a new client or engagement on the spot without leaving the screen.
+- **Simplified add-in settings**: Account and engagement settings are consolidated into a single screen with consistent navigation.
+- **Personalized agent welcome**: The CoAudit chat welcome screen now shows tailored suggestion prompts you can edit before sending.
+
+### Improvements
+
+- **Client directory now paginated**: The client list loads quickly with a "Load more" button for large firms, and supports search by client name or external ID.
+- **Client and engagement creation on mobile**: The creation flow for clients and engagements has been updated to work well on touch devices.
+
+### Bug Fixes
+
+- **Workpaper datasource sidebar toggle**: Clicking a datasource's column group name now reliably toggles the workflow sidebar open and closed — clicking while the sidebar was already open previously had no visible effect.
+- **Match automation resilience**: Individual slow record lookups no longer cause an entire datasource automation to fail; affected rows fall back gracefully while the remaining matches complete normally.
+- **New engagement form**: Validation messages now clearly identify each missing field, and the back and cancel buttons return you to the client page you started from.
+- **Administrators can access the client directory**: Firm administrator accounts now have full access to client and client-detail pages, matching auditor access.
+- **Skill library reliability**: Skills reload correctly after a connection issue, unsaved edits prompt a confirmation before navigating away, and firm skills stay current when switching between accounts.
+
