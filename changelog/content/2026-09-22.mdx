@@ -1,0 +1,23 @@
+---
+title: "Precise citation row-pinning and a steadier Excel add-in experience"
+description: "CoAudit citations now highlight the exact document row even when the same value repeats across many rows, and the Excel add-in locks your selected cell at send time so writes always land where you intended."
+date: "2026-09-22"
+tags: [Bug Fix, AI, UI]
+version: "2026-09-22"
+---
+
+## AI & Citations
+
+- **Citations highlight the correct row, even when a value repeats.** When a number or piece of text appears on multiple rows of a table — for example, the same hours figure across several employees in a payroll register — CoAudit's PDF highlight now lands on the exact row it read, not the first matching occurrence elsewhere in the document. Evidence that cited the right value but highlighted the wrong person, invoice, or transaction will now resolve correctly.
+
+## Excel Add-In
+
+- **"This cell" no longer drifts while CoAudit is working.** The cell you had selected when you pressed Send is now locked in for the entire turn. Clicking elsewhere in your workbook while CoAudit processes no longer causes writes to redirect to a different location.
+- **Result and tick-mark columns receive short codes, not sentences.** CoAudit now writes concise marks such as X, PY, or N/A into result columns and places the full explanation in the Reasoning panel — cells no longer contain verbose sentences.
+- **CoAudit extends existing sheets before creating new ones.** When output belongs alongside data already on the screen, CoAudit adds columns to the current sheet rather than opening a new tab.
+- **Change summary with Reapply after CoAudit writes.** After a round of workbook edits, a summary shows which ranges were written with clickable cell references. A **Reapply** button lets you re-execute the same writes if a connection issue caused them to land incompletely.
+
+## Engagement Board
+
+- **Task number editor stays open when you move the mouse.** The click-to-edit index number input no longer dismisses as soon as the cursor drifts. Cancel explicitly with the **✕** button, the Escape key, or by clicking anywhere outside the editor.
+
