@@ -1,0 +1,28 @@
+---
+title: "Queue messages mid-response, export selected tasks, and smarter AI memory"
+description: "Punchcard adds a follow-up queue in CoAudit so auditors can keep typing while the AI responds, selective export for a chosen subset of tasks, and improved AI recall in long conversations."
+date: "2026-09-23"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026-09-23"
+---
+
+## New Features
+
+- **Follow-up queue in CoAudit**: Keep typing while the AI is still responding — additional messages line up in a shelf above the composer and send in order once the current reply finishes. Each queued message can be **steered** directly into the AI's ongoing response (inserted while it is still generating), reordered by drag-and-drop, edited inline, or deleted. The queue survives a page reload and clears on sign-out. Available on web and in the Excel add-in.
+
+- **Selective export**: Checkbox-select any subset of tasks on the board or list view, then open the Export modal — every download format (Status Report, .zip archive, workpapers) is automatically scoped to just those tasks. The .zip button displays the count ("Download (5) .zip") so the scope is always visible. With no selection, exports continue to cover the full engagement as before.
+
+- **Context usage indicator in CoAudit**: A small percentage appears at the left edge of the chat composer once a conversation has used more than 80% of the AI's available capacity, signaling that starting a new chat will give the AI more room to work.
+
+- **Longer AI conversation memory**: In extended CoAudit sessions, the AI can now look back at earlier parts of a conversation it could no longer directly see, keeping analysis coherent across hours-long workpaper reviews with many tool calls and file reads.
+
+## Improvements
+
+- **Office add-in ribbon navigation**: The Viewer button now steps through three stages in sequence — split view, full viewer, then close — so each press advances one level without jumping unexpectedly. The CoAudit button opens a split alongside the document when a full-screen document is open, rather than replacing it. Selecting a workbook cell no longer switches which tab is visible; evidence loads quietly in the background and is waiting when you open the Viewer.
+
+## Bug Fixes
+
+- **Export selection no longer sticks**: Switching between board and list views now correctly clears any task selection, so the Export button no longer offers a scoped download based on rows that are no longer on screen.
+- **Excel add-in: selecting a chart or shape no longer disrupts the add-in**.
+- **CoAudit: reopening a conversation no longer occasionally re-ran an AI response** that had already been delivered.
+
