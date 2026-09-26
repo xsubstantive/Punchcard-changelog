@@ -1,0 +1,21 @@
+---
+title: "Adjustable task pane zoom and CoAudit context improvements for Excel"
+description: "Punchcard's Excel add-in now lets reviewers scale the CoAudit task pane to fit their screen, and fixes ensure document highlights and cell references stay accurate throughout a review session."
+date: "2026-09-26"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-09-26"
+---
+
+## New
+
+- **Adjustable pane zoom (Excel)**: Reviewers can now scale the CoAudit task pane down from the **Settings** page (the ⋯ menu in the pane header). Steps run from 100% down to 90%, 80%, 75%, 67%, and 50%. The preference is saved per device and applied before the pane loads, so the pane opens at the chosen size with no visible resize.
+
+## Improvements
+
+- **Consistent work status indicators**: Status icons and colors across Punchcard have been unified into a coherent set, making it easier to read work status at a glance across different parts of the app.
+
+## Bug Fixes
+
+- **Chat citation highlights stay visible when clicking other cells (Excel)**: Clicking a citation link in a CoAudit chat response opens the source document with the relevant passage highlighted. Previously, clicking any workbook cell without its own linked evidence would clear that highlight. The highlight from a chat citation now persists until you click a cell that has its own evidence, or the viewer resets.
+- **CoAudit's cell and sheet references stay accurate within a turn (Excel)**: CoAudit now locks in the cell selection and active worksheet at the moment you press **Send**, and uses that snapshot consistently across every step it takes in that response — including when it navigates between sheets during its work. This prevents CoAudit from referencing the wrong cell or sheet mid-turn. The same fix applies to queued follow-up messages, each of which carries the selection captured when it was queued.
+
