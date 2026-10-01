@@ -1,0 +1,40 @@
+---
+title: "Resolvable Discussions, Smarter Accepted-Request Tracking, and Excel Workpaper Templates"
+description: "Punchcard comment threads can now be resolved and reopened, accepted requests flag client edits instead of reopening, and the Excel add-in gains workpaper templates with customizable highlight colors."
+date: "2026-10-01"
+tags: [Feature, UI, AI]
+version: "2026-10-01"
+---
+
+## Requests & Accepted-Request Tracking
+
+- **Client edits to an Accepted request no longer send it back for review.** Instead, auditors see an amber **"Changed since accepted"** flag on the request's row, card, and detail panel. Opening it shows who changed what and when; a **Mark reviewed** action clears the flag and records that it was reviewed. Any status change also clears it automatically, and the board can be filtered to just the changed requests.
+
+## Comments & Discussions
+
+- **Comment threads can now be resolved and reopened.** A visible **Resolve** button appears on each open thread; resolving collapses it to a single line showing who resolved it and when, with a **Reopen** control alongside. An **All / Unresolved** filter is available wherever discussions appear — request pages, the board's quick-view panel, and workpaper cell comments.
+- **Reactions**: comments now support reacting with any emoji, not just a thumbs-up.
+- **Mentioned people and files become clickable** once a comment or description is saved — clicking a person opens a card with their role, email, and quick actions (send email, add a comment, or start a Teams chat between auditors); clicking a file opens it in the document viewer.
+
+## Task & Request Creation
+
+- **Creating from a template** now uses a simpler, searchable picker (Personal/Firm/Punchcard templates) with a preview before you create — available to firms still using the classic workflow builder. Old template share links are no longer supported and show a clear notice instead.
+- Deleting a request now shows the word "request" (not "task") in the confirmation dialog when the deleted item is client-visible.
+
+## Board Improvements
+
+- **Hovering a property badge** (status, priority, due date, assignee, category, comments, and more) now opens a quick preview with relevant detail — for example, time spent in each status, or recent unresolved comments.
+- **Keyboard shortcuts**: press `S`, `P`, or `A` while hovering or focused on a task card to jump straight to its status, priority, or assignee picker.
+- Due dates can be set by typing common phrases like "7 days" or "Feb 9", and the due-date picker offers quick presets.
+- List columns like due date and category now stay hidden automatically when no items on the board use them, with the option to force a column always visible or always hidden.
+- Task and request row actions now open via right-click, long-press, or keyboard (Shift+F10) instead of a hover button, freeing up row space for properties.
+
+## Excel & Word Add-in (CoAudit)
+
+- **Apply a workpaper template directly in Excel**: pick a saved template, preview its structure, optionally fill it with an existing request's data and documents, and insert it as a new sheet — with an easy Undo.
+- **Citation highlight colors can now be customized per firm** in Excel — cited, validated, and flagged highlights are standard cell styles your firm can recolor, and every highlighted cell updates automatically.
+
+## AI
+
+- The opt-in "Max" reasoning option in CoAudit chat now runs on an upgraded flagship model.
+
