@@ -1,0 +1,21 @@
+---
+title: "Redesigned Task Creation and PDF Viewer Fixes"
+description: "Punchcard's new request/task modal gets a cleaner Linear-style design, templates are easier to filter, and PDF viewing and CoAudit in Excel get key reliability fixes."
+date: "2026-10-02"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-10-02"
+---
+
+### Features & Improvements
+
+- **Redesigned task and request creation**: The "New Task" / "New Request" modal has been restyled for a cleaner, faster creation flow. Client and engagement names now appear immediately when opened from a board (no blank placeholder while loading), the form can be **expanded** for longer descriptions, and you can submit with **⌘+Enter** (Mac) or **Ctrl+Enter** (Windows) from anywhere in the form.
+- **Easier template browsing**: The "Use a template" picker (on the web and in the Excel add-in) now has **All / Punchcard / Firm / Personal** filter tabs, each showing how many templates match your search — making it faster to find the right one.
+- **CoAudit in Excel handles large data imports more reliably**: CoAudit can now write large sets of calculated results (hundreds of rows) into a workbook in one pass instead of retyping them value-by-value, significantly improving accuracy on big imports. It can also read text from scanned documents more thoroughly and view PDF pages — including filled-in form fields — when researching your files.
+- **Longer CoAudit tasks in Excel no longer get cut off**: Bulk data imports, multi-step reviews, and other long-running CoAudit jobs in the Excel add-in now run to completion instead of stopping partway through after about 15 minutes.
+
+### Bug Fixes
+
+- Fixed an issue where **filled-in form fields and annotations** in PDF documents (typed values, checkboxes, highlights, stamps) appeared blank in the document viewer, even though that information was already available elsewhere. These now render correctly.
+- **Task chat history** now shows chats that teammates started on the same task, not just your own conversations — restoring visibility that was previously lost.
+- Fixed a rare issue where a task's **privacy toggle** could silently revert to its previous state shortly after being changed.
+
