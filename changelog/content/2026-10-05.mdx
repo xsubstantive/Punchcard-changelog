@@ -1,0 +1,32 @@
+---
+title: "Move Documents Between Requests, Faster List Navigation, and More Reliable AI Workpaper Edits"
+description: "Punchcard now lets auditors and clients drag-and-drop or menu-move files between General and subrequests, navigate request lists entirely by keyboard, and benefits from more reliable AI-assisted workpaper automation."
+date: "2026-10-05"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-10-05"
+---
+
+### New: Move documents between General and subrequests
+
+- **Drag-and-drop or menu-based moves**: On a request that uses subrequest tables, any file can now be moved between **General** and a subrequest — drag the file onto another row, or use the new **Move to…** option from the file's menu or the selection toolbar. A searchable list shows every available destination.
+- **Undo included**: Most moves can be undone right from the confirmation message, restoring the file to exactly where it was.
+- **Safeguards built in**: Moving a file that would delete verified or reviewed work prompts for confirmation first. Moving a file whose document group is shared with another workpaper clearly names who else will see it before you proceed.
+- **Available to clients too**: Clients can move their own documents between General and the subrequests they have access to; destinations they can't use are shown with a plain-language reason (e.g., "Managed by your audit team").
+- Dragging multiple selected files shows a count badge so it's clear the whole selection is moving together.
+
+### Improved: Keyboard navigation in request lists
+
+- Arrow keys now move through requests and their subrequests in a natural top-to-bottom order, automatically expanding and collapsing subrequest groups as needed.
+- **Left/Right arrows** fold and unfold subrequests, **Home/End** jump to the first or last item, and typing a request's name jumps straight to it.
+- Screen reader support for the request list has been improved, with clearer announcements of structure and loading states.
+
+### Fixed
+
+- **Fast typing in request lists**: Quickly typing a word like "Cash" or "Legal" while browsing the request list no longer gets hijacked partway through by a keyboard shortcut, which previously sent the rest of the word into the wrong search box.
+- **Clearer move notices**: When moving a file into a document group shared with another workpaper, the confirmation now plainly states where the file is going and who else gains access to it.
+
+### Improved: AI-assisted workpaper reliability
+
+- Strengthened safeguards around AI-assisted cell edits in workpapers — edits are now verified against the exact cells intended, and actions on spreadsheets with multiple sheets or very large data ranges are better protected against being applied to the wrong location.
+- Improved accuracy of AI-generated citations when similar values appear in multiple rows of a document.
+
