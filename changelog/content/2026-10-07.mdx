@@ -1,0 +1,31 @@
+---
+title: "Board Category Customization, Smarter Renumbering, and a Clearer Model Picker"
+description: "Punchcard auditors can now rename, recolor, and reorder board categories, publish a shared board view for the whole engagement, and renumber requests under any sort order — plus a clearer AI model picker in CoAudit chat."
+date: "2026-10-07"
+tags: [Feature, UI, AI, Bug Fix]
+version: "2026-10-07"
+---
+
+### Board
+
+- **Customize categories directly on the board**: rename, recolor, and reorder categories from the new Categories panel (Display menu) or by right-clicking a category header — changes apply instantly across headers, cards, and the panel for everyone on the engagement.
+- **Drag rows into a custom order**: dragging a request or task within its group now places it exactly where you drop it, automatically switching that view to Manual ordering (with an Undo toast if you change your mind).
+- **Set default view for everyone**: auditors can publish their current board arrangement — layout, grouping, sorting, and filters — as the shared default for the whole engagement team and for clients.
+- **Renumber now works under any sort order**, in both Board and List views (previously it only worked when sorted by Manual or Identifier). Repeated renumbering also keeps same-named items in a stable order instead of shuffling them.
+
+### CoAudit Chat
+
+- The model picker pill now always names the AI model that will actually respond (e.g. "GPT-6.1 Sol · Medium") instead of an ambiguous "Default." It opens into a streamlined panel with an effort slider, a one-click jump to the fastest setting, and a reset to the recommended model and effort.
+- **Rename an open chat** directly from its options menu in task chat, in addition to renaming from the chat history list.
+- "Manage skills" and "Add skill" are back in the composer's "+" menu.
+- Large AI-built spreadsheets and multi-tab workbooks are far less likely to be rejected for size — the AI also now knows to build large datasets in steps when needed.
+
+### Clients
+
+- Client and engagement creation now use a streamlined flow with clearer empty states, and engagement settings (members, categories, roll-forward, reference documents) are reorganized into clearer sections.
+- Removed a redundant "Settings" option from the engagement view's own menu, since that view already is the engagement's settings.
+
+### Fixes
+
+- A subrequest's title now updates immediately everywhere it's shown after a rename, instead of requiring a page reload.
+
