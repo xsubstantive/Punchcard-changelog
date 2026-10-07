@@ -1,0 +1,20 @@
+---
+title: "Comment Editing, Keyboard Navigation, and File Move Reliability Fixes"
+description: "Punchcard fixes comment editing, list keyboard navigation, and file-move safety, plus upload and automation history fixes in CoAudit."
+date: "2026-10-07"
+tags: [Bug Fix, UI, AI]
+version: "2026-10-07"
+---
+
+### Fixes
+
+- **Comment editing now opens with your original text.** Clicking Edit on a comment previously opened an empty box instead of showing what you'd written.
+- **Keyboard navigation in list view no longer goes dead after a click.** Arrow keys, Home/End, and type-ahead search now keep working on a row right after you click it.
+- **File moves between General and subrequests are clearer and safer.** The "Move to…" picker now only appears when there's an actual valid destination — no more opening a list where nothing can be selected. Undo (including ⌘Z/Ctrl+Z) now only works while its confirmation message is still visible, so it can't accidentally undo an older move.
+- **New Task's Category and Assignee selectors no longer disappear** while the rest of the page is still loading.
+- **Closing a menu inside a dialog no longer leaves the page unresponsive to clicks.**
+- **Large "Add subrequests from a table…" imports no longer time out** partway through for bigger pasted tables.
+- **CoAudit's automation history no longer shows a bogus "Run sample" entry** for steps that don't actually run anything.
+- **Uploading files from the board's quick-upload panel in CoAudit no longer shows a false error** — files that had actually uploaded successfully previously displayed a confusing "issue" message.
+- Notifications are more resilient to brief hiccups loading your unread count, instead of dropping your live connection.
+
