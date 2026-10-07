@@ -1,0 +1,17 @@
+---
+title: "More Reliable AI-Authored Cell Writes in Excel and Word"
+description: "Punchcard's CoAudit assistant now reliably prompts for approval on Python-based cell writes in the Excel and Word add-ins, and restores its default chat model."
+date: "2026-10-07"
+tags: [AI, Bug Fix, UI]
+version: "2026-10-07"
+---
+
+**Bug Fix: more reliable cell writes from Python-based analysis**
+When CoAudit uses its in-browser Python analysis to fill in workpaper cells in the Excel or Word add-in, those writes now consistently show an approval request in environments that require manual review — previously, this kind of write could stall with no prompt to approve it. If the underlying analysis is no longer available (for example, after reloading the add-in), CoAudit is now told to redo the analysis and resend the write instead of leaving the request stuck.
+
+**AI: default chat model restored**
+CoAudit's default chat model is back to **GPT-5.6 Terra** at medium reasoning effort across web chat and the Excel/Word add-ins, after briefly defaulting to a model without a verified accuracy track record. You can still pick a different model from the picker.
+
+**UI: model picker adapts to narrow chat panels**
+The model-and-effort selector in the chat composer now shrinks in steps as the panel narrows — showing a shorter label, then just the effort level, then an icon — instead of being cut off at small widths.
+
