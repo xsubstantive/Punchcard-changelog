@@ -1,0 +1,24 @@
+---
+title: "Amount-Based Stratification for Random Sampling"
+description: "Punchcard's Random sampling can now split populations into amount-based strata with suggested cut points, and subrequest table imports support sampling methods — plus fixes to requests and the engagement board."
+date: "2026-10-08"
+tags: [Feature, Bug Fix, UI]
+version: "2026.10.08"
+---
+
+**New: Stratify Random samples by amount**
+- Random sampling can now split a numeric column into **amount-based strata** (ranges), not just by distinct text values.
+- Drag cut points directly on a visual bar, or use **Suggest** to propose cut points automatically (equal-dollar ranges or a statistically optimized method) along with how much of the sample each stratum should receive (even split, proportional to size, or an allocation that favors strata with more variation).
+- Each stratum shows its item count and lets you set its own share of the sample as a count or a percentage.
+- Sampling receipts (Excel and PDF) document each stratum's range, item count, and how the sample was drawn.
+
+**New: Sampling methods for subrequest table imports**
+- When adding subrequests from a pasted table, you can now choose a sampling method — Random (including amount stratification), MUS, High Value, or JE Testing — so only the sampled rows become subrequests, with the sampling run saved for your receipt.
+- If creating subrequests fails partway through, the import dialog now stays open so you can retry without re-pasting or losing your sample.
+
+**Fixed**
+- The request panel's **Add workpaper** option is back for firms still using the classic workpaper builder; requests that already have a workpaper continue to show a one-click **Open workpaper** button.
+- The privacy lock icon on a request's header no longer gets visually clipped, which had been preventing it from opening.
+- Several accessibility and polish improvements to the sampling panel: better color contrast on warnings, visible focus outlines for keyboard navigation, larger click targets on strata handles and buttons, and respect for reduced-motion settings.
+- Minor visual fixes on the engagement board: the Add button stays circular, category colors are preserved when reordering groups, and sort-direction icons are now consistent.
+
