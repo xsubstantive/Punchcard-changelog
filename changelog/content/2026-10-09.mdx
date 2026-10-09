@@ -1,0 +1,48 @@
+---
+title: "Redesigned Request Panel, Activity Tabs, Citation Highlights Switch and Sharper Client Logos"
+description: "Punchcard's October 9 release gives auditors a cleaner Request panel with a fuller ⋯ menu, All / Comments / Activity tabs, an Excel switch for citation highlights, a simpler add-in sign-in and better website logos for clients."
+date: "2026-10-09"
+tags: [Feature, UI, Bug Fix]
+version: "2026.10.09"
+---
+
+## Request panel
+
+- **Cleaner layout**: The Request panel on the board has new spacing, headings and property pills. The Request ID sits above the title. Requested documents now reads **Requested files**, and the Workpaper has its own section.
+- **A fuller ⋯ menu**: One menu now holds **New sub-request**, **Sub-requests from a table…**, **Move to…**, **Add workpaper**, **Mark as read / unread**, **Copy**, **Make a copy…** and **Delete**.
+  - **Copy** offers the ID, URL, title, description, or the title as a link, and each choice confirms what it copied.
+  - **Make a copy…** opens the create form prefilled from the Request, keeping its due date, audience and assignee. Nothing is saved until you submit it.
+- **Activity is easier to scan**: Runs of events collapse behind a "Show N events" row. Resolved comment threads collapse to a single row that you can reopen from anywhere on it.
+- **Resolve or reopen from any comment**: A reply's ⋯ menu now offers **Resolve thread** / **Reopen thread**, so you don't need to scroll back to the top.
+- **All / Comments / Activity tabs**: The discussion area has these three tabs. "View thread" on a resolve entry now opens the thread even if the current tab would hide it, including on the full Request page.
+- **Faster loading**: The panel shows a preview of the Request while it loads, so content doesn't jump into place.
+
+## Request list and board
+
+- **Inspector follows keyboard focus**: Moving through list rows with the arrow keys updates the open panel to the focused Request.
+- **Faster hover** on list rows, with refined pills, spacing and scrollbars.
+- **Search folds into a magnifier** when the header is narrow. ⌘F or "/" opens it across the whole header.
+- **Two export options**: **Export status report…** and **Export files…** are now separate. Files and workpapers are offered together only when the engagement has workpapers.
+- **Board view settings** no longer overflow when many groups are hidden.
+
+## Excel add-in
+
+- **Citation highlights switch**: Under Settings ▸ Workbook you can turn off the shading on Cited, Validated and Flagged cells. The setting is saved in the workbook, so it travels with the file. If a change fails partway, for example on a protected workbook, the switch shows the workbook's real state.
+- **One-click browser sign-in**: The browser page shows the code from your Excel or Word window and the account you're signing in with. If the codes match, one click on **Connect** completes sign-in, and nothing needs typing. A sign-in from a different network from the pane's asks for your password and shows a warning.
+
+## Clients
+
+- **Better website logos**: Client avatars can use the logo from the client's website. Punchcard picks the highest-resolution icon and supports SVG and newer image formats. It finds logos on more sites, including sites with older security certificates, and rechecks sites it couldn't read at first.
+
+## Sampling
+
+- **Type each stratum's cut point** directly in its row. The amount is checked before it is applied, and currency symbols are optional.
+- **Cut points drag anywhere** along the bar and can move past each other.
+- **Currency formats read correctly**: Suffixes such as "лв." and "د.إ" now work when you type a cut point. A precise cut point also stays exact if you tab through its field without typing.
+
+## Emails and fixes
+
+- **Activity digest emails** are redesigned. Repeated uploads are folded into one line, and changes that were reverted are left out.
+- **Copy URL** on a Request now links to the Request's own board.
+- **Skip link** now goes to the visible CoAudit chat.
+
