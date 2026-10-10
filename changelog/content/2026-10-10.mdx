@@ -1,0 +1,29 @@
+---
+title: "Word Add-in: Cleaner Citations, Document Editing by Chat, and Selection Context"
+description: "Punchcard's Word add-in now marks citations with unobtrusive colored underlines and lets CoAudit edit and cite your document directly, so auditors can review evidence without cluttering financial statements."
+date: "2026-10-10"
+tags: [Feature, AI, UI, Bug Fix]
+version: "2026.10.10"
+---
+
+## Word Add-in
+
+### Features
+- **Cleaner citation look**: Cited figures are no longer marked with a superscript number or a change to the figure's font. Citations are now shown as native underlines: **lavender** for unreviewed, **green** for validated, and **red** for flagged. Click any citation to open its evidence and reasoning.
+- **Citation highlights switch**: A new setting in Settings lets you show or hide the citation underlines without touching the document text. Where Word can't draw native underlines, toggleable outlines are used instead.
+- **Edit your document by chat**: CoAudit can read the document's paragraphs along with their citations, insert or replace text, and cite figures to evidence. Replacing existing text asks for your approval in Manual mode, and if the document isn't yet attached to an engagement, CoAudit asks which one first.
+- **Undo CoAudit's edits**: CoAudit can take back its document edits, newest first. Anything you changed since is skipped and reported.
+- **Selected content travels with your message**: A chip above the chat box shows the selected text or table cells that will accompany your next message. Dismiss it to leave the selection out.
+- **Reasoning for checked figures**: CoAudit can attach its accuracy reasoning to figures it has checked.
+
+### Improvements
+- **Older numbered citations are converted** to the new look when you open a document, keeping their recorded colors and underlines.
+- Existing citation numbers stay in order (1, 2, 3…) when citations are added or cleared in older documents.
+- Reviewing a document no longer disturbs citation underlines that haven't changed.
+
+### Fixes
+- Converting older citations or correcting a cited figure no longer alters the figure itself, including its font and digits.
+- CoAudit now refers to citations in a way that matches what you see in the document.
+- Selections in the document stay attached to your message even after you save the file under a new name.
+- Tables are read correctly in more cases when cell details are unavailable.
+
