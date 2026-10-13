@@ -1,0 +1,27 @@
+---
+title: "Newly created Requests open on the board, plus Firm Analytics and Excel and Word add-in updates"
+description: "Punchcard now reveals Requests the moment you create them, lists Firm Analytics newest first, and ships Excel and Word add-ins together, with steadier large pastes."
+date: "2026-10-13"
+tags: [Feature, UI, Bug Fix, Performance]
+version: "2026.10.13"
+---
+
+## Features
+
+- **New Requests are revealed right away**: after you create a Request on the board, it is selected, its group expands, and it scrolls into view, just like opening a Request link. If a search, filter, or hidden group keeps it off screen, a "created" message tells you so instead of leaving you guessing. This works for every way of creating a Request, including Create more and Copy.
+- **Resend client invites**: on the Members page, you can resend the invite email to selected client users, either in bulk or one person at a time.
+- **Excel and Word add-ins in one package**: the Punchcard Office store listing now covers both Excel and Word. Existing Excel installs pick up Word with the next version update.
+
+## Improvements
+
+- **Board ordering stays put**: Requests are now ordered by identifier by default, so a Request no longer jumps to the top of its group each time its status changes. Boards that still had the old default ordering saved are moved to the new one once. If you choose "Last updated" again, it sticks.
+- **Firm Analytics lists newest first**: activity and growth tables, the growth period picker, and contributor lists now show the most recent entries first. Charts still run left to right in time. Document lists also show when processing started.
+
+## Fixes
+
+- **Engagement "Copy link" opens the client board**: the copied link now points to the client board unless the engagement is team-only.
+- **Renaming a category works the first time**: the rename field no longer loses focus as the menu closes, which used to take several tries.
+- **EU sign-in in the Office add-ins**: switching the add-in pane to the EU region now works on desktop Office. If Office refuses the switch, the pane stays where it is and tells you the add-in needs an update, instead of showing a misleading sign-in error.
+- **Large pastes are more reliable**: pasting very large tables, such as tens of thousands of rows, no longer fails partway through.
+- **Fewer interrupted requests**: brief connection drops no longer cause sign-in checks to fail on pages such as the Workpaper Problems tab.
+
