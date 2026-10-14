@@ -1,0 +1,27 @@
+---
+title: "CoAudit Reliability: Faster Large-Spreadsheet Search, Steadier Connections, and Region Switching Fix"
+description: "Punchcard CoAudit now handles large journal-entry spreadsheets much faster, stays connected in background tabs, and recovers more gracefully from long-running work."
+date: "2026-10-14"
+tags: [Performance, Bug Fix, AI]
+version: "2026.10.14"
+---
+
+## Performance
+
+- **Much faster search on large spreadsheets**: CoAudit searches across big exports, such as journal-entry files with thousands of rows, in seconds instead of minutes, so they no longer fail partway through.
+- **Faster citations and page reads on large files**: Citations and page reads on very large spreadsheets now resolve quickly instead of stalling.
+
+## Improvements
+
+- **Steadier connection in background tabs**: A CoAudit chat left in a background tab or behind another window now stays connected, so it can still reach your Excel or Word pane when you return.
+- **Smoother recovery in Excel and Word**: If the Excel or Word pane is briefly reconnecting, CoAudit waits and tries again instead of reporting that it can't reach the pane.
+- **Clearer feedback when work stalls**: If a step produces no output for several minutes, CoAudit now ends it with a visible error instead of leaving you waiting with no explanation.
+- **Clearer guidance when a code session expires**: CoAudit now recognizes when a code session has expired and starts a new one.
+- **More reliable issue reporting**: When you ask CoAudit to report a problem or missing feature to the Punchcard team, it confirms only when the report was actually submitted. If it can't confirm, it tells you so.
+- **Better handling of unattached workbooks**: When a workbook isn't attached, CoAudit now explains that cell notes and citations can't be saved, instead of attempting to write them and failing.
+
+## Fixes
+
+- **Citation links in tables**: A citation that sits alone in a table cell now appears as a clickable citation instead of plain "[1]" text.
+- **Region switching in Excel and Word add-ins**: Switching between the US and EU regions no longer bounces the pane back and forth between them. It now opens in the region you chose.
+
