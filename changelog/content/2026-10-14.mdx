@@ -1,0 +1,35 @@
+---
+title: "Document-groups grid for subrequests, evidence warnings, wider request panel and firm-admin access"
+description: "Punchcard adds a Document groups view for subrequests, a heads-up before uploading files to Resources, a wider request panel, and more reliable evidence opening in desktop Excel."
+date: "2026-10-14"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-10-14"
+---
+
+## New
+
+- **Document groups view for subrequests**: see subrequests as rows and document groups as columns in a "Requested files table." Each cell shows how many files are in that group. Click a count to see and open the files, or click an empty cell or drop files on it to upload. Auditors can add, rename or remove a document group across all of a request's subrequests in one step. This view is available on firms with the workflow builder.
+- **Drag files between cells**: drag a file onto a cell to **Move** it, or **Copy** it as an auditor. Dropping a file onto General in the Itemized view asks **Move** or cancel first.
+- **Subrequest view names**: the views are now called **List**, **Itemized** and **Table**.
+- **Warning before uploading to Resources**: on a client-visible request, uploading to Resources now asks first, because Resources can't be used as evidence for testing, including in CoAudit. Choose **Upload as resource**, **Upload as evidence**, or cancel. You can turn the reminder off.
+- **Wider request panel on the board**: the request detail panel can be dragged out to 85% of the board's width, which helps with wide subrequest tables. The board now opens as an even split.
+
+## Improvements
+
+- **Workpaper downloads work with the Excel add-in**: Workpaper Only, Files + Workpaper and engagement exports now carry the citations the Excel add-in needs. Open the workbook in the add-in and each cited cell shows its evidence. Evidence is no longer packed inside Excel files.
+- **Procedures by Column in the workpaper memo**: the exported memo lists each column's description, after Procedures.
+- **CoAudit workbooks open in the add-in**: Excel files CoAudit delivers carry their citations in the add-in's own format and attach to the engagement directly.
+- **Excel add-in requests in board order**: requests and tasks now list in the board's order, so "2 Cash" sits above "12 Payroll". In Browse Punchcard, subrequests nest under their parent request.
+- **Pop out and Dock pane help**: Settings in the add-in has step-by-step instructions for floating the pane or docking it back (desktop Office).
+- **Cleaner client list**: a client whose engagements are all private ones you aren't on no longer appears in your list. Clients with no engagements yet still show.
+- **Firm admins see their whole firm**: firm admins can open, edit and change privacy on every engagement in their own firm, including private ones.
+
+## Fixes
+
+- **Evidence opens in desktop Excel**: some users in desktop Excel saw "Failed to fetch" on every document. Evidence now opens reliably.
+- **Dragging files out of a cell's file list** works again, and the edge-scroll strips no longer cover the column titles.
+
+## Removed
+
+- The in-app download for the older Excel add-in and the "Legacy DS Format" and embedded-files workpaper exports are gone.
+
