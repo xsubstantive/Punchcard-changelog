@@ -1,0 +1,35 @@
+---
+title: "Pinned Changes-Requested Threads, Inline Subrequests, and Safer Excel Writes in CoAudit"
+description: "Punchcard now keeps return reasons as pinned PBC Request threads clients can answer, keeps subrequests inside their parent Request, and makes CoAudit's Excel workpaper automation and long chats more reliable."
+date: "2026-10-16"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-10-16"
+---
+
+## Requests
+
+- **Return reasons now stay visible**: when you return a Request to the client and give a reason, it starts a pinned "Changes requested" thread above the Request. The client can answer it directly, and it no longer disappears once the Request moves on.
+- **Pin and unpin threads**: the audit team can pin any client-visible thread, or unpin one, from its ⋯ menu. Pinned threads sit above the Request instead of in the discussion list.
+- **Subrequest threads roll up to the parent**: a Request with subrequests shows their pinned threads in its own "Changes requested" box, labeled with row number and title. Auditors get one **Unpin all** button. Subrequests with a pinned thread show a yellow comment icon.
+- **Subrequests stay inside the parent**: in Table and Document groups views, subrequests no longer have pages of their own. Opening one from a link, notification, or the board takes you to the parent with that row in view.
+  - Each row shows its files, an upload area, and its comments in place.
+  - Document groups gains a **Comments** column showing unresolved counts for each row.
+  - The parent's activity combines its subrequests' history and comment previews, labeled by number and title.
+  - General is always the last row, with a permanent upload target.
+  - Switching back to List restores separate pages. Nothing is moved or deleted.
+
+## CoAudit in Excel
+
+- **Writes wait while you edit a cell**: Excel blocks add-in changes while a cell is being edited, which could leave a half-finished schedule. CoAudit now pauses (up to 60 seconds) until you press Enter or Esc, and shows a notice telling you it is waiting. If you don't finish editing, it stops cleanly and writes nothing. This needs a recent version of Excel.
+- **Clearer limit for large Python results**: guidance now explains that results written to the workbook are capped at about 256 KB, so very large schedules should be built in blocks.
+
+## Reliability
+
+- **CoAudit replies survive app updates**: a reply being written while a new version rolls out is allowed to finish, instead of being cut off mid-answer.
+
+## Microsoft Marketplace
+
+- **Buy and set up Punchcard through Microsoft**: buyers can open their purchase, choose where their firm's data lives, sign in with their Microsoft account, and set up their firm. They can also add the email domains used for automatic colleague sign-up, and prove ownership of each through a DNS record.
+- **Inactive subscriptions are blocked**: if a firm's marketplace subscription is suspended for non-payment or cancelled, its auditors, including in CoAudit chat, are sent to a notice page until Microsoft reinstates it. No data is deleted.
+- **Only firm administrators manage email domains.**
+
