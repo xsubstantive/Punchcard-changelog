@@ -1,0 +1,38 @@
+---
+title: "Folders for Requests and the Firm Library, plus OneDrive and Faster Search"
+description: "Punchcard adds nested folders for Request documents, a Firm and Personal library, OneDrive linking and file search across engagements, so auditors find and organize evidence faster."
+date: "2026-10-17"
+tags: [Feature, UI, Performance, AI, Bug Fix]
+version: "2026.10.17"
+---
+
+## New features
+
+- **Folders on Requests**: Documents on a Request now appear as one outline of folders. Create, rename, move and delete folders (up to 10 levels deep), and drop in whole folders or zip files with their structure kept. Deleting a folder lets you **Delete** everything or **Keep files** by moving them up a level.
+- **Files tab for each engagement**: Browse Requests, the engagement's own files and OneDrive in one tree, with breadcrumbs, multi-select, drag and drop, an in-page viewer and **Download all** for any folder.
+- **Find files**: Search an engagement's files by name and by content together, with results that open at the matching page. Exact words are found even when the wording isn't a close match.
+- **OneDrive folders**: Firms using Microsoft 365 can copy folders and files from OneDrive, Shared with me and SharePoint into an engagement. Punchcard only reads what the auditor can already open and never changes anything in Microsoft 365.
+- **Firm and Personal libraries**: The Library now has a Firm tab (shared with your team) and a Personal tab (only you), both with nested folders, a built-in viewer, name and content search, and a Library link in the header. The old Punchcard-wide library has been removed.
+- **CoAudit and the Library**: CoAudit can search and list library documents, and the chat "+" menu has a Library picker for attaching files or folders. Typing `@` finds library files and folders as you type.
+- **Create workpaper from a Request**: For firms with workpaper creation turned on, a Request without a Workpaper shows a **Create workpaper** button in its Workpaper section.
+- **Sub-request tables**: The Table and Itemized views let you change a row's status directly. Columns fit their values better, and moves, deletes and folder edits show instantly with Undo.
+- **Activity tab**: Clicking an activity row opens that Request in place and highlights the comment, file or field it refers to.
+- **Request comments**: Row and cell comments on a Workpaper are now internal to the audit team and appear only on the Workpaper.
+
+## Improvements
+
+- **Firm Analytics** now uses whole Monday–Sunday weeks and calendar months, with the current period marked as partial.
+- **Excel add-in**: **Apply template…** is back, using templates saved in your libraries. Uploads open on a sensible default folder, with Undo and Replace or Keep both when names clash.
+- **Engagement header**: The Requests, Tasks, Files and Activity tabs now sit in the title row. Tabs that don't fit move under a ⋯ menu.
+- **Library and Files tab speed**: Large libraries open faster and scroll smoothly. Folder and file edits appear immediately.
+- **Clearer delete messages** that name the document being deleted.
+- **Privacy**: The user menu item "Privacy preferences" is now just "Privacy".
+
+## Fixes
+
+- **Excel add-in, manual calculation**: CoAudit recalculates only the cells it just wrote, so a deliberately frozen random sample is not redrawn. It asks you to press F9 if recalculation fails.
+- **Importing Request lists**: If the connection drops while CoAudit creates a Request list, it now checks and reports what was actually created.
+- **Timed-out CoAudit actions** now say whether they were waiting on an approval, a cell edit or ongoing work.
+- **Excel add-in region**: South African users are now routed to the EU region on first run.
+- **Request folder fixes**: Select all, double-clicking folders and the sub-request table layout behave more reliably.
+
