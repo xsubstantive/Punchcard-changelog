@@ -1,0 +1,32 @@
+---
+title: "Safer CoAudit recovery, clearer uploads, and simpler unresolved comments"
+description: "Punchcard now recovers CoAudit answers cut off mid-reply, makes uploads and renames more transparent, treats every unresolved comment as pinned, and tidies up the Excel add-in and Request pages."
+date: "2026-10-17"
+tags: [Feature, Bug Fix, AI, UI]
+version: "2026.10.17"
+---
+
+## Improvements
+
+- **CoAudit picks up where it left off.** If a CoAudit answer is cut off partway through, you now see a clear error and a **Continue** button. Work already done in that reply is kept and not re-run. In many cases CoAudit continues on its own once.
+- **Unresolved comments stay in view.** Every unresolved comment thread on a Request or file now appears in a pinned area above the Request, headed "Unresolved" (or "Changes requested" when every thread is a return reason). Resolving a thread moves it down to the discussion list, and reopening brings it back. There is no separate pin action anymore, and the request and file discussions no longer have an Unresolved filter.
+- **Uploads are never renamed silently.** If a file is saved under a new name such as "Invoice (2)" because that name already exists, you are told the new name. Duplicate-name checks on the request list now ignore capitalization.
+- **Clearer upload destinations.** The upload tray and drop areas now say where your files are going, for example "Uploading to *Request name* › *Folder*", using the current section names (Resources, Task attachments, Requested files).
+- **New requests appear in the Files tab right away.** A request created from the board now shows up in the Files tree without a refresh.
+- **Clearer Workpaper Files tab.** The empty Files tab reads "No files yet" and explains where uploaded files go. The document group source switch is now always labelled "Shared document group", and the rename dialog is titled "Rename group".
+- **Sub-request tables are easier to use.** The scroll arrows for wide tables now sit beside the header row instead of covering your data. Sub-requests are added from the Request's ⋯ menu, and a Request with none shows no empty sub-requests section.
+- **Dropdown menus are back to their natural width** in places like PDF zoom controls, sampling forms, and notification settings.
+- **Excel agent guidance.** CoAudit now avoids creating spilled link lists in Excel, where every row would open the first row's link, and writes one link per row instead.
+
+## Excel add-in
+
+- **Clearer cell-editing warning.** If CoAudit is waiting for you to finish editing a cell, a short warning appears above the chat input ("press Enter or Esc"). Approval cards recheck automatically once you leave the cell.
+- **More reliable Refresh.** If a refresh lands on an out-of-date version, the add-in keeps refreshing (up to three times in five minutes) instead of leaving a blank pane.
+- **Clearer empty states.** The Context tab and file picker no longer point to a Files tab that isn't there. Button labels wrap between words instead of breaking mid-word. The "still processing" notice no longer covers Undo / Move after an upload.
+- **Clearer messages when an engagement isn't reachable.** The add-in now says "This engagement isn't available" instead of a permanent "being updated" message.
+
+## Fixes
+
+- **Python-based file analysis works better in CoAudit.** Failed attempts that CoAudit fixes on its own now show as a quiet "Hit an error, tried again" line instead of a red error card. CoAudit can now read older .xls spreadsheets and password-protected PDFs, and it can read just a page range of a very large scanned document, so long reports load much faster.
+- **Scanned-text reading now works in the web chat**, not just in the Excel add-in.
+
