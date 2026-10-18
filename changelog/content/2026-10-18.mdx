@@ -1,0 +1,24 @@
+---
+title: "Office Add-in Requests Folder, Smarter Evidence Lookups, and a Simpler Sub-request Table"
+description: "Punchcard's Excel and Word add-ins now group requests in one Browse folder and read OCR'd documents more reliably, while the Sub-request table gets a cleaner General row."
+date: "2026-10-18"
+tags: [Feature, UI, AI]
+version: "2026.10.18"
+---
+
+## Office Add-ins (Excel & Word)
+
+- **Requests folder in Browse Punchcard**: The file browser now shows a **Requests** folder pinned above your engagement folders and loose files. Open it to see your top-level Requests, with Requests included in breadcrumbs and search paths so you always know where you are.
+- **More reliable evidence lookups from scanned documents**: When CoAudit reads scanned (OCR'd) documents, it can now look up rows by their label, read headings and lines of text, and cite the exact printed text of a cell, including cells where the text wraps across lines.
+- **Clearer handling of unclear matches**: If a label matches no row, or matches several rows, CoAudit flags that specific item as an exception instead of guessing. The rest of the batch still completes.
+- **Smoother keyboard and search behavior**: Focus returns to the Requests folder where you left it, and reopening a search keeps your cursor in place.
+
+## Sub-requests
+
+- **A cleaner General row in the Table view**: General now looks and behaves like any other sub-request row. It shows the parent Request's number, has a cell under every column, and has its own Comments cell.
+- **Folder cells you can work with directly**: General's folder cells show file counts and file lists, and let you upload and drag and drop files, just like sub-request rows.
+- **Parent discussion in one click**: General's Comments cell opens the parent Request's own discussion, with its unresolved count and pinned threads, without mixing in sub-request comments.
+- **Every document has one home**: Parent documents that no folder cell lists, such as team-only files, still appear under General's Other files, so nothing is missing or shown twice.
+- **Retired "No sub-request" row**: The separate "No sub-request" row and its Edit folders switch are gone from the Table view. General now covers it. The Itemized view is unchanged.
+- **Better keyboard focus**: After moving files to General with the keyboard, focus lands on the cell the files went to.
+
