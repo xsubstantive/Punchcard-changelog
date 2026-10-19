@@ -1,0 +1,37 @@
+---
+title: "Smoother Financial Statement Review setup, steadier CoAudit chat, and more reliable document viewing"
+description: "Punchcard makes Financial Statement Review setup easier, helps CoAudit chat recover from AI capacity hiccups, and fixes stalled document viewing and Request panel resizing."
+date: "2026-10-19"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026.10.19"
+---
+
+## Financial Statement Review
+
+- **Choose both statements before running**: You can now select the current-year and prior-year statements first, then start the review yourself when you're ready.
+- **More ways to add statements**: Browse existing files or upload a single file for either statement. Both statements can be uploaded at the same time.
+- **PDF-only selection**: Selecting a file that isn't a PDF is now declined up front.
+- **Prior-year comparison follows reruns**: When the prior-year comparison reruns automatically, the screen now follows along.
+- **Setup dialog fits narrow windows**: The setup dialog's contents stay within smaller screens.
+
+## CoAudit chat
+
+- **Recovers from AI capacity interruptions**: If the AI service is briefly overloaded or has a temporary failure partway through a response, CoAudit retries automatically and shows "Retrying..." while it does. You can still press Stop during the wait, and sending a new message, switching chats, or retrying manually cancels the automatic attempt.
+- **Fewer false "Conversation stopped responding" errors**: Interrupted, disconnected, or stopped responses no longer count toward this warning, so it appears only when it's warranted.
+
+## Document viewing
+
+- **Stalled downloads no longer hang**: If a document stalls while loading, the viewer stops after 60 seconds and offers a **Try again** button, in both Financial Statement Review and Workpaper.
+- **Loading spinner clears reliably** once the first page appears.
+
+## Requests board
+
+- **Consistent panel width**: The Request detail panel keeps the width you set when you select another request.
+- **Fewer accidental resizes**: Only a deliberate drag resizes the panel, and releasing the mouse outside the window ends the drag.
+- **Arrow keys act on the focused control**: When focus is on the divider, a tab, or a button outside the list, arrow keys no longer jump to a different request.
+
+## Other improvements
+
+- Client and engagement headers no longer clip their content.
+- The client list loads faster.
+
