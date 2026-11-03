@@ -1,0 +1,19 @@
+---
+title: "Steadier evidence matching and request updates"
+description: "Punchcard preserves evidence links, refreshes requests more smoothly, and makes CoAudit work more reliably across request views."
+date: "2026-10-23"
+tags: ["Bug Fix", "AI"]
+version: "2026.10.23"
+---
+
+- **Keep evidence links through workflow changes.** Matching coverage and references are better preserved when parent relationships change.
+
+- **See missing matching setup.** Problems now warns when a document group contains files but has no matching column.
+
+- **Requests stay up to date.** The request list refreshes when you return to it and periodically while open, without flicker.
+
+- **Use CoAudit from a request’s Overview.** Request workflow actions work from Overview as well as the workflow view.
+
+- **Preserve Excel review work.** Deliberate cell fills and review decisions are better protected during citation changes, and interrupted Undo actions can be retried.
+
+- **Open difficult spreadsheets more reliably.** Workbooks that previously interrupted processing are handled more safely.
