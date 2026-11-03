@@ -1,0 +1,19 @@
+changelog/content/2026-10-05-108b0e9.mdx
+  s_3543c83be2c9d6::t_54ca41076b4a0f 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9cb4f646bc404a077a3546438f4b84768f3fa3a1",
+  "prompts": {},
+  "sessions": {
+    "s_3543c83be2c9d6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1a076-7a5b-7d21-88ce-49c5507ba2e9",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Nathan-Agentive <Nathan@goagentive.com>"
+    }
+  }
+}
