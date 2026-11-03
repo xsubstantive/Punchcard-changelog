@@ -1,0 +1,19 @@
+---
+title: "Live tables now collect rows from Request follow-ups, plus smoother tab navigation"
+description: "Punchcard now builds live table rows from the responses to a Request's follow-up items, and tab navigation is smoother."
+date: "2026-11-03"
+tags: [Feature, UI, Bug Fix]
+version: "2026.11.03"
+---
+
+## Features
+
+- **Live tables can pull in rows from Request follow-ups.** When a Request has follow-up items, the evidence returned for them can now feed rows into a live table. This saves you from copying the data over by hand.
+- **Computed columns are protected.** Rows collected this way no longer overwrite columns that Punchcard calculates for you.
+- **Source references carry through.** Each collected row keeps its link to the source before any new column headers are added.
+
+## Fixes
+
+- **Tabs keep their glide animation when you switch pages.** The tab highlight no longer jumps or restarts partway through its movement when the page reloads underneath it.
+- **Tab buttons stay visible while you press them.** On touch screens, a tab no longer disappears under your finger or looks broken during a tap.
+
