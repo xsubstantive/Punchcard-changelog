@@ -1,0 +1,38 @@
+---
+title: "Financial Statement Review in CoAudit, longer-running chats, and Excel and Word add-in fixes"
+description: "Punchcard adds a beta Financial Statement Review you can run from CoAudit, lets CoAudit keep working when you leave a chat, and improves Word and Excel add-in reliability for audit AI workflows."
+date: "2026-11-04"
+tags: [Feature, AI, Bug Fix, Automation]
+version: "2026-11-04"
+---
+
+## Features
+
+- **Financial Statement Review (beta):** Create a review from the Create menu, or type `/fsr` in CoAudit. CoAudit opens the statement full screen beside the chat and reads it in order. It runs the checks that apply: footing and cross-footing, internal consistency, comparison with last year's statements, and recalculation.
+- **Findings you can work through:** Findings are grouped by cause, with explained items kept apart. You can comment on the statement, use drawing and area tools, and open the documents a check relies on, with the cited passage highlighted.
+- **Reviewed copy download:** Download a marked-up PDF of the statement with the checks and your annotations. The original statement file is never changed.
+- **Review status on the task:** The review task shows where the review stands, which pages are covered, and which documents were cited. It asks before starting a second run while one is in progress.
+- **CoAudit keeps working when you leave:** Reloading, closing the tab, or switching to another page no longer cuts off a reply in progress. CoAudit finishes its work, and the chat shows it running when you return.
+- **Word add-in Insights:** Cards now have clickable citations, a search box, and label filters. Pick labels to narrow the list. Labels that don't fit on the row are available under "+N".
+- **Engagement-wide reading in the Word and Excel add-ins:** CoAudit can search and read any file in the engagement without importing a folder first.
+- **Status report schedule per engagement:** Each engagement can have its own status report day and time. Without one, it follows the firm's schedule.
+
+## Improvements
+
+- **Pasted subrequest columns:** CoAudit asks you to map pasted columns to the subrequest's existing columns.
+- **Sub-request documents in testing workflows:** CoAudit can now use sub-request numbers such as "BEC-22.1" when bringing their evidence into the parent request's testing workflow.
+- **Edits to a sub-request's scope** are now allowed when its evidence comes only from auditors.
+
+## Fixes
+
+- **Excel formulas in Text cells:** Formulas written into cells formatted as Text now calculate instead of showing as plain text.
+- **Excel evidence and validation:** Clearing a validated cell's evidence now also removes its green "Validated" highlight. Overlapping edits to one cell in a single update resolve to the last one, and clearing a citation keeps the reasoning.
+- **Citations in merged table cells:** Merged cells no longer pull in text from later rows, so citations land on the right spot.
+- **Replies no longer cut short:** A display problem in the CoAudit pane no longer ends a reply early, and when a reply does end early, the reason is now shown.
+- **Faster document counts:** Replacing documents from a folder, removing documents from a request, and CoAudit's folder snapshots no longer time out on large engagements.
+- **Match runs on empty groups:** Running "fill empty cells" after documents arrive now matches them instead of skipping.
+- **Embeddings:** Blank entries no longer stop other numbers in the same batch from being processed.
+- **Chat switching:** A stale question no longer carries over when you switch chats, and a waiting `/fsr` launch is no longer sent into a later chat.
+- **Workpaper helpers:** The tools CoAudit uses to copy and unpack files in its analysis sandbox now work.
+- **Word add-in:** The viewer's close button now sits at the far right.
+
