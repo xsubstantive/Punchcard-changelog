@@ -1,0 +1,21 @@
+---
+title: "Financial Statement Review: Smoother First Runs and Private Review Chats"
+description: "Punchcard's Financial Statement Review now starts its first run automatically, keeps your chats private to you, and runs one review at a time, so audit AI reviews no longer stall on arrival."
+date: "2026-11-05"
+tags: [Feature, Bug Fix, AI]
+version: "2026.11.05"
+---
+
+## Financial Statement Review
+
+- **First review run starts on its own.** When you choose the statements for a review for the first time, whether while creating the review or later on its page, the first run begins automatically in a new CoAudit chat. Changing the statements afterward, or just visiting the review, never starts a run.
+- **Your chats on a review are yours alone.** Each reviewer keeps their own CoAudit chats on a review. Colleagues can't see or read them. A colleague can pick up the review by pressing Start or Continue in their own chat.
+- **One run at a time.** While one reviewer's run is under way, other chats on that review and the Start button are locked, and the review shows who is running it. This keeps two people from overwriting each other's work.
+- **Clearer chat history on the review page.** The CoAudit pane there lists only your chats on that review and says so.
+- **Gaps reported without stopping the review.** If a section doesn't fit any available review playbook, the reviewer now tests it as best it can and reports the gap to the Punchcard team, without interrupting the review.
+
+## Fixes
+
+- **First run no longer stalls.** Previously, arriving on a review page right after its first run began could close that chat and open an empty one, leaving the review waiting until you pressed Start again. The review's chat now stays open.
+- **Refused saves are cleanly undone.** If a review save is refused (for example, because another run is under way), the review goes back to its last saved state instead of showing changes that weren't kept.
+
