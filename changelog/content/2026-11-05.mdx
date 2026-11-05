@@ -1,0 +1,34 @@
+---
+title: "Financial Statement Review: Fewer False Exceptions, a Dedicated Review Page, and Citation Fixes"
+description: "Punchcard's Financial Statement Review now flags fewer false exceptions, opens on its own review page beside CoAudit, and fixes citation and Excel workpaper issues for audit AI users."
+date: "2026-11-05"
+tags: [Feature, AI, Bug Fix, UI]
+version: "2026-11-05"
+---
+
+## Financial Statement Review
+
+- **Fewer false exceptions.** A prior-year figure that was restated for a disclosed reason is now labelled **Explained** (for you to confirm) instead of Fail when the disclosed amount accounts for the difference.
+- **More agreements recognized.** Amounts shown in thousands or millions now tie correctly to exact amounts, and ratios over a sum are recognized.
+- **Fewer false ties.** Equal amounts are no longer reported as differing when a loss is printed as a positive number under its label.
+- **Presentation findings are back.** Wording errors, placeholder dates and incorrect references are recorded as **Presentation** findings.
+- **More reliable reading of German and South African statements.** Amounts such as "1.234.567" and "1 234 567" are read correctly, and year-less columns like "Vorjahr" are no longer treated as a confirmed year match.
+- **A dedicated review page.** Each Financial Statement Review now opens on its own **Review** page beside CoAudit, with a Back button to the engagement's list. The header and finding tabs adapt to narrow screens, and Change statements moved into the header's ⋯ menu.
+- **No more dialog flashing.** The statement chooser no longer replays its opening animation each time you choose or save.
+
+## Requests and Clients
+
+- **Automatic request submission is back on the Clients page.** You can set it per engagement under a new **Client submissions** section.
+- **Submission on by default.** New firms and engagements now submit a request automatically when a client uploads a document. Existing settings are unchanged.
+- **Area comments on Request documents** now show the cited file instead of "File unavailable".
+
+## Excel and Citations
+
+- **Separate citations stay separate.** When the same quote is cited from different rows of a general ledger or reconciliation, each citation is kept. Any citation that is dropped is now reported rather than lost silently.
+- **More accurate invoice citations.** A quote from a side-by-side table cell no longer picks up text from the neighbouring cell.
+- **Clearer message for very large files.** A file over the size limit now shows its size and the limit (200 MiB), instead of a generic "unexpected error".
+
+## Reliability
+
+- **Long sessions stay connected.** Pages left open, such as during a long Financial Statement Review, no longer show "session token expired" while you are still signed in.
+
