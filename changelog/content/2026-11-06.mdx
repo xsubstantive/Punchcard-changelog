@@ -1,0 +1,25 @@
+---
+title: "Financial Statement Review groups repeated open items into issues, plus quieter notifications and steadier Request boards"
+description: "Punchcard now groups a Financial Statement Review's open items into single issues, sends fewer low-value emails, and keeps Request boards and Office add-in sessions running smoothly."
+date: "2026-11-06"
+tags: [Feature, AI, Bug Fix]
+version: "2026.11.06"
+---
+
+## New
+
+- **Open items grouped into issues in Financial Statement Review.** Many open items in a review repeat each other. One restated figure can make several comparatives differ, and one missing reconciliation can sit behind several table lines. Punchcard's audit AI now groups these open items by a simple test: would fixing one underlying error resolve every item in the group? Each issue appears as a single heading with a short title. Its related differing lines, doubts, wording findings and questions sit under it, so you read each problem once. Similar gaps in different years, or equal amounts on unrelated figures, stay separate.
+
+## Improvements
+
+- **Fewer unnecessary emails.** Engagements that haven't started (Backlog) or are finished (Done or Archived) no longer send invites when you add an auditor or client. Moving an engagement from Backlog straight to Done or Archived no longer invites its clients. Moving it from Backlog into active work still does.
+- **Activity summaries and immediate emails skip low-priority Requests.** Updates on Requests in draft (Backlog) or accepted (Done) are left out, as are updates in engagements in those states. The Inbox still shows them, and a direct mention is still emailed according to your preferences.
+
+## Fixes
+
+- **Request boards stay current without extra reloading.** Changing a Request's status in the table or adding a comment no longer reloads the list more than once, so updates feel quicker.
+- **Opening a Request twice quickly no longer shows an error.**
+- **The open Request follows its new number.** If you change a Request's number, or renumber all Requests, the open panel now stays on that Request instead of showing the old number or jumping to a different one.
+- **Deleting a sub-request is cleaner.** Deleted sub-requests disappear right away, and the remaining sub-requests take their new numbers immediately without errors or showing another Request's data.
+- **Excel and Word add-ins no longer show "session token expired" when left idle.** The add-in panes now renew their sign-in automatically before it expires, and keep trying if the network briefly drops.
+
