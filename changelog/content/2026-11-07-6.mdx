@@ -1,0 +1,35 @@
+---
+title: "Validate: CoAudit proposes which Requests to return, and you review and edit them beside the chat"
+description: "Punchcard's CoAudit can now check what a client provided and propose which PBC requests to return, with cited reasoning and comments you can edit, remove or add before sending."
+date: "2026-11-07"
+tags: [Feature, AI, Automation, UI]
+version: "2026-11-07"
+---
+
+## Validate: let CoAudit propose what to return
+
+- **New /validate command in CoAudit.** CoAudit reads what the client provided for a Request, sorts the documents first if they look unsorted, and checks them against the Request. For Excel workbooks, it also checks against the workbook's test. It then proposes which Requests or sub-requests to return, with the comment the client will read.
+- **Cited reasoning for you.** Every proposal comes with reasoning that links to the exact words in the client's documents. The links open the document beside the list at the quoted passage.
+- **Start it from the menus.** **Validate** is in the Request's ⋯ menu and in the Sub-requests menu, under Auto sort. It works on Requests with or without sub-requests.
+- **Review beside the chat.** Choose **Review** on the proposal card to open the list next to the chat. Expand a proposal to read the comment and reasoning, then **Return** it or use **Return all**. In the Excel pane, the list opens in place, with the reasoning folded behind **Why**.
+- **Nothing is returned until you say so.** Validate only proposes. Each return is sent only when you choose Return.
+
+## You stay in control of the list
+
+- **Edit comments.** Your changes are saved shortly after you stop typing.
+- **Remove a proposal.** If you add it back later, CoAudit's original reasoning returns with it.
+- **Add a Request or sub-request** that can be returned now, even if CoAudit didn't propose it.
+- **Changes are kept.** Your edits are saved in the chat. They carry into your next review and into CoAudit's next turn, so CoAudit starts from the list as you left it.
+- **Review is always available** on the card, even when CoAudit proposed nothing.
+
+## Improvements to CoAudit in Excel
+
+- **More complete change receipts.** The receipt under a CoAudit response now lists every edit to workbook objects. This includes sheet renames, moves, sorts, filters, table resizes and conversions, autofit and removed links.
+- **Clearer hyperlink cards.** They now say that the cell keeps what it holds, and that an empty cell shows the link's address.
+
+## Fixes
+
+- **Hyperlinks no longer overwrite cells.** Adding a link keeps a cell's value or formula. Text that starts with `=`, `+`, `-` or `@` stays text, and formulas that return text stay formulas. CoAudit refuses cells it can't safely link, such as protected sheets, merged cells and spill areas.
+- **Table slicers now work.** Creating a slicer on a table no longer fails.
+- **Chart trendline equations and R-squared labels now show correctly.**
+
