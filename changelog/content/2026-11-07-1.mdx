@@ -1,0 +1,42 @@
+---
+title: "Cascading settings, Auto sort for requests, and easier category creation"
+description: "Punchcard now lets firms, clients and engagements share settings, adds CoAudit Auto sort and Reset placements for PBC request documents, and makes creating categories simpler."
+date: "2026-11-07"
+tags: [Feature, AI, Automation, UI]
+version: "2026-11-07"
+---
+
+## Features
+
+- **Settings that cascade from firm to client to engagement.** Each setting either has its own value or inherits the one above it, so a firm that sets nothing gets Punchcard's default. Set it once at the firm level and every client and engagement follows.
+  - **Lock a setting** at the firm or client level to make its value apply to everything below it. Lower levels keep their own values stored and get them back if the lock is lifted.
+  - **Apply to all clients and engagements** pushes a value down in one step.
+  - Covers automatic submission, client file deletion, the weekly status report (on/off, day, time and contents), date, currency and number formats, and the AI response language.
+  - Firm settings pages, plus new **Requests** and **Formats** sections for each client, and matching sections for each engagement, show where every value comes from, for example "Inherit: Monday (from the firm)".
+- **Engagement retention policy.** Choose to automatically delete an engagement and everything in it a set number of months after its audit period end or its archival. By default, engagements are kept forever.
+  - Only people who are allowed to delete engagements with content can change these settings.
+  - Engagements are deleted 30 days after they are marked, and the settings pages show the date. They also show how many engagements are coming due.
+  - **Deletion reminder emails** go out before the deletion. By default they arrive 1 week and 1 day ahead, and you can choose up to 10 reminder times. They go to the firm's administrators or to one address of your choice.
+  - Changing the policy, unarchiving an engagement, or moving the audit period end later cancels a pending deletion.
+- **Auto sort for Requests.** CoAudit can now file a Request's documents into the right sub-request and folder. Start it from the **Sub-requests** menu in the web app, or run it from the Excel add-in.
+- **Reset placements.** Put every document back where it was originally uploaded, in a single step. You can undo a reset, and the undo skips any document someone has moved since.
+- **Easier category creation.** The category menu now works like Linear's label menu. It offers "Add category…" or "Change or add category…", keeps your current choice pinned at the top, and lets you create a category on the spot by picking a colour.
+- **New keyboard shortcuts.** Press **L** to open Category and **⇧D** to open Due date on a hovered or focused request.
+
+## Improvements
+
+- **Client administrators can change a Request's privacy** on their engagements and edit its client list. Previously only the engagement's auditors could.
+- A Request's **Properties** card now includes a client whitelist, and the Properties list is reordered by likely use: Category, Assignee, Due date, Priority, Privacy.
+- Property menus scroll when your window is short, instead of running off-screen.
+- Property chips no longer show a focus ring after you pick with the mouse or Enter. The ring still shows after Escape or Tab.
+- The new-request form lists categories in the engagement's own order.
+- Lists with many firms, clients or engagements load faster, and weekly status reports are prepared faster.
+
+## Fixes
+
+- **Auto sort no longer blocks Reset placements.** Reset used to be refused for a while right after a sort finished. It now works as soon as the sort ends.
+- **Request table reading in CoAudit is fixed.** CoAudit no longer reports that a Request has no sub-request table when it does.
+- Setting a date format, number format or AI language to **Automatic** now saves correctly.
+- A client's settings are now visible only to auditors who can see at least one of its engagements.
+- Confirmation dialogs for applying a value to lower levels now close once the change is saved, and name only the levels that will change.
+
