@@ -1,0 +1,14 @@
+---
+title: "More reliable notification summary emails"
+description: "Punchcard fixes a scheduling gap that could send a notification summary email twice, so auditors get one summary per scheduled time."
+date: "2026-11-07"
+tags: [Bug Fix]
+version: "2026.11.07"
+---
+
+## Fixes
+
+- **No more duplicate notification summaries.** If you get notification summaries two or more times a day, a summary delivered shortly before its scheduled time (for example, just before 9 AM) could be sent again at that scheduled time. Summaries now always move on to the next upcoming time, so you get one summary per slot.
+- **Summaries restart correctly after changes.** This also applies when you turn email notifications back on, when a mention triggers delivery of a summary that was already due, and when a new person's first summary schedule is set up.
+- **Schedules that don't divide evenly are covered.** Summary times now work correctly for any number of summaries per day, including ones that don't fall on whole hours.
+
