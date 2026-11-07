@@ -1,0 +1,23 @@
+---
+title: "CoAudit Shows Why It Filed a Document, and Weekly Status Reports Send Fewer Emails"
+description: "Punchcard now lets auditors see why CoAudit filed a document in a Request and jump to the cited page, plus cleaner General filing and fewer status report emails."
+date: "2026-11-07"
+tags: [Feature, AI, Automation, Bug Fix]
+version: "2026-11-07"
+---
+
+## Features
+
+- **See why CoAudit filed a document.** Documents that CoAudit filed into a Request now show a small wand mark. Click it (hover shows "Why here?") to read CoAudit's reasoning and any notes.
+- **Clickable citations.** Quotes in the reasoning are links. Click one to open the document preview at the quoted words on the cited page. Other citations are listed beneath the reasoning. If the exact words can't be found, the preview opens at the cited page.
+
+## Improvements
+
+- **Fewer status report emails.** When a firm turns on weekly status reports, each auditor now gets one heads-up email listing all of their engagements. Before, they could get one email per engagement.
+- **Reports wait for recent activity.** A first status report is sent only after a person has worked on the engagement in the last 14 days, or after the engagement was created in that window. Work done automatically by CoAudit doesn't count.
+
+## Fixes
+
+- **General holds only unfiled documents.** When CoAudit files a document from General into a Request row, it now leaves General. This also applies when you use "Copy to..." and when you re-run sorting on a document that is already on the row. Undo puts the document back in General.
+- **More reliable data retention.** An engagement whose retention policy changed just before a scheduled deletion is now correctly kept instead of being treated as a failure.
+
