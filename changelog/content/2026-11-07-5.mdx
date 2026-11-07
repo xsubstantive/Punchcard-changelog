@@ -1,0 +1,12 @@
+---
+title: "Citation previews now open the citation you clicked last"
+description: "Punchcard now opens the preview for the citation you clicked last, so clicking through several citations in audit AI answers no longer shows the wrong source."
+date: "2026-11-07"
+tags: [Bug Fix, UI]
+version: "2026.11.07"
+---
+
+## Fixes
+
+- **Citation previews open the right source.** When you clicked one citation and then quickly clicked another, a slow lookup for the first could finish late and open its preview over the second. Now only the citation you clicked last opens its preview. A slow earlier lookup no longer covers it or shows a stray "couldn't find" message.
+
