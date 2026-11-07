@@ -1,0 +1,32 @@
+---
+title: "One invitation for multi-engagement clients, firm time zones, and euro-area rates in Excel"
+description: "Punchcard now sends client contacts a single invitation for several engagements, lets firms set a time zone for emails and status reports, and adds euro-area and German rates and holiday calendars to Excel."
+date: "2026-11-07"
+tags: [Feature, Bug Fix, AI, Performance]
+version: "2026.11.07"
+---
+
+## Features
+
+- **One invitation for several engagements**: When you add a client contact to two or more of a client's engagements at once (from the client's Members, "Add to all", or the invite dialog), they now get a single email listing the live engagements instead of one email each. A contact in a 42-engagement group no longer gets 42 emails. Draft engagements still invite the person when they go live.
+- **Firm time zone**: Firms can set a time zone in settings. Digests and status reports now follow your firm's time zone instead of defaulting to New York time, so European teams get emails timed for their day. People can still choose their own time zone, or keep the firm's.
+- **Euro-area and German rates in the Excel add-in**: New functions for ECB key rates, €STR, ECB exchange rates, the German base interest rate (§ 247 BGB) and Bundesbank yields. Business-day and holiday functions now accept a euro payment-day calendar (TARGET) or German public holidays, nationally or by state. Existing formulas work as before.
+- **Sub-grouping in the list**: Group your list by one property and sub-group it by another, as in Linear. It's off by default and can be included when you set a default view for everyone. Empty groups now show just a header and a count.
+- **Better automatic sorting**: `/sort` now follows a refined set of rules that respect where the client put a document, and places documents more accurately on our test requests.
+
+## Improvements
+
+- **CoAudit protects your workbook**: When CoAudit adds pivot tables, charts, conditional formats or data validation to a workbook, it now refuses anything that would overwrite or change what you already had, and points to the edit tool instead.
+- **Clearer email rules for drafts and completed work**: Clients stay quiet about requests in draft or accepted state, but your audit team still gets its emails, such as a workpaper assigned while it's in draft or a client upload on an accepted request.
+- **More accurate number reading in PDF tables**: When copying a table or inserting it into a worksheet, a lone figure like "12.345" is now read the way the table or page prints amounts. A German table in thousands is no longer read as 12.345.
+- **Home page simplified**: The changelog column no longer appears on Home. Roles without engagement access now see a short note explaining that.
+
+## Fixes
+
+- **Skill uploads limited to auditors**: Only auditors can upload skills.
+- **Statement review beta stays with its flag**: Financial Statement Review beta options no longer appear for users outside the beta, though typing `/fsr` in full still finds it.
+- **Smoother PDF scrolling**: Large PDFs load pages a few at a time and use much less memory during fast scrolling.
+- **Faster chat on long conversations**: Chats that hold several recovered pages respond faster.
+- **CoAudit list view**: CoAudit no longer refuses a whole list-view request just because it included an empty sub-grouping on the board.
+- **Client list loading**: The client list shows as loading, not empty, until your roles are known.
+
