@@ -1,0 +1,34 @@
+---
+title: "CoAudit Excel Safeguards: Safer Sorting, Hyperlinks and Undo"
+description: "Punchcard's CoAudit now protects Excel workpapers better when it sorts data, adds hyperlinks or undoes its own changes, so audit AI edits are safer to trust."
+date: "2026-11-08"
+tags: [Bug Fix, AI]
+version: "2026.11.08"
+---
+
+## CoAudit in Excel
+
+**Safer sorting**
+- CoAudit now declines to sort a range when the sort would silently change figures elsewhere in the workbook. This covers formulas that depend on row position or that pair the sorted rows with another range.
+- It also declines when a sort could split related records across columns.
+- Sorting still goes ahead for totals and other formulas that give the same answer after a sort.
+- If CoAudit declines, it tells you why, so you can decide how to proceed.
+
+**Safer hyperlinks**
+- CoAudit now refuses link text that names a different website than the link actually opens. It also refuses text with hidden characters or look-alike dots.
+- Ordinary text such as file names ("Bank Confirmation.pdf"), "U.S. GAAP" and version numbers is no longer mistaken for a website.
+
+**More reliable undo**
+- Undoing CoAudit's changes now handles sheets that were renamed or deleted along the way, and tables that were renamed.
+- Undo no longer writes old values back onto rows that a sort has since reordered.
+- If a change can't be undone safely, CoAudit says so instead of guessing.
+
+**Clearer confirmation cards**
+- Confirmation cards now show the exact names, rules and settings CoAudit is about to change.
+- They also warn when a filter, pivot change or slicer selection will alter totals in other cells.
+
+**Charts, pivots and filters**
+- Pivot sorts and expand/collapse are paused when other formulas read the pivot's cells, unless the formulas only look up values from it in a way that stays correct.
+- Filters now warn before hiding rows that cells beside the filtered range share.
+- Trendline settings are checked after they are applied.
+
