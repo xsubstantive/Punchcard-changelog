@@ -1,0 +1,28 @@
+---
+title: "Agent Tasks Can Now Respond to Specific Requests and Client Actions"
+description: "Punchcard agent tasks can now be triggered only by Requests that match a filter or by actions your client takes, with optional, safeguarded chaining between tasks to cut manual follow-up in PBC request workflows."
+date: "2026-11-08"
+tags: [Feature, Automation, AI]
+version: "2026.11.08"
+---
+
+## Agent task triggers
+
+- **Trigger on Requests that match a filter.** Choose whether an agent task reacts to any Request, only Requests matching a filter, or only specific Requests you pick. Filters use the same options you already use on the Request board: category, status, priority, audit team assignee, client assignee, due date (overdue, due within 7 days, has or has no due date), privacy, and whether it's a Request or a sub-request.
+- **React to what your client does.** Submitting a Request, adding documents, and commenting each have a "by the client" version, so a task starts only when someone from your client's side takes the action, not when your own team does.
+- **Start on any comment.** Agent tasks can now react to comments from anyone, not just a fixed set of events.
+- **Easier setup.** The trigger reads as a sentence, for example "When a request matching a filter is submitted by the client." Filter options appear as chips you can add or remove with "+ Filter." The Request list and the task's instructions show the full trigger in plain terms.
+
+## Chaining between agent tasks (off by default)
+
+- By default, nothing an agent task does starts another task, so existing setups behave as before.
+- You can opt in under **Advanced → Also start on changes other agent tasks make** for tasks that should work as a pipeline.
+- **Built-in safeguards:** chains stop after three steps, so two tasks that keep undoing each other can't loop indefinitely. A deliberate pipeline of up to three tasks works as intended.
+- Agent tasks can't create, change, start, or approve other agent tasks themselves.
+
+## Improvements
+
+- A filter on status or due date now looks at the Request as it was before the change. A task watching for "a Returned Request is submitted" now correctly starts on a resubmission.
+- "Due" filters follow your firm's date rather than a universal clock.
+- Unrecognized filters now match nothing instead of matching everything.
+
