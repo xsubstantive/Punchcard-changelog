@@ -1,0 +1,46 @@
+---
+title: "Faster table copying from PDFs, richer Requests views, and more reliable Excel and workpaper automation"
+description: "Punchcard now lets auditors copy PDF tables into Excel with per-cell citations, adds sub-grouping and a Creator filter for Requests, and makes workpaper automation more reliable."
+date: "2026-11-10"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-11-10"
+---
+
+## Features
+
+- **Copy PDF tables into Excel with citations**: In the Excel add-in's document viewer, tables on PDF pages, including scanned ones, are outlined automatically. Copy a table into your workbook and each cell is cited back to its source. You can also draw a box around a table yourself, adjust its column and row lines, and fit the new columns to their contents.
+- **Tables that span pages copy as one**: Tables that continue across page breaks, such as a bank statement's activity table, can be joined and copied together. Each cell cites its own page. You can join, split or unlink them from the table's menu.
+- **Redesigned viewer header in the Excel add-in**: There is now a page number field you can type into, a single zoom control with a display menu, and a menu of file actions, including opening the document in CoAudit. Cmd/Ctrl with + and − zooms, and Cmd/Ctrl+0 returns to Fit width.
+- **Draw a box anywhere on a page**: A drag always draws a box with Add citation, Sum, Table and Copy options. Double-click and triple-click still select text.
+- **Sub-grouping in list view**: Group Requests within groups, as Linear does, with collapsible sub-groups and drag-and-drop between them. CoAudit can set the sub-grouping for you.
+- **Creator filter on every board**: Filter Requests by who created them.
+- **Change a Request's privacy from the row menu**, for one Request or a whole selection.
+- **Hold ⌘ while dragging a Request into another group to also change its priority**, when the list is ordered by priority.
+- **One shared menu for Requests**: Right-click menus, selection menus and the Actions bar now offer the same options in the same order. Filter, Display and picker menus share a consistent look, and the ⌘K command menu does more across Requests, engagements and clients.
+- **Agent tasks**: You can create drafts in a shared modal and see status and details for each agent task. A Stop button ends a run deliberately, and the stop conditions and permission presets are simpler.
+- **Fill existing Excel templates in place**: CoAudit now fills a firm's own workbook template without losing its drawings, dropdowns, formatting or named ranges. Formulas are calculated and saved with their results. If a result can't be reproduced reliably, the formula is left for Excel to calculate and is reported.
+
+## Improvements
+
+- Changes to a Request's status, priority, due date, assignee or category show immediately, including on sub-request rows. If the change isn't confirmed, it is reverted with a message saying how many rows were affected. Invalid changes are refused instead of being half-applied.
+- When a write in Excel waits on your approval, CoAudit now learns what you edited by hand in the meantime and won't overwrite it.
+- Large undo operations in Excel now finish reliably and report how they ended.
+- Freezing panes in Excel reports clearly whether the sheet ended up frozen.
+- Reading a sheet that was renamed or deleted now names the sheet and its new name.
+- The Home page fills the page width and uses the standard CoAudit gutter.
+
+## Fixes
+
+- **`[` now opens and closes the CoAudit pane** with a single press, instead of opening it and immediately shutting it.
+- **Old Request links** now open the Request instead of showing an endless spinner.
+- **Workpaper formulas that depend on a combined value across a group of documents** now wait for that value instead of coming out blank.
+- **Reviewed results and workbook data are preserved**: Reviewed values are kept, and blocked records are deferred instead of overwritten. Workbook writes are retained, and PDF rows are no longer lost unless headers are explicitly declared.
+- **Deleting several sub-requests at once** removes exactly the ones you chose, even though the others renumber as each is deleted.
+- **CoAudit citations on manually added rows** now use the document you name.
+- **Financial Statement Review**: A web review of a statement that a review Request already uses is now saved to that Request instead of being refused.
+- **Internal tasks can no longer be returned to clients** by mistake.
+- **Uploaded zip files are checked** member by member before upload, for safety.
+- **Moving a Request to another engagement** keeps only assignees that engagement offers.
+- **Failed agent task streams** are preserved, and healthy queued runs are no longer affected.
+- **The new engagement page's menus** now open on screen.
+
