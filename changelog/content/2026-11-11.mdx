@@ -1,0 +1,38 @@
+---
+title: "Copy PDF tables into Excel, sub-request fixes, and a right-click menu for notifications"
+description: "Punchcard adds PDF table copying with citations in the Excel add-in, more complete engagement exports, accurate request filter counts, and sturdier CoAudit chat for audit AI work."
+date: "2026-11-11"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026.11.11"
+---
+
+## Excel add-in
+
+- **Copy PDF tables into your workbook.** The document viewer finds tables on a page and outlines them. Use **Copy table** to write the values at your active cell, with every cell cited back to its source. You can add, move and remove column and row lines, or draw a table by hand.
+- **Draw a box anywhere on a page.** Each box offers Add citation, Sum, Table and Copy.
+- **Download file** is now in the viewer's file menu. The viewer's ⋯ menu also has **Open in CoAudit** and **File details**.
+- **A cleaner viewer header.** You can type a page number to jump to it, and one zoom control holds the display options.
+- **New viewer shortcuts.** ⌘F searches the document, ⌘G steps through matches, and ⌘/Ctrl +, − and 0 zoom. Option+V/F/C verdicts work with focus anywhere in the viewer.
+
+## CoAudit
+
+- **Fix with CoAudit now opens the CoAudit pane** when it is closed, so your message is no longer sent into a hidden pane.
+- **Pressing `[` opens and closes the CoAudit pane once**, instead of opening and immediately closing it.
+- **CoAudit can read a Review Checklist item's full prompt** and change just part of it, such as a year, without overwriting the rest.
+- **CoAudit can import and join multiple PDF tables in one step** and move cell ranges while keeping their citations.
+- **Agents get tighter control over their inputs and actions.** Request pages show agent run history and results in an Agent activity tab.
+
+## Requests and engagements
+
+- **Request numbers stay stable** until you choose to renumber them, so references don't shift when requests change.
+- **Shift-click selects a range** of requests or sub-requests.
+- **Quick filters and their counts include sub-requests.** A request now matches a filter, and is counted, when any of its sub-requests does. The list still shows each request once.
+- **Engagement exports are more complete.** The export zip now includes files in request folders and sub-request files, including reference files.
+- **Notifications have a right-click menu** with Mark as read/unread and Delete notification. With a row focused, press U to toggle read and Backspace to delete.
+
+## Reliability
+
+- **Large Excel reads no longer break chat.** CoAudit chat could stop with "The conversation is too long" after reading very large ranges. It now trims oversized reads, says what it left out, and gives a clearer message when a reply reads more than the model can hold.
+- **Chat replies no longer end unexpectedly** partway through when the model sends an out-of-order reasoning update.
+- **Numbers with a comma decimal are read correctly.** A rate like "0,86625" is no longer misread as 86,625, which had caused wrong currency conversions in formulas.
+
