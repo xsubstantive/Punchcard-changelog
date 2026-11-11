@@ -1,0 +1,31 @@
+---
+title: "Task instructions with inline mentions, richer progress rings, and fixes for large chats and encrypted statements"
+description: "Punchcard now lets you reference inputs, actions and outputs inside agent task instructions, shows every sub-request status in the progress ring, and fixes failures with long CoAudit chats, encrypted prior-year statements and large statement recalculation."
+date: "2026-11-11"
+tags: [Feature, UI, AI, Automation, Bug Fix]
+version: "2026.11.11"
+---
+
+## Automation
+
+- **Name inputs, actions and outputs right in the instructions.** Agent task instructions now accept inline references: type `@` for inputs, `+` for actions and `/` for skills. The references also appear as removable badges below the box.
+- **A simpler `@` picker.** Typing `@` groups choices into menus such as Request documents, Folders, Files and Firm library. You can still type a name to search everything at once.
+- **Pick several Requests at once.** Check multiple Requests and add them together. Requests are listed in number order, and the Select requests list is searchable.
+- **Browse folders level by level.** Folders and Firm library menus open folder by folder. Checks you make carry through as you move in and out, and search finds folders at any depth.
+- **Clearer saving.** Saving a task now warns you if a reference points to something the engagement doesn't have, or to a skill you can't access.
+- **Agent activity is easier to tell apart.** Comments and activity from an agent run now show Punchcard's mark instead of the task owner's avatar. They are no longer merged with that person's own changes.
+
+## Improvements
+
+- **Sub-request progress ring shows every status.** The ring now shows Accepted, Submitted, Returned, Outstanding and Draft sub-requests in their own colors, not only the Accepted share.
+- **Back to client from engagement settings.** Engagement settings now has a **Back to client** link under Open engagement.
+- **CoAudit can clear cell values in bulk.** Asking CoAudit to empty cells in a column now works. Before, these requests were refused.
+- **Clearer CoAudit error messages.** When CoAudit makes a malformed Workpaper edit, it now gets a short, readable explanation and can correct itself.
+
+## Fixes
+
+- **Very long CoAudit chats keep working.** Long conversations no longer fail with a generic "unexpected error". If a chat is truly too large, you get a clear message asking you to copy what you need before starting a new chat.
+- **Large Excel add-in submissions no longer fail.** Very large submissions from the Excel add-in are no longer cut off partway.
+- **Encrypted prior-year statements can be reviewed.** Financial Statement Review can now open password-protected prior-year statements that have no password needed to view. Before, those checks came back as "Not recorded" and Inconclusive.
+- **Large statements finish recalculation.** Recalculation in Financial Statement Review no longer ends in "Step failed" on very large statements.
+
