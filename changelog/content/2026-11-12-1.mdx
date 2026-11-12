@@ -1,0 +1,23 @@
+---
+title: "Upload your own Workpaper template when drafting from a Request"
+description: "Punchcard now lets you upload a template while creating a Workpaper first draft on submit, and fixes a Triggers tab that could fail to load."
+date: "2026-11-12"
+tags: [Feature, Bug Fix, Automation]
+version: "2026.11.12"
+---
+
+## New
+
+- **Upload a template right from the picker.** When you set up a Workpaper first draft to be created on submit, you can now choose **Upload a template** and add an Excel (.xlsx) file on the spot. Uploading a template requires permission to manage engagements.
+- **Your template is saved for next time.** The file goes into your firm library's Templates folder, which is created if your firm doesn't have one yet. If a template with the same name is already there, the new one is kept under a numbered name rather than replacing it. It's available from the library for future Requests.
+
+## Improvements
+
+- **Closing the picker mid-upload is safe.** The template is still saved to your library, but no task or trigger is created and you aren't taken to another page.
+- **Failed choices are easy to retry.** The picker shows your newly uploaded template right away, so you can try again without uploading the file twice.
+
+## Fixes
+
+- **The Triggers tab loads reliably.** Some triggers that run once a set of Requests has been submitted could stop the whole Triggers tab from loading for an engagement. These triggers now display correctly.
+- **Triggers that cover both submitted and accepted Requests keep both.** Saving such a trigger again no longer changes which Requests it waits for.
+
