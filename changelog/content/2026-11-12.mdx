@@ -1,0 +1,41 @@
+---
+title: "Create Triggers on Requests, Internal Tasks, Punchcard Delegation and Import Files from a Folder"
+description: "Punchcard adds one-click triggers on PBC requests, internal tasks that Punchcard can work on, and file imports from a folder or zip, so audit teams automate more of their workpaper work."
+date: "2026-11-12"
+tags: [Feature, Automation, AI, UI]
+version: "2026.11.12"
+---
+
+## Triggers on Requests
+
+- **"Create trigger" on any Request**: Right-click a Request, or use its ⋯ menu, to set up automation for it. Choose from **Workpaper first draft on submit**, **Auto-sort on upload**, **Client validation on submit**, or **Other…** to build your own.
+- **Auto-sort** files the uploaded documents into the right place on the Request that triggered it. **Client validation** reviews what the client submitted and proposes returns without sending anything.
+- **New Triggers tab** in the engagement's top row, after Files.
+- **Triggers are live from the moment you create them**, with no draft step to publish.
+- **Multi-Request conditions**: a trigger can wait until all of its Requests are submitted (or accepted) before it starts.
+- Automated runs open the engagement's workbook in CoAudit in Excel with the triggering Requests' folders attached.
+- Internal-only actions, such as team comments and files on an internal task, no longer ask for approval. Anything visible to the client still does.
+
+## Internal Tasks and Punchcard
+
+- **Internal tasks replace internal comments.** The audit team's private discussion of a Request now lives as comments on an internal task, and existing internal comments were moved over automatically.
+- **Hand work to Punchcard**: assign an internal task to Punchcard, or mention **@Punchcard** in a task comment, and it reads the task's details, files and comments, then leaves its work as comments and files on the task. Its runs appear in the task's activity.
+- **Internal tasks keep their own files**, with Upload and New folder on the task page. They also appear under **Tasks** beside Requests in the Files tab.
+- Files that were previously filed under a general "Tasks" folder are moved back into their internal tasks where it is clear which task they belong to. The rest are kept in an "Earlier task files" folder.
+- Automated runs can ask for additional inputs, which always wait for a person's approval.
+
+## Import Files from a Folder or Zip
+
+- **Fill Requests from a folder or .zip** laid out like the Files export, when importing a Request list or later via **Import files…** in engagement settings.
+- Reads exports from other tools, including Suralink-style layouts, and records client-side files as client uploads.
+- Large folders upload faster and use less memory.
+
+## Financial Statement Review
+
+- **Tick marks now appear on other cited PDFs**, including last year's statements and any schedule a finding refers to, not just the current statement.
+
+## Reliability
+
+- Fixed a failure where saving a very large set of tick marks could fail on the first attempt.
+- Automated runs that stop partway through a step now pick up where they left off. Runs also wait their turn when the firm is busy instead of failing.
+
