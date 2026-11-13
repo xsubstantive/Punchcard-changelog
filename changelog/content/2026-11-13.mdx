@@ -1,0 +1,27 @@
+---
+title: "Related Requests and Tasks, Punchcard Run Now or On Trigger, and GPT-6.1 Terra in CoAudit"
+description: "Punchcard now links Requests and internal tasks both ways, lets you delegate work to Punchcard now or on a trigger, and adds GPT-6.1 Terra to the CoAudit model picker."
+date: "2026-11-13"
+tags: [Feature, Automation, AI, UI, Bug Fix]
+version: "2026.11.13"
+---
+
+## Features
+
+- **Related Requests and tasks, both ways**: A Request can now be linked to internal tasks, and an internal task to Requests. Each side shows a **"Related to"** badge for the other. Right-click a Request to **Create related › Task**, or right-click a task to choose its **Related requests**. A picker lists the available items and tells you if the list couldn't load, with a Retry option.
+- **Delegate to Punchcard now or on a trigger**: When you delegate a task to Punchcard, you choose **Run now** or **On trigger**. A task's panel lists the triggers tied to it, when each starts and its runs. Each trigger on the Triggers tab links back to its task.
+- **Triggers based on related Requests**: A trigger can start when the task is accepted. A task's trigger can start once all of its related Requests are accepted. Conditions read "When requests are submitted or accepted".
+- **Create a related task with Punchcard**: Create a related task and set Punchcard to work on it right away or once its related Requests are all in.
+- **GPT-6.1 Terra in CoAudit**: The chat model picker now offers **GPT-6.1 Terra**, a lower-cost option, between GPT-6.1 Sol and GPT-5.6 Sol. It supports Low through Max effort. The default remains GPT-6.1 Sol · Medium.
+
+## Improvements
+
+- **Files on internal tasks**: Internal tasks no longer have a separate Resources section. Their files now live in **Files**, and a file dropped on an internal task's card goes there. Requests keep Resources as before.
+- **Comment counts include sub-requests**: A Request's comments badge now counts open comment threads in its sub-requests. This matches the "Open comments" filter.
+- **Punchcard logo on delegation**: Delegating to Punchcard now shows its teal logo instead of a lightning bolt.
+- **Agent runs list**: A Request's agent runs list now shows the runs directly, with an Open button for the trigger.
+
+## Fixes
+
+- **Switching firms**: Opening another firm's engagement no longer restarts the app. Switching between firms is smoother, and the parent firm's Home page is restored and shows which firm each engagement belongs to.
+
