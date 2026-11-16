@@ -1,0 +1,27 @@
+---
+title: "Suralink imports place files by request list, plus more reliable CoAudit workbook citations"
+description: "Punchcard now sorts Suralink export files into the right PBC Requests using the request list, keeps CoAudit workbook citations intact in personal chats, and tightens up several CoAudit request tools."
+date: "2026-11-16"
+tags: [Feature, Bug Fix, AI, Automation]
+version: "2026.11.16"
+---
+
+## Features
+
+- **Suralink "Categories" zips are placed by the request list.** Files are matched to Requests using the list's Provided Files column, so they no longer come back as "not in a request's folder." A file named by several Requests goes to each of them, and Suralink's repeat copies, such as `name(2).pdf`, are handled in turn.
+- **Suralink "Just Files" zips are supported.** When every file sits in one folder, each file is placed by the request list's Provided Files.
+- **Files that match no Request are kept.** They go into the engagement's own folders, under the category folder they came in, instead of being left out.
+- **Suralink priorities import correctly.** "High Priority," "Medium Priority" and "Low Priority" now map to High, Medium and Low.
+
+## Improvements
+
+- **CoAudit workbook citations now work in personal chats.** If you ask CoAudit for a workbook from a chat that isn't tied to an engagement, such as one started from an engagement's All board, the citations are kept as long as every cited document belongs to one engagement you audit. Before, they were dropped.
+- **CoAudit can save files into the engagement you name** when you chat from the web, even though the chat isn't tied to an engagement.
+- **CoAudit can update many Requests at once.** It can now list your Requests and then change them in bulk, for example updating the status of dozens of Requests in one go.
+- **Financial Statement Review math checks always finish.** On statements with very many failing totals, the correction step is now time-limited. Totals that couldn't be re-checked in time keep their original result and are reported as unchecked. Reviews no longer stall for hours.
+- **Chart tooltips are easier to read.** The value is now spaced from its label.
+
+## Fixes
+
+- **Suralink imports no longer put files under the wrong Request.** Before, a subcategory folder named like a Request, such as "Inventory Selections" next to a Request called "Inventory selections," took every file in the folder, including other Requests' files and the firm's workbooks. On one real client list, files now land on the right Requests and none are left out.
+
