@@ -1,0 +1,34 @@
+---
+title: "Punchcard Guide with search, CoAudit renamed Agent, and large-workbook reliability"
+description: "Punchcard adds a built-in Guide with search, renames CoAudit to Agent, tidies engagement settings, and fixes large Excel workbooks failing to save or cite."
+date: "2026-11-17"
+tags: [Feature, AI, UI, Bug Fix]
+version: "2026.11.17"
+---
+
+## New
+
+- **Punchcard Guide, built into the app.** Step-by-step pages cover requests, the request list, Library, Skills, Agent, Financial Statement Review (beta) and the Excel add-in. Clients have their own pages. Everyone sees only the pages that apply to them.
+- **Find in Guide.** Search from the top of the Guide sidebar, or press **⌘K / Ctrl+K** or **/**. Results show page titles with the matching headings, and only include pages you're allowed to open.
+- **Agent answers "how do I…" questions from the Guide.** It links you to the right Guide page. Firm users still get answers for screens the Guide doesn't cover yet.
+
+## Improvements
+
+- **CoAudit is now Agent.** Buttons and headings say **Agent**, and the composer says **Ask Punchcard…**. Your Personal library's CoAudit folder and the "CoAudit Uploads" folders are renamed to **Agent** and **Agent Uploads**. In Excel, citation styles are now **Agent Cited / Validated / Flagged / Uncited**. Workbooks that already use the old style names keep working, and any colors your firm set carry over.
+- **The engagement board's agent-tasks tab is now Triggers.** This keeps it separate from the Agent pane.
+- **Engagement settings are grouped into fewer sections.** General, Members, Client permissions, Status report, Data and Danger zone now match the client and firm settings. Old links still open the right place.
+- **Clearer people wording.** Screens now say **firm users** and **client users**. Members groups are headed by the firm's and the client's names, and the firm's name appears in client-facing text.
+- **Financial Statement Review labels are consistent.** The current-year test is **CY**, matching **PY**. Check states read the same everywhere: **Needs review, Passed, Validated, Flagged, Couldn't tell**.
+- **Agent approval cards say what they will do.** Comments, members, variables and delegated tasks now show plain descriptions instead of internal tool names. Cards in a batch name the person, engagement or comment they affect so you can tell them apart.
+- **The Manual/Skip approval toggle only appears where it works.** It now shows in the Excel and Word panes, not on the web.
+- **Client import status defaults to Archived.** Archived engagements no longer email their team about routine activity. Direct mentions still arrive.
+- **Users page shows Requests, Tasks and Messages at 1280px window widths.**
+- **Reviewed copy hint stays inside the window.**
+
+## Fixes
+
+- **Large Excel workbooks no longer fail while saving or citing.** Very large workbooks could cut off Agent's sandbox partway through. Sandbox capacity is now larger.
+- **The Add user dialog describes default roles accurately.** It names the firm's default role and says when new firm users become firm admins.
+- **Attaching an oversized file gives a clear message.** It tells you to try a smaller file or fewer files.
+- **Math validation warnings are grouped per table.** You get one warning per table instead of one per failing cell.
+
