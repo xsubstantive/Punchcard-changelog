@@ -1,0 +1,46 @@
+---
+title: "Client forms, statement versions compare, and automatic sorting of dropped files"
+description: "Punchcard adds client forms with file upload and e-signature questions to Requests, Version compare for Financial Statement Review, automatic sorting of files dropped into a Request, and faster engagement deletion."
+date: "2026-11-18"
+tags: [Feature, AI, Automation, Performance, Bug Fix]
+version: "2026.11.18"
+---
+
+## New features
+
+### Client forms in Requests
+- **Build a form inside a Request.** Choose **New client form** from Create and add questions. Questions can show or hide based on earlier answers.
+- **File upload questions.** Clients attach documents as their answer, and the files are saved in the Request or a folder you choose.
+- **Signature questions.** Clients agree to sign electronically, then draw or type a signature. Punchcard records who signed, when, and from where.
+- **Download a copy.** A submitted form can be downloaded as a print-ready page with the answers, file names and signatures.
+- **CoAudit can draft a form for you.** Describe the form you need, and CoAudit writes the questions and creates the Request as a Draft once you approve.
+- Client forms are rolling out gradually, so you may not see them in your account yet.
+
+### Financial Statement Review
+- **Versions of a reviewed statement.** The review lists each version of the statement, shows the review of an earlier version, and opens **Version compare**. Version compare shows both PDFs side by side and what became of each review point. **Carry forward** brings over decisions on checks whose figures and conclusion did not change.
+- **Unlock password-protected PDFs in the browser.** Enter the password and Punchcard saves an unlocked copy next to the original, then uses it for the review. The password is never sent anywhere, and the original file is not changed.
+- **Clearer messages for revised PDFs** and for statements that could not be processed.
+- **Reviews can use their own tests.** A review can now define its own checks. CoAudit asks for the files and scope it needs in the chat.
+- **Files card on a review.** Upload, drop, or browse the engagement for files, including whole folders where a row takes several files. A review's own tests use only the files the review was given.
+- **Prior-year figures** are used only for matching. Current-year calculations use current-year amounts.
+
+### Requests
+- **Automatic sorting of dropped files.** Files dropped into **General** are sorted into the right sub-request rows in the background. General shows a live status ("Sorting soon", "Sorting…", "Sorted"). Files that can't be placed stay in General for your team.
+- **"Auto-sort for me"** is offered when you drop files onto a sub-request that asks where they should go.
+- **A parent Request's status now follows its sub-requests.** It shows their shared status, or **Mixed** when they differ. Choosing a status moves every sub-request, with a warning first when they are mixed.
+
+### Engagements
+- **Type the engagement period as a range.** Enter "last year", "FY2025", "Q1 2026" or "1.1.2025 - 31.12.2025" in either date field to set both ends. Dates written day-first, such as 31.12.2025, are understood. The period picker on the engagement page works the same way.
+
+### Excel add-in
+- **Redesigned engagement picker.** Choose from your engagements, your firm's list, people, and archived engagements. You are asked to confirm before creating an engagement for another firm.
+- **Disconnect** is now available in Settings.
+- **Choose your citation highlight colour** in Settings ▸ Citations.
+- **Cell wrapping and review colours** you set are no longer overwritten.
+- **Composer updates.** A "No Context" card with one-click **Choose engagement**, the selected range shown inline, and one menu for model and thinking effort with **Reset to default**.
+
+## Improvements and fixes
+- **Faster deletion** of files, engagements and clients that have a lot of scanned content.
+- **MATCH keeps the document's precision.** A unit price such as 0,00620 is no longer rounded to 0.01.
+- **Background agent tasks** can now run as Punchcard instead of as a person. Punchcard only reaches the engagement a run belongs to, and never more than the task's author could.
+
