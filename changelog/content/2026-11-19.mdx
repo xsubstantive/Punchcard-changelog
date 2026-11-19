@@ -1,0 +1,49 @@
+---
+title: "Faster Review Setup, Review Checklists, Carry-Forward to Revised Versions, and Easier Category Management"
+description: "Punchcard now lets you run a checklist on a Financial Statement Review, carry a review to a revised version and review only what changed, and manage categories in one picker."
+date: "2026-11-19"
+tags: [Feature, AI, Automation, UI, Performance, Bug Fix]
+version: "2026.11.19"
+---
+
+## Financial Statement Review
+
+- **Checklists:** Give a review a checklist of questions, assertions, or matters to look for. Once every page is reviewed, each place an item applies appears as its own numbered result (CL-1, CL-2, and so on), marked passed or failed, with reasoning that links to each passage of the document it cites. If no checklist was given, the assistant asks at the end whether you have one.
+- **Carry a review to a revised version:** A new version of a reviewed statement is compared line by line with the earlier one. Checks that still apply are carried over to where they now sit, keeping their numbers and setup. Checks that no longer apply are set aside with an explanation, and only the changed pages are left to review.
+- **Follow-ups on the review page:** When a review finishes, the page offers what comes next (such as a checklist or a new version). You can drop, upload, or choose the revised version right there.
+- **Reworded checklist items are checked again:** If you change a checklist item's wording, it is re-checked as now worded. Earlier results are kept as history.
+- **Starting a review is simpler:** A new review opens already started in chat, and Agent asks for the document and any other files it needs.
+- **Lite reviews start as lite:** A review created as lite now always launches as lite.
+- **Accurate progress:** The progress line in chat now counts the pages a lite review has completed.
+- **Cleaner review page:** Follow Agent and the review page's own Back button are removed, so the header no longer shows two Back controls.
+
+## Requests and Boards
+
+- **One picker for categories, statuses, and priorities:** Add, rename, recolour, delete, and reorder categories from a single picker wherever categories appear. Drag rows or use Option+arrow keys to reorder. Statuses and priorities reorder the same way, per person.
+- **Safer category deletes:** You are asked before deleting a category that requests or tasks use, including sub-requests.
+- **Renames are no longer lost:** A rename in progress is saved if you move on before finishing it.
+- **No group hiding:** Groups can no longer be hidden, and anything previously hidden shows again.
+- **Longer lists fit the window:** Property menu lists grow to fit the window.
+- **Primary buttons:** They are now brand teal with white text throughout.
+- **Switch between recent engagements:** Jump between recent engagements more easily, and scroll the request overview.
+
+## Client Forms
+
+- **Client forms work like surveys:** A client's first saved answer submits the request, and they can keep answering and changing answers until the team accepts. There is no Submit for review step.
+- **Cleaner client view:** Clients see only the questions.
+- **Who answered, and when:** The team sees who answered each question and how long ago.
+- **Builder improvements:** Moving a question past its section's edge takes it into the neighbouring section. Disabled menu actions explain why. Questions that already have answers stay editable, with a confirmation before answers that no longer fit are cleared.
+- **Assignment limits for clients:** Clients can assign a request only to client users on their engagement. They can't reassign one that the audit team gave to a firm user.
+
+## Microsoft 365 Integrations
+
+- **Microsoft 365 comes first** in Integrations, with one card per feature: live collaboration, then fetching from OneDrive.
+- **Turn off is on the status row** of each card.
+- **Clearer setup help:** An info icon beside Turn on explains the steps. The billing help spells out the full path to turn on pay-as-you-go billing.
+
+## Performance and Reliability
+
+- **Large .xls and .xlsb files open smoothly:** Large legacy Excel ledgers no longer freeze the Excel add-in pane.
+- **Cited files open faster:** Files cited in a review open without downloading again.
+- **Deleting files, engagements, and clients is more reliable:** Deleting clients with many files no longer holds up the request.
+
