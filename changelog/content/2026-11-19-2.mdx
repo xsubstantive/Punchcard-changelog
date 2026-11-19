@@ -1,0 +1,24 @@
+---
+title: "Microsoft 365 profile photos, a simpler Integrations page, and steadier Excel citations"
+description: "Punchcard now copies Microsoft 365 profile photos for your firm, shows only the integrations you've set up, and fixes how dates and text are written to Excel cells from cited figures."
+date: "2026-11-19"
+tags: [Feature, Bug Fix, UI]
+version: "2026.11.19"
+---
+
+## Features
+
+- **Profile photos from Microsoft 365**: Firm admins can turn on profile photos as a separate Microsoft 365 option. Every active auditor in the firm then gets their Microsoft 365 photo as their avatar, updated when they sign in and when they join the firm. Photos people uploaded themselves are never replaced, and anyone who removed their photo doesn't get one. Turning the option off removes the copied photos.
+- **A cleaner Integrations page**: Integrations now shows only what your firm has set up (Microsoft 365, Karbon, API access). An **Add integration** menu offers the rest.
+
+## Improvements
+
+- **Excel text is written exactly as cited**: When you cite text into a cell, Excel no longer changes it or adds a leading apostrophe, so what you cited is what the cell holds.
+- **Dates follow your regional settings in Excel**: Date-formatted cells show your own short date format (for example dd.mm.yyyy in Germany), and typed dates follow your regional order.
+
+## Fixes
+
+- **Date columns stay in your format after undo**: Undoing a change, or rolling back a Copy table, no longer switches German-style date columns to a US-order format.
+- **Smoother sign-in to Microsoft**: Approving or connecting Microsoft 365 no longer triggers Chrome's "Leave site?" prompt.
+- **Large chats with many images**: Chats and reviews with a lot of attached images no longer fail because too many images are sent at once.
+
