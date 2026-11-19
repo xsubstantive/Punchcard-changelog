@@ -1,0 +1,14 @@
+---
+title: "More reliable auto sort for uploaded documents in Requests"
+description: "Punchcard's auto sort now handles back-to-back uploads without stalling and runs on a newer AI model, so PBC request documents land in the right place."
+date: "2026-11-19"
+tags: [Bug Fix, AI, Automation]
+version: "2026.11.19"
+---
+
+## Improvements
+
+- **Auto sort handles back-to-back uploads.** If you dropped a second batch of documents while an earlier sort was still working on the same Request, the second sort could read every document and then fail to place any of them. Sorts now take turns on a Request and pick up the documents dropped in the meantime, so each batch is filed correctly.
+- **Auto sort recovers faster.** A sort that stops unexpectedly no longer keeps the Request blocked for as long as before.
+- **Newer AI model for sorting and validation.** Auto sort on drop, the Auto-sort on upload trigger, and the Client validation on submit trigger now run on a newer AI model. An existing built-in auto sort picks it up on its next drop. Triggers you created yourself keep the model they already use.
+
