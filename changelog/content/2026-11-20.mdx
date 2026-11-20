@@ -1,0 +1,46 @@
+---
+title: "Financial Statement Review now runs in one pass, plus a calmer Excel Context tab and a simpler engagement menu"
+description: "Punchcard's Financial Statement Review now reviews every page in minutes and compares all prior-year amounts, while the Excel add-in, notifications and engagement navigation get clearer and quieter."
+date: "2026-11-20"
+tags: [Feature, AI, UI, Performance, Bug Fix]
+version: "2026.11.20"
+---
+
+## Financial Statement Review
+
+- **One faster review.** Financial Statement Review (beta) now reviews every page once, in minutes. The separate "lite" option and the older sectioned review are gone, and "Use your own tests" is now called **Run a checklist** in the guide.
+- **More complete prior-year comparison.** The review compares every prior-year amount it finds, records differences it previously dropped, and takes a second look at amounts nothing compared.
+- **Waits for your files.** The review waits until all files are processed before starting. If last year's statement can't be read, it stops and tells you why instead of silently skipping the comparison.
+- **Faster runs.** Page-by-page review work is now noticeably quicker.
+
+## Excel add-in
+
+- **Context tab, reorganized.** Files are listed under two clear headings, **Requests** and **Engagement files**. Each request is named once, and the tab says **Client visible** only where a client can actually open the request.
+- **Familiar look.** Context rows now match the Files view on the web, with the More button appearing on hover or focus.
+- **Clearer states and wording.** Empty and error states sit at the top and say what happened. Wording is consistent ("Context" throughout, "Try again"). Keyboard and screen-reader support is improved, including Escape closing menus in Excel for Mac.
+- **Fewer approval prompts in Manual mode.** CoAudit no longer asks before overwriting its own unchanged cells, or before layout-only edits such as column widths, row heights, tab colours and page layout.
+- **Gridlines and headings.** CoAudit can read and turn a sheet's gridlines and headings on or off.
+- **Pasting cited cells.** Pasting a cell with a citation now brings the citation along without asking. Undo is on the "Citation copied" notification, and undoing the paste in Excel removes the citation too.
+- **Settings button.** The pane's Settings button appears as soon as your role is known, for people who can use Punchcard's assistant, so the header no longer shifts.
+
+## Navigation and notifications
+
+- **Simpler engagement menu.** One level, no submenus: the engagement's settings, its client's settings, Home, and your five most recent engagements, with Show more / Show less.
+- **Quieter header.** Cleaner menu chevrons, rounded-square client avatars, and a dot on the bell for new notifications.
+- **Request overview strip.** Categories now show their full names and counts, with status icons that light up when you point at them, paging arrows, and no scrollbar.
+- **One notification style.** All messages share one card. Messages about a single task name it in the sentence and link straight to it. Notifications can be used over open dialogs and have a **Clear all** option.
+
+## Dates and periods
+
+- **Dates follow your Date format.** Typed dates (engagement periods, due dates, Excel-imported due dates, variables, form answers and more) are read and shown in the Date format that applies, so 03/04/2026 means what your firm expects.
+- **Easier period entry.** Start and End dates offer quick choices such as Last year and This quarter, plus a calendar. Typing a name like "FY2025" can fill in the period.
+- **Clear a period in Settings.** An engagement's period can now be cleared.
+- **Unreadable dates no longer save the old date.** Forms wait until you fix the date.
+
+## Fixes
+
+- **Staff viewing another firm's library** now see that firm's library, engagement library and attachments rather than their own.
+- **Microsoft live collaboration** setup now waits out the few minutes Microsoft needs to apply a new admin approval, instead of asking you to approve again.
+- **Categories:** creating several categories quickly, or reloading during a delete, no longer loses or revives a category.
+- **Due date saved a day early** when picked from the request panel east of UTC is fixed.
+
