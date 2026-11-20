@@ -1,0 +1,19 @@
+---
+title: "Easier multi-select with the keyboard in Files and Context"
+description: "Punchcard now lets auditors select ranges of documents with the keyboard and tick Requests more predictably, making PBC request and workpaper file handling faster."
+date: "2026-11-20"
+tags: [UI, Bug Fix]
+version: "2026-11-20"
+---
+
+## Improvements
+
+- **Keyboard range selection from checkboxes**: In the Files tab and Library, you can now use Space to toggle a document's checkbox, and hold Shift with the arrow keys, Home, or End to extend your selection while keeping focus on the checkboxes.
+
+## Fixes
+
+- **Select mode in a Request keeps your earlier picks**: Extending a selection with Shift and the arrow keys, or with a modified click on a filename, now adds to what you already chose instead of replacing it.
+- **Ticking a Request now counts what is inside it**: In the Context tab's Select mode, ticking a Request along with files inside it now shows the right count and keeps **Remove from context** available, instead of wrongly reporting a larger count and blocking removal.
+- **Sub-request documents are no longer double counted**: A document from a sub-request that is ticked together with its parent Request is now covered by that Request.
+- **Focus stays put while scrolling long lists**: Controls keep keyboard focus when long file lists reveal new rows.
+
