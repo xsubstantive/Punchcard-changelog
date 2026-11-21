@@ -1,0 +1,32 @@
+---
+title: "Faster, more reliable firm analytics, plus smarter Request search and Excel add-in fixes"
+description: "Punchcard redesigns firm analytics so it loads reliably, adds a usage summary on Users, lets you pick files from Request search for Download, and makes CoAudit in Excel safer with replies, amounts and renamed sheets."
+date: "2026-11-21"
+tags: [Feature, UI, Performance, Bug Fix, AI]
+version: "2026-11-21"
+---
+
+## Features
+
+- **Redesigned firm analytics page.** One toolbar now controls the whole page: period, user type (All users, Firm users or Clients), Day/Week/Month grouping and a Product filter. Headlines show active people, citations, time saved and open engagements with activity, each compared with the previous period.
+- **Citation trends you can check.** Citations over time are stacked by product or origin and shown beside active users. Drill into any number to see who produced each citation, with totals by product, top contributors, a check that the records add up, and CSV export.
+- **Info popovers and More menus on every chart.** Each chart explains what it counts, and its More menu opens the underlying data table or downloads a CSV. Charts default to monthly active users, matching how seats are billed.
+- **Usage summary on Users.** Firm admins see how many people were active in the chosen period out of everyone not suspended, who hasn't signed in yet, and who is using Punchcard more than before. You can dismiss it and bring it back from the More menu, and "See analytics" opens the full page. Instead of a per-person decline, admins get a Growing filter and a No activity in the period filter.
+- **Pick files from Request search.** Search results under a Request show who uploaded each file and when. Clicking a file name opens the Request at that file, and the rest of the row selects it. Chosen Requests and files appear as a badge on Download, and Download then includes only those.
+
+## Improvements
+
+- **Analytics loads reliably.** Sections load side by side, so one slow or failing section no longer blocks the page. A section that fails says so and has its own retry. Growth loads separately, and charts are much quicker to calculate.
+- **CoAudit in Excel keeps your replies.** If you switch chats, start a new one, or close or reload the pane mid-answer, the reply is saved. It stops at its next step and offers Continue, and the request is not rerun on its own.
+- **Quicker wrap-up in Excel.** After the last cell write, CoAudit no longer spends extra steps re-reading cells it just confirmed, so turns finish sooner.
+- **Clearer write checks in Excel.** CoAudit now tells you whether a write was verified, and flags formula errors and figures left as text.
+- **Reasoning edits match the cell.** When you ask CoAudit to revise a cell's reasoning and the conclusion changes, the cell's value is updated in the same step and you're told. If the cell had a reviewer's approval or flag, the reply says so. Plain questions about a cell are answered without changing it.
+
+## Fixes
+
+- **German-format amounts in Excel.** Amounts like "1.234,56" or "EUR 5.001,03" now land as real numbers that SUM can add, instead of text. Ambiguous values such as "1.234" stay as text rather than risk a thousandfold error.
+- **Renamed worksheets in Excel.** Citations now follow a worksheet you rename, so CoAudit finds existing citations instead of creating duplicates.
+- **Completed Request ordering.** Completed Requests stay in a consistent order after status changes.
+- **Financial Statement Review checklist.** Checklist coverage is now tracked per review, and dismissals stay with their own assessment.
+- **Automation review history.** Automation results keep the details of who reviewed them.
+
