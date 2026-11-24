@@ -1,0 +1,22 @@
+---
+title: "Automated Workpaper Drafts Now Keep Highlighted Citations and Reasoning"
+description: "Punchcard's automated drafting now finalizes workpaper citations with highlighted source regions and reasoning, and handles binder items with no assigned preparer."
+date: "2026-11-24"
+tags: [Feature, Automation, AI, Bug Fix]
+version: "2026.11.24"
+---
+
+## Improvements
+
+- **Highlighted citations on automated drafts:** Workpapers drafted by Punchcard automations now keep their finalized citations, including the highlighted regions in the source documents and the reasoning behind each figure. Previously these drafts could lose both.
+- **Cleaner workbooks:** Raw source tags no longer end up in Excel cell notes. Citations and reasoning are stored where reviewers expect to find them.
+- **Warning for unfinalized citations:** When a workpaper is saved with citations that were recorded but never finalized, Punchcard now tells you.
+- **Drafting for binder items with no preparer:** Punchcard can now draft binder items that nobody has been assigned to prepare. The draft is limited to the access of the person who turned on the automation, and Run again is available to that person.
+- **Safer hand-offs:** If a new preparer is assigned to an item, or signs into an empty preparer slot, the item's drafting automation pauses so nothing keeps running under someone else's access. The new preparer can turn it back on, and a new preparer who set up their own automation keeps it running.
+- **Roll-forward and templates:** Automations are copied as turned on only where Punchcard can draft for that person. Otherwise they are copied paused with the reason shown, and the roll-forward still completes.
+
+## Fixes
+
+- **Citation highlights stay accurate on automated runs:** Citation highlights now come from the original document reading the run was based on. A document reprocessed partway through a run no longer changes or breaks its citations.
+- **Automations can read the skills their instructions name:** Automated runs can now read any skill their instructions refer to.
+
