@@ -1,0 +1,25 @@
+---
+title: "Approve on for triggers and support for much larger citation sets in workpapers"
+description: "Punchcard now lets you choose where a trigger's automated runs are reviewed and approved, and workpapers can carry thousands of highlighted citations instead of page-only references."
+date: "2026-11-24"
+tags: [Feature, Automation, AI, Performance]
+version: "2026.11.24"
+---
+
+## Features
+
+- **"Approve on" for triggers:** Choose the Request or internal task where a trigger's automated runs are reviewed and approved. It replaces the old tracking task setting. Your existing triggers carry over automatically.
+- **Approval visibility on the Request or task:** For auditors who use AI only, the Activity section lists each run with the trigger's name, what started it, when it started, and a link to open its chat. A "Needs approval" section appears above open comments while a run is waiting, and each card opens that run's chat.
+- **"Needs approval" quick filter:** The request list and board have a new filter that shows only items with runs waiting for approval.
+- **Client Requests can be approval locations:** Unlike the old tracking task, the "Approve on" location can be a client Request, and General triggers can keep one. When a trigger's comments or files land on a client Request, they are visible to the client only if you set them up that way. Nothing is shared with the client by default.
+
+## Improvements
+
+- **Highlighted citations at scale:** A Workpaper can now carry up to 10,000 highlighted citations. Large workpapers, such as a 401(k) recalculation citing thousands of paystub cells or a census reconciliation, previously fell back to page-only citations that open the page without highlighting the source. They now keep the highlights.
+- **Faster citation processing:** Highlighting citations in large workpapers is much faster, so these workpapers finish sooner.
+
+## Fixes
+
+- **More reliable "related requests" triggers:** Triggers that read from or start on related Requests now work correctly when their results land on a binder item or a different task than the one they are approved on.
+- **Take back works as expected:** Taking back a delegated task now covers the triggers whose results land on it, and no longer includes triggers that are only approved there.
+
