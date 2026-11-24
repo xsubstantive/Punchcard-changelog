@@ -1,0 +1,77 @@
+---
+title: "Triggers get safer defaults, binder gets ledger checks and review workflows, and CoAudit email opens in your own mailbox"
+description: "Punchcard adds General triggers, Copy files triggers, general ledger items with JE testing, binder review and release workflows, and email drafts that open in your own email app."
+date: "2026-11-24"
+tags: [Feature, Automation, AI, Bug Fix, Performance, UI]
+version: "2026.11.24"
+---
+
+## Triggers and workpaper automation
+
+- **General triggers**: one trigger can now run separately for each binder item, request, task or file, with an optional filter (for example, only PDFs, or only items in one folder). You no longer need a separate trigger for every item.
+- **Auto-draft workpapers**: "Prepare every binder item" is now **Auto-draft workpapers** and lives in the Triggers "+" menu. It is the first template offered.
+- **Copy files triggers**: a new trigger type copies files from chosen Requests into a binder folder, a binder item (as a proposed version for the preparer) or a Files folder. Each file is copied once per destination. Binder versions show where they were copied from.
+- **Safer starting point**: new triggers now start **Paused**. An **Activate** button (or **Pause** on an active trigger) sits beside the status. Activate stays disabled, with the reason shown, until instructions are saved. Triggers made from templates still start active.
+- **Finished** is now offered only for triggers that can actually finish.
+- **One Actions list** replaces the separate actions and outputs lists, so everything a trigger can do is in one place.
+- **Folder pickers**: trigger settings now use one folder picker. You browse level by level, search by path, and see a Request's folders under the Request.
+- **Draft email** is now an action beside **Send email**. It prepares the email without sending it. The run's results show the draft, with the message and files to download.
+- **Fix**: the Triggers tab no longer crashes on triggers saved with Request references only. Several trigger editor labels and options were tidied.
+
+## CoAudit email
+
+- **Send now opens a draft in your own email app.** CoAudit no longer sends the email itself. It opens a draft with the recipients, subject and message for you to check and send from your own mailbox. Outlook on the web is the default, or you can choose your default email app.
+- **Recipient checks happen when you approve**, with colour-coded warnings (red, amber, yellow). Red warnings must be ticked before you can approve. Cc and Bcc are supported.
+- **Richer emails**: tables and inline images from Punchcard files appear in the email, with an exact preview on the approval card.
+- **Edit before approving**: change recipients, subject, message and attachments on the card. What you approve is exactly what gets used.
+- **Run emails**: when an automation emails several people, you can see who received it and who didn't.
+
+## Binder
+
+- **General ledger items**: upload a client's general ledger or journal entry listing to a binder item, then map, check and accept it. An automatic check compares it with the trial balance and offers to create a reconciliation when they differ.
+- **Journal entry testing from a general ledger item**: the Excel workbook and PDF report are filed as binder files for review.
+- **QuickBooks and Sage Intacct layouts** are now read more reliably. Account columns, sections, opening balances, department and location are handled. A trial balance account cell stored as a plain number in Excel is also read correctly.
+- **Review schemes and completion**: set how many reviewers a binder item needs and in what order, down to folder or item level. Sign-offs show in the order they happened. A Completion panel shows what is blocking the binder, with reasoned exceptions.
+- **Statement release and final binder**: prepare, approve and record the issuance of statements, then finalize, download and (with a reason) reopen the binder.
+- **Workpapers cover trial balance accounts**: link accounts to workpapers from either side. The item panel shows the accounts covered. Items are flagged for reassessment only when the accounts they cover change.
+- **Reconciliation to the trial balance** is filed as a proposed workpaper, with reconciling items and clarification requests for differences.
+- **Downloaded Excel and Word files** from a binder item now open already linked to the engagement in the add-in.
+- **Generated trial balance reports** can be filed to the binder.
+- **Live Office files**: collaborate live on Excel and Word files in the Files tab.
+- **Improvements**: item settings moved to the "⋯" menu, one "+" creates a folder or item, and dropping a file on an item's File card now works.
+
+## Trial balance
+
+- **Multiple trial balances and consolidations**: one engagement can hold several trial balances, plus consolidated ones that roll them up.
+- **Grouped schedule import**, two prior years, and firm-defined journal entry types.
+- **New Trial Balance tab** with a totals row and balance check. Every tab has an Export button.
+
+## Templates
+
+- Templates now hold only reusable setup, with no members, dates or status. Clients never see them, and nothing about them is emailed. A Template badge appears wherever an engagement identifier is shown.
+- **Make a template** from engagement settings, then apply it after creating an engagement.
+
+## Excel add-in
+
+- **Sorting a sheet keeps citations with their rows.** Citations follow their rows when you sort. Any citation the add-in can't place is flagged for you to check.
+- **Contact sales** link on sign-in screens for people without an account.
+
+## Financial Statement Review
+
+- **Fewer false findings** on prior-year comparisons and wording. European unit notations (such as TEUR) are now read correctly.
+- **Prior-year comparison** now goes through last year's statement table by table.
+- **Review on a newer AI model**, with higher accuracy in our testing.
+
+## Requests and uploads
+
+- **Uploads appear in the Request's Documents list as files arrive**, with progress and retry for failed transfers. Upload notices clear sooner, and warnings that matter stay visible.
+- **Help explaining text search** now appears where unsupported files are saved.
+- Adding an open sub-request to an accepted Request reopens it.
+
+## Settings, support and speed
+
+- **Firm email domains** now save one at a time with Undo.
+- **Support links** are now consistent across the app. Teams and email drafts include who you are and what you were doing. The welcome page shows the email you signed in with.
+- **Faster**: Home, Clients, search and command palette, request lists and status reports are faster. Large PDF uploads release resources sooner.
+- **Fixes**: client users could previously see engagements they had no seat on in their own firm. That is now corrected.
+
