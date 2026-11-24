@@ -1,0 +1,11 @@
+---
+title: "Request attention badge now lists every run it counts"
+description: "Punchcard fixes a mismatch where the Request attention badge showed a count of runs needing review while its popover said nothing needed attention, so auditors can trust the badge."
+date: "2026-11-24"
+tags: [Bug Fix, Automation]
+version: "2026.11.24"
+---
+
+## Fixes
+
+- **Attention badge and its list now agree.** On a Request, the bolt badge counts automation runs waiting for your review. Runs started manually with "Run now" were counted but left out of the popover, so the badge could show "5" while the popover said "No agent runs need attention." Every run the badge counts now appears in the list.
