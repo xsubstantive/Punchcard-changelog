@@ -1,0 +1,51 @@
+---
+title: "Faster Home navigation, safer Excel writes, and email reading in uploaded files"
+description: "Punchcard now reads Outlook and email files as evidence, keeps Excel add-in citations on the right cells, and simplifies how finished requests and Home lists work."
+date: "2026-11-26"
+tags: [Feature, AI, Bug Fix, UI]
+version: "2026-11-26"
+---
+
+## Features
+
+- **Email files are now readable as evidence.** Outlook messages (.msg), saved emails (.eml), HTML and XML files used to be rejected as unsupported. Punchcard now reads their headers, body and text attachments so CoAudit and automations can use them.
+- **Approvals by email for automated triggers.** When a trigger run needs approval, the team receives an email describing what each step would do, with one-click **Approve** and **Review** buttons that fit on a phone. Approved client comments are posted under the approver's name.
+- **Team activity notes.** Automations can leave team-only notes in a Request's or task's activity, linked to the run that wrote them. Clients never see them.
+- **"Validate every request" trigger.** A new option in the Triggers tab sets up one trigger per request that validates its files and leaves client comments on failures, each approved by the team first.
+- **Add-in offer from web Workpapers.** Opening a Workpaper offers to continue in the Excel add-in, with a downloadable template that carries your column names, instructions and linked engagement files. A new guide explains switching.
+- **Separate guides for auditors and clients**, plus a Guide link in the add-in's settings.
+- **Binder and Trial Balance improvements.** Native trial balances can be signed off without a file, fund-based trial balances are covered in sign-offs, rules can place accounts into groups by account number, and the Trial Balance now has a Pivot tab, an Account Groupings view and Journal Entry paste from Excel. Trial balances start with the standard CCH-style groups.
+
+## Home and Inbox
+
+- **One Engagements list** on Home with pinning, Join, "Last opened" ordering, an optional My engagements filter, and other engagements shown in search. Pinned, Recent and Archived sections share the same collapsible headings.
+- **My Tasks** shows what's assigned to you across engagements and opens items beside the list.
+- **A full Inbox page** with filters for activity type, people, request or task, engagement and client, plus search and grouping.
+
+## Request board and lists
+
+- **Finished requests are always shown.** The "completed issues" window is retired; to hide them, filter Status › is not › Accepted. Accepted and Done rows now follow your chosen ordering.
+- Internal tasks have their own numbering (T1, T2…), separate from Requests.
+- Request statuses now read **Hidden** (for requests and engagements) and **Waiting** (for internal tasks).
+- Display shows a dot when it differs from the default, and Priority and Assignee columns appear only when something uses them.
+
+## Excel add-in
+
+- **Citations and reasoning follow your cells.** Inserting a row or column while CoAudit is writing no longer leaves evidence one cell off, and sorts keep citations on the right cells.
+- **Approval cards are no longer lost.** Unanswered approvals are now parked rather than dropped, and can be approved later.
+- **Formulas written into Excel table columns** stay in their own cells instead of being filled down the whole column.
+- **Euro formats read correctly** on a German Excel instead of showing dollars.
+- **Delete several rows or columns in one approval card**, and pick ranges with Ctrl-click.
+- Clearer explanations when Excel refuses a write, fewer unnecessary refusals, and no approval card flashing for writes that approve themselves.
+- Evidence matching places many more quotes on the exact line in the source document, and tells you why a quote couldn't be placed.
+- Large cited document groups can be paged and searched by filename in review.
+- Large replies save reliably instead of retrying endlessly, and Stop now ends the turn promptly.
+
+## Fixes
+
+- Excel exports keep blank table columns and comma-separated lists as text instead of turning them into one big number.
+- Formatted empty cells no longer count as zero in recalculated workbooks.
+- Workbooks edited by CoAudit's Python tool now keep their changes between runs.
+- Deleting engagements or firms with locked Binder workpapers no longer fails; locked consolidated trial balances can still generate reports.
+- QuickBooks "Opening Balance Equity" accounts are read as accounts in general ledger imports.
+- Excel custom functions (PC.*) now calculate on Excel for Mac.
