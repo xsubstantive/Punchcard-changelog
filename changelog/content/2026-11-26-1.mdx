@@ -1,0 +1,22 @@
+---
+title: "Citations in Excel Stay With Their Cells When You Insert, Delete, Cut, or Sort"
+description: "Punchcard's Excel add-in now keeps citations attached to the right figures when you shift, cut, or delete cells, so audit evidence stays accurate in your workpapers."
+date: "2026-11-26"
+tags: [Bug Fix, Feature]
+version: "2026-11-26"
+---
+
+## Excel add-in
+
+### Fixes
+
+- **Citations follow your cells.** After you insert or delete cells with a shift, insert or delete table rows, or insert copied or cut cells, citations now move with the figures they refer to. Previously a citation could stay at its old address and point to a different number.
+- **Works with the add-in closed.** Citations keep following moved cells whether the pane is open or closed, and for colleagues who don't have the add-in.
+- **Deleted cells are clearly flagged.** If a cited cell is deleted, its citation shows an error. It no longer points to another cell.
+- **Citation names stay out of sight.** Citation and reference names no longer show up in Name Manager or the Name Box after a workbook is updated. Workbooks already affected are tidied automatically. Your own named ranges are left alone.
+- **Cut and paste keeps evidence.** If a cut-and-paste of cited cells can't be completed, the evidence on the original cells is kept and is no longer cleared.
+
+### Performance
+
+- **Large sheets stay responsive.** Adding citations across thousands of rows is much faster. A test with 10,000 rows dropped from about 6 seconds to a fraction of a second.
+
