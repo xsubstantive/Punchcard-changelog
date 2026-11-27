@@ -1,0 +1,34 @@
+---
+title: "Faster sign-in, clearer client emails, and more reliable Karbon and Excel workflows"
+description: "Punchcard adds a redesigned sign-in experience, redesigned emails sent from your audit firm, skill categories, and more reliable Karbon imports and Excel workpaper automation."
+date: "2026-11-27"
+tags: [Feature, UI, Bug Fix, Performance, Automation]
+version: "2026.11.27"
+---
+
+## Features
+
+- **New sign-in screens.** Sign-in, email link, verification, and device approval now share one clean Punchcard card. You can choose Continue with Microsoft or enter your work email. The screen marks the method you used last, and the six-digit code is easier to enter and paste.
+- **Emails from your audit firm.** Emails to clients now arrive as "Your Firm via Punchcard", show your firm's icon and name, and reply to the engagement's lead auditor. Emails to your team show each client's avatar.
+- **Clearer notification emails.** Every notification email has a sentence-case title that names the person and the item, a preview line, and one clear next step. Status reports show a progress bar for each engagement, for example "3 of 6 requests accepted".
+- **Sign-in codes in the email subject.** Sign-in and verification codes now appear in the email subject, so you can read them from your inbox preview.
+- **Skill categories.** Skills can now have up to 10 tag-style categories. You can filter, search, and group skills by category. Financial Statement Review checklists can also be chosen from your own skills, including at the end of a review.
+- **Finish lines.** When every request is accepted, the audit team sees an "All requests accepted" card above the list. When nothing is left to do, clients see "You're all caught up". Each card can be closed, and it comes back with new activity.
+- **Karbon work filtering.** Settings now let you choose which Karbon work statuses to bring over, and bring work over only once it has started or starts within 30 days, 90 days, 6 months, or any time. The preview shows how many work items each choice leaves out.
+- **Triggers.** Approve on can now be set to "Triggering request". "Validate every request" now starts when a client submits a request.
+
+## Improvements
+
+- **Timeline.** A single-phase engagement shows its Actual timeline alone. Templates with nothing ordering their items no longer show a Timeline tab. A template's Timeline tab now updates as soon as you add a link, without a reload.
+- **Citations in Excel.** Citations on German, Dutch, and other comma-decimal versions of Excel now save with far fewer hidden names, so large workpapers stay responsive. The PDF also stays open when a citation moves to another page.
+- **Faster Agent in Excel.** The Agent opens faster and stays smoother while it streams long replies.
+- **Excel Undo.** Undoing the Agent's changes now also takes back its helper formulas. If something can't be undone, the Agent tells you what and why.
+- **Email appearance.** Emails look better in Dark Mode, and small client icons are enlarged to fill their tile.
+
+## Fixes
+
+- **Karbon imports.** Karbon work lists no longer stop at 100 items per type, so the preview and import show the current year's work.
+- **Large Excel ledgers.** Saving an edited workbook with a very large ledger, such as 45,000 rows, no longer fails.
+- **Agent access.** The Agent now explains when it can't check your access.
+- **Document viewer.** The Viewer shows progress and retries when a document name is slow to load.
+
