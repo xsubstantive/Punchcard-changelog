@@ -1,0 +1,26 @@
+---
+title: "Timeline shows blocked Requests and phase due dates, and CoAudit reads the Timeline"
+description: "Punchcard's Timeline now shows why a Request is blocked, lets you set a whole phase's due date in one click, and lets CoAudit read and change what blocks what."
+date: "2026-11-27"
+tags: [Feature, UI, AI]
+version: "2026.11.27"
+---
+
+## Timeline
+
+- **See why a Request is blocked.** A Hidden Request that is waiting on something is marked as blocked. Hovering over it names the reason, the Request it is waiting on, and when it was marked ready.
+- **Blocked Requests out with the client are still visible.** If a Request is with the client while something blocking it isn't finished, it keeps its bar. A dotted line and a small blocked mark show the situation, and the client can still submit it.
+- **Set a whole phase's due date at once.** Each phase card now has a due date button. It shows the shared due date, the span of dates, or "Set due date". Choose a date and every open Request and task in the phase gets it. Undo restores each item's previous date. Done items and binder items keep their own dates.
+- **See what set off a change.** Hover over a move or change to see a line to what caused it or what it set off. This covers a Punchcard draft created by a Request's move, a status change made by an automation, and a binder item released when its blocker was done. Each hover names the item at the other end.
+- **Phases now follow every dependency.** No item appears in a phase before something it is waiting on. On our sample 401(k) engagement, four items had been placed too early. All of them are now in the right order.
+- **Clearer arrows and hovers.** Arrows now have a short straight line leading into each card. Hovers close as soon as you move off them. Avatars and Punchcard marks that sit too close together fan out when you point at them, each with its own hover. A clump of avatars next to an open one can now also be pointed at and opened.
+
+## Blocked by
+
+- **Choose whether a link waits.** For a Request or internal task, each "Blocked by" link can be set to **Waits until done** or **Doesn't wait**. A link that waits shows on the Timeline as a block. Neither choice prevents a status change. Changing it requires permission to manage engagements.
+
+## CoAudit
+
+- **Ask CoAudit about the Timeline.** CoAudit can read an engagement's phases and each item's number, state, due date, what it waits on, and what blocks it. You can also ask about a single phase or item.
+- **Set several blocks in one request.** Tell CoAudit things like "4 through 9 wait on 2" and approve once. CoAudit understands words such as after, before, depends on and gates. It can also choose what each link waits for, and it updates an existing link instead of adding a duplicate. The approval card shows what the links will wait for.
+
