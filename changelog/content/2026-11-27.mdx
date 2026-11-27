@@ -1,0 +1,25 @@
+---
+title: "Timeline tab, Blocked by links, and citations that survive copied sheets"
+description: "Punchcard adds an engagement Timeline with Plan and Actual views, one Blocked by relationship across Requests and Workpapers, and Excel citations that stay with duplicated sheets and large pastes."
+date: "2026-11-27"
+tags: [Feature, UI, Performance]
+version: "2026.11.27"
+---
+
+## Features
+
+- **Engagement Timeline tab.** A new tab beside Binder shows how an engagement is progressing. It is available wherever the Binder is, and audit team members can see it.
+  - **Phases** is a pipeline of your plan's phases. Each phase shows what it holds, its progress, who is holding up open items, what is blocked, and what is waiting on you. Open a phase to see its Requests, tasks and Workpapers.
+  - **Plan** is a dependency map in two lanes: the client's Requests on top, and the firm's tasks and Workpapers below. Arrows show what is blocked by what, and where Punchcard will draft or has drafted. Cards with the same status are grouped, and you can click a group to see its items. Incomplete Punchcard drafts are tagged in amber.
+  - **Actual** is a date-based chart of each item's real history: its states, who it was assigned to, and the Punchcard drafts and versions. It shows who held up each item (client, audit team, Punchcard or a blocker). Finished items end in a check mark, and a returned item starts a new bar. Hover anywhere on the chart to see exactly what happened on that date.
+  - Search by item name or number. Templates show the Phases and Plan views.
+- **One Blocked by relationship.** Requests, tasks and Workpapers now share a single **Blocked by / Blocking** link, which replaces the old Related links. Existing Related links are carried over. A link can wait until the blocker is finished, wait until it is reconciled, or wait for nothing. The Request list marks items that are blocked, and a waiting reason can name the Request it is waiting on.
+- **Requests that expect sub-requests.** You can now mark a Request as having sub-requests before any exist, and its empty table shows.
+
+## Excel add-in
+
+- **Citations stay with duplicated sheets.** When you duplicate a worksheet, each copied cell keeps the citations and reasoning of the cell it came from. Review status is not copied. A copied cell that no longer holds the same value as its source is left uncited.
+- **Large pastes keep their citations.** Copying and pasting a range of more than 2,000 cells now carries the citations over. Pastes of whole rows, whole columns or whole sheets are not carried. Duplicate the sheet instead, or copy the cells themselves.
+- **Large copies show progress.** Citations on a big copy are added in small steps with a progress message, so Excel stays responsive.
+- **Citations follow cells when they shift.** Citations now stay with their cells after Insert or Delete Cells with a shift, table row inserts and deletes, and cut-and-insert. This works with the pane closed, and for colleagues who don't have the add-in.
+
