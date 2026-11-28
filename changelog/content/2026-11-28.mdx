@@ -1,0 +1,27 @@
+---
+title: "Form 5500 tie-out, engagement types, and a tidier Overview category strip"
+description: "Punchcard adds a CoAudit Form 5500 tie-out against audited statements, engagement types, a cleaner Overview category strip, and a fix for Karbon client imports."
+date: "2026-11-28"
+tags: [Feature, AI, UI, Bug Fix]
+version: "2026.11.28"
+---
+
+## New features
+
+- **Form 5500 tie-out with `/5500`**: Run it in CoAudit alongside `/fsr`, on the same review. It ties a Form 5500 to the plan's audited statements. It checks that the form agrees with the statements, that amounts match across the filing, and that plan identification and the auditor's report are consistent. It also works through an 11-item filing checklist. Each check is marked on the form's pages, and you decide the results in the review workspace. The review is named "Form 5500 tie-out: …".
+- **Engagement type**: Each engagement can now be marked **Financial**, **Controls**, or **Other**. For Other, you can add a short description in your firm's own words, up to 100 characters. Set it under **Settings > General**. Every existing engagement is Financial. A new engagement created from a template, from another engagement, or with Roll forward starts with the source's type. Copying into an existing engagement leaves its type as it is. Type changes also appear in firm activity.
+
+## Improvements
+
+- **A tidier category strip on the engagement Overview**: Categories that are finished now fold away behind a small **+N** at the end of the strip.
+  - Hover over **+N** to see what it covers. For example, "Show 7 categories with every request accepted". For clients, it reads "with nothing waiting on you".
+  - Select it to show them, then select **−N** to fold them again. Punchcard remembers your choice for each engagement.
+  - Nothing folds while your pointer or keyboard focus is on the strip.
+  - The strip now follows the same category order as the list below it.
+  - Status icons are lighter at rest and come to full strength on hover, focus, or selection.
+
+## Fixes
+
+- **Karbon imports now bring in new and renamed clients**: Previously, a first import could create no clients and skip many work items. In one firm's import, 83 of 118 work items were skipped. New clients are now created, and renamed clients are updated.
+- **Word add-in message box**: In Office on Windows, clicking an empty message box now places the cursor at the start of the box instead of after the placeholder text.
+
